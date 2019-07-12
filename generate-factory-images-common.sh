@@ -58,11 +58,14 @@ if test "$XLOADER" != ""
 then
   cp tmp/RADIO/$XLOADERSRC tmp/$PRODUCT-$VERSION/xloader-$DEVICE-$XLOADER.img
 fi
-if test "$BOOTLOADERFILE" = ""
+if test "$BOOTLOADER" != ""
 then
-  cp tmp/RADIO/$BOOTLOADERSRC tmp/$PRODUCT-$VERSION/bootloader-$DEVICE-$BOOTLOADER.img
-else
-  cp $BOOTLOADERFILE tmp/$PRODUCT-$VERSION/bootloader-$DEVICE-$BOOTLOADER.img
+  if test "$BOOTLOADERFILE" = ""
+  then
+    cp tmp/RADIO/$BOOTLOADERSRC tmp/$PRODUCT-$VERSION/bootloader-$DEVICE-$BOOTLOADER.img
+  else
+   cp $BOOTLOADERFILE tmp/$PRODUCT-$VERSION/bootloader-$DEVICE-$BOOTLOADER.img
+  fi
 fi
 if test "$RADIO" != ""
 then
@@ -132,6 +135,8 @@ cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
 fastboot flash xloader xloader-$DEVICE-$XLOADER.img
 EOF
 fi
+if test "$BOOTLOADER" != ""
+then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
 fastboot flash bootloader bootloader-$DEVICE-$BOOTLOADER.img
 EOF
@@ -145,6 +150,7 @@ cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
 fastboot reboot-bootloader
 sleep $SLEEPDURATION
 EOF
+fi
 if test "$RADIO" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
@@ -215,6 +221,8 @@ cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
 fastboot flash xloader xloader-$DEVICE-$XLOADER.img
 EOF
 fi
+if test "$BOOTLOADER" != ""
+then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
 fastboot flash bootloader bootloader-$DEVICE-$BOOTLOADER.img
 EOF
@@ -228,6 +236,7 @@ cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
 fastboot reboot-bootloader
 ping -n $SLEEPDURATION 127.0.0.1 >nul
 EOF
+fi
 if test "$RADIO" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
@@ -289,6 +298,8 @@ cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
 fastboot flash xloader xloader-$DEVICE-$XLOADER.img
 EOF
 fi
+if test "$BOOTLOADER" != ""
+then
 cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
 fastboot flash bootloader bootloader-$DEVICE-$BOOTLOADER.img
 EOF
@@ -302,6 +313,7 @@ cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
 fastboot reboot-bootloader
 sleep $SLEEPDURATION
 EOF
+fi
 if test "$RADIO" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
