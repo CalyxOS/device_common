@@ -170,6 +170,7 @@ fi
 if test "$AVB_PKMD" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+fastboot erase avb_custom_key
 fastboot flash avb_custom_key avb_pkmd.bin
 fastboot reboot-bootloader
 sleep $SLEEPDURATION
