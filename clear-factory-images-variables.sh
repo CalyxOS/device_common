@@ -21,6 +21,7 @@ unset CDMARADIO
 unset CDMARADIOFILE
 unset DEVICE
 unset ERASE
+unset LOCKBOOTLOADER
 unset PRODUCT
 unset RADIO
 unset RADIOFILE
