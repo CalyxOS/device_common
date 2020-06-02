@@ -181,6 +181,12 @@ fastboot -w --skip-reboot update image-$PRODUCT-$VERSION.zip
 fastboot reboot-bootloader
 sleep $SLEEPDURATION
 EOF
+if test "$LOCKBOOTLOADER" = "true"
+then
+cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+fastboot flashing lock
+EOF
+fi
 chmod a+x tmp/$PRODUCT-$VERSION/flash-all.sh
 
 # Write flash-all.bat
@@ -286,7 +292,16 @@ cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
 fastboot -w --skip-reboot update image-$PRODUCT-$VERSION.zip
 fastboot reboot-bootloader
 ping -n $SLEEPDURATION 127.0.0.1 >nul
+EOF
 
+if test "$LOCKBOOTLOADER" = "true"
+then
+cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+fastboot flashing lock
+EOF
+fi
+
+cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
 echo Press any key to exit...
 pause >nul
 exit
