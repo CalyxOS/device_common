@@ -283,6 +283,7 @@ fi
 if test "$AVB_PKMD" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+fastboot erase avb_custom_key
 fastboot flash avb_custom_key avb_pkmd.bin
 fastboot reboot-bootloader
 ping -n $SLEEPDURATION 127.0.0.1 >nul
