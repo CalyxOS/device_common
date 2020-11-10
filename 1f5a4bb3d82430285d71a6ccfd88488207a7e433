@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08b8f09f_e651a932",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-11-10T21:01:23Z",
+      "side": 1,
+      "message": "I think we should move the fi here for consistency with the below call, and to avoid an extra reboot.",
+      "revId": "1f5a4bb3d82430285d71a6ccfd88488207a7e433",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
+    }
+  ]
+}
