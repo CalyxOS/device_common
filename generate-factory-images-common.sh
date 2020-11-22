@@ -157,6 +157,11 @@ if ! [ \$("\$(which fastboot)" --version | grep "version" | cut -c18-23 | sed 's
   echo "fastboot too old; please download the latest version at https://developer.android.com/studio/releases/platform-tools.html"
   exit 1
 fi
+fastboot getvar product 2>&1 | grep "^product: $PRODUCT$"
+if [ $? -ne 0 ]; then
+  echo "Factory image and device do not match. Please double check"
+  exit 1
+fi
 EOF
 if test "$UNLOCKBOOTLOADER" = "true"
 then
@@ -438,6 +443,11 @@ cat > tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
 
 if ! [ \$("\$(which fastboot)" --version | grep "version" | cut -c18-23 | sed 's/\.//g' ) -ge 3301 ]; then
   echo "fastboot too old; please download the latest version at https://developer.android.com/studio/releases/platform-tools.html"
+  exit 1
+fi
+fastboot getvar product 2>&1 | grep "^product: $PRODUCT$"
+if [ $? -ne 0 ]; then
+  echo "Factory image and device do not match. Please double check"
   exit 1
 fi
 EOF
