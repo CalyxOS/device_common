@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baba7d7f_e4f68c99",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-11-22T01:37:02Z",
+      "side": 1,
+      "message": "If cmd had a $? this\u0027d be cleaner\n\nI see a %ERRORLEVEL% in powershell, from https://review.calyxos.org/c/CalyxOS/device_common/+/318",
+      "revId": "49dc0b971a02634e26618377421740d6d4c3ce18",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": true
+    }
+  ]
+}
