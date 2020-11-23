@@ -16,6 +16,24 @@
       "revId": "1f5a4bb3d82430285d71a6ccfd88488207a7e433",
       "serverId": "35266860-6252-469c-a67d-185064479fc0",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "955e82a8_b66d014c",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2020-11-23T13:15:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08b8f09f_e651a932",
+      "revId": "1f5a4bb3d82430285d71a6ccfd88488207a7e433",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0",
+      "unresolved": false
     }
   ]
 }
