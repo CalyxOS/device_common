@@ -51,6 +51,25 @@ if test "$CDMARADIO" != "" -a "$CDMARADIOFILE" = ""
 then
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/radio-cdma.img
 fi
+if test "$MI_A2" != ""
+then
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/bluetooth.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/devcfg.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/dsp.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/modem.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/xbl.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/pmic.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/rpm.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/tz.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/hyp.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/keymaster.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/cmnlib64.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/cmnlib.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/abl.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/mdtp.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/splash.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/mdtpsecapp.img
+fi
 
 # Copy the various images in their staging location
 cp ${SRCPREFIX}$PRODUCT-img-$BUILD.zip tmp/$PRODUCT-$VERSION/image-$PRODUCT-$VERSION.zip
@@ -84,6 +103,25 @@ then
   else
     cp $CDMARADIOFILE tmp/$PRODUCT-$VERSION/radio-cdma-$DEVICE-$CDMARADIO.img
   fi
+fi
+if test "$MI_A2" != ""
+then
+  cp tmp/RADIO/bluetooth.img tmp/$PRODUCT-$VERSION/bluetooth.img
+  cp tmp/RADIO/devcfg.img tmp/$PRODUCT-$VERSION/devcfg.img
+  cp tmp/RADIO/dsp.img tmp/$PRODUCT-$VERSION/dsp.img
+  cp tmp/RADIO/modem.img tmp/$PRODUCT-$VERSION/modem.img
+  cp tmp/RADIO/xbl.img tmp/$PRODUCT-$VERSION/xbl.img
+  cp tmp/RADIO/pmic.img tmp/$PRODUCT-$VERSION/pmic.img
+  cp tmp/RADIO/rpm.img tmp/$PRODUCT-$VERSION/rpm.img
+  cp tmp/RADIO/tz.img tmp/$PRODUCT-$VERSION/tz.img
+  cp tmp/RADIO/hyp.img tmp/$PRODUCT-$VERSION/hyp.img
+  cp tmp/RADIO/keymaster.img tmp/$PRODUCT-$VERSION/keymaster.img
+  cp tmp/RADIO/cmnlib64.img tmp/$PRODUCT-$VERSION/cmnlib64.img
+  cp tmp/RADIO/cmnlib.img tmp/$PRODUCT-$VERSION/cmnlib.img
+  cp tmp/RADIO/abl.img tmp/$PRODUCT-$VERSION/abl.img
+  cp tmp/RADIO/mdtp.img tmp/$PRODUCT-$VERSION/mdtp.img
+  cp tmp/RADIO/splash.img tmp/$PRODUCT-$VERSION/splash.img
+  cp tmp/RADIO/mdtpsecapp.img tmp/$PRODUCT-$VERSION/mdtpsecapp.img
 fi
 if test "$AVB_PKMD" != ""
 then
@@ -163,6 +201,49 @@ if test "$CDMARADIO" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
 fastboot flash radio-cdma radio-cdma-$DEVICE-$CDMARADIO.img
+fastboot reboot-bootloader
+sleep $SLEEPDURATION
+EOF
+fi
+if test "$MI_A2" != ""
+then
+cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+fastboot flash bluetooth_a bluetooth.img
+fastboot flash bluetooth_b bluetooth.img
+fastboot flash devcfg_a devcfg.img
+fastboot flash devcfg_b devcfg.img
+fastboot flash dsp_a dsp.img
+fastboot flash dsp_b dsp.img
+fastboot flash modem_a modem.img
+fastboot flash modem_b modem.img
+fastboot flash xbl_a xbl.img
+fastboot flash xbl_b xbl.img
+fastboot flash pmic_a pmic.img
+fastboot flash pmic_b pmic.img
+fastboot flash rpm_a rpm.img
+fastboot flash rpm_b rpm.img
+fastboot flash tz_a tz.img
+fastboot flash tz_b tz.img
+fastboot flash hyp_a hyp.img
+fastboot flash hyp_b hyp.img
+fastboot flash keymaster_a keymaster.img
+fastboot flash keymaster_b keymaster.img
+fastboot flash cmnlib64_a cmnlib64.img
+fastboot flash cmnlib64_b cmnlib64.img
+fastboot flash cmnlib_a cmnlib.img
+fastboot flash cmnlib_b cmnlib.img
+fastboot flash abl_a abl.img
+fastboot flash abl_b abl.img
+fastboot flash mdtp_a mdtp.img
+fastboot flash mdtp_b mdtp.img
+fastboot flash splash splash.img
+fastboot flash mdtpsecapp_a mdtpsecapp.img
+fastboot flash mdtpsecapp_b mdtpsecapp.img
+
+fastboot erase ddr
+
+fastboot set_active a
+
 fastboot reboot-bootloader
 sleep $SLEEPDURATION
 EOF
@@ -277,6 +358,49 @@ fastboot reboot-bootloader
 ping -n $SLEEPDURATION 127.0.0.1 >nul
 EOF
 fi
+if test "$MI_A2" != ""
+then
+cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+fastboot flash bluetooth_a bluetooth.img
+fastboot flash bluetooth_b bluetooth.img
+fastboot flash devcfg_a devcfg.img
+fastboot flash devcfg_b devcfg.img
+fastboot flash dsp_a dsp.img
+fastboot flash dsp_b dsp.img
+fastboot flash modem_a modem.img
+fastboot flash modem_b modem.img
+fastboot flash xbl_a xbl.img
+fastboot flash xbl_b xbl.img
+fastboot flash pmic_a pmic.img
+fastboot flash pmic_b pmic.img
+fastboot flash rpm_a rpm.img
+fastboot flash rpm_b rpm.img
+fastboot flash tz_a tz.img
+fastboot flash tz_b tz.img
+fastboot flash hyp_a hyp.img
+fastboot flash hyp_b hyp.img
+fastboot flash keymaster_a keymaster.img
+fastboot flash keymaster_b keymaster.img
+fastboot flash cmnlib64_a cmnlib64.img
+fastboot flash cmnlib64_b cmnlib64.img
+fastboot flash cmnlib_a cmnlib.img
+fastboot flash cmnlib_b cmnlib.img
+fastboot flash abl_a abl.img
+fastboot flash abl_b abl.img
+fastboot flash mdtp_a mdtp.img
+fastboot flash mdtp_b mdtp.img
+fastboot flash splash splash.img
+fastboot flash mdtpsecapp_a mdtpsecapp.img
+fastboot flash mdtpsecapp_b mdtpsecapp.img
+
+fastboot erase ddr
+
+fastboot set_active a
+
+fastboot reboot-bootloader
+ping -n $SLEEPDURATION 127.0.0.1 >nul
+EOF
+fi
 if test "$AVB_PKMD" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
@@ -353,6 +477,49 @@ if test "$CDMARADIO" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
 fastboot flash radio-cdma radio-cdma-$DEVICE-$CDMARADIO.img
+fastboot reboot-bootloader
+sleep $SLEEPDURATION
+EOF
+fi
+if test "$MI_A2" != ""
+then
+cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
+fastboot flash bluetooth_a bluetooth.img
+fastboot flash bluetooth_b bluetooth.img
+fastboot flash devcfg_a devcfg.img
+fastboot flash devcfg_b devcfg.img
+fastboot flash dsp_a dsp.img
+fastboot flash dsp_b dsp.img
+fastboot flash modem_a modem.img
+fastboot flash modem_b modem.img
+fastboot flash xbl_a xbl.img
+fastboot flash xbl_b xbl.img
+fastboot flash pmic_a pmic.img
+fastboot flash pmic_b pmic.img
+fastboot flash rpm_a rpm.img
+fastboot flash rpm_b rpm.img
+fastboot flash tz_a tz.img
+fastboot flash tz_b tz.img
+fastboot flash hyp_a hyp.img
+fastboot flash hyp_b hyp.img
+fastboot flash keymaster_a keymaster.img
+fastboot flash keymaster_b keymaster.img
+fastboot flash cmnlib64_a cmnlib64.img
+fastboot flash cmnlib64_b cmnlib64.img
+fastboot flash cmnlib_a cmnlib.img
+fastboot flash cmnlib_b cmnlib.img
+fastboot flash abl_a abl.img
+fastboot flash abl_b abl.img
+fastboot flash mdtp_a mdtp.img
+fastboot flash mdtp_b mdtp.img
+fastboot flash splash splash.img
+fastboot flash mdtpsecapp_a mdtpsecapp.img
+fastboot flash mdtpsecapp_b mdtpsecapp.img
+
+fastboot erase ddr
+
+fastboot set_active a
+
 fastboot reboot-bootloader
 sleep $SLEEPDURATION
 EOF
