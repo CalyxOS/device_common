@@ -185,6 +185,60 @@ sleep $SLEEPDURATION
 EOF
 fi
 }
+generate_baseband_commands_FP4_linux() {
+cat << EOF
+fastboot flash abl_a abl.img
+fastboot flash abl_b abl.img
+fastboot flash aop_a aop.img
+fastboot flash aop_b aop.img
+fastboot flash bluetooth_a bluetooth.img
+fastboot flash bluetooth_b bluetooth.img
+fastboot flash core_nhlos_a core_nhlos.img
+fastboot flash core_nhlos_b core_nhlos.img
+fastboot flash devcfg_a devcfg.img
+fastboot flash devcfg_b devcfg.img
+fastboot flash dsp_a dsp.img
+fastboot flash dsp_b dsp.img
+fastboot flash featenabler_a featenabler.img
+fastboot flash featenabler_b featenabler.img
+fastboot flash hyp_a hyp.img
+fastboot flash hyp_b hyp.img
+fastboot flash imagefv_a imagefv.img
+fastboot flash imagefv_b imagefv.img
+fastboot flash keymaster_a keymaster.img
+fastboot flash keymaster_b keymaster.img
+fastboot flash modem_a modem.img
+fastboot flash modem_b modem.img
+fastboot flash multiimgoem_a multiimgoem.img
+fastboot flash multiimgoem_b multiimgoem.img
+fastboot flash qupfw_a qupfw.img
+fastboot flash qupfw_b qupfw.img
+fastboot flash tz_a tz.img
+fastboot flash tz_b tz.img
+fastboot flash uefisecapp_a uefisecapp.img
+fastboot flash uefisecapp_b uefisecapp.img
+fastboot flash xbl_a xbl.img
+fastboot flash xbl_b xbl.img
+fastboot flash xbl_config_a xbl_config.img
+fastboot flash xbl_config_b xbl_config.img
+
+fastboot flash apdp apdp.img
+fastboot flash ddr ddr.img
+fastboot flash logfs logfs.img
+fastboot flash storsec storsec.img
+fastboot flash toolsfv toolsfv.img
+fastboot flash tunning tunning.img
+
+fastboot flash frp frp.img
+
+fastboot erase misc
+fastboot erase modemst1
+fastboot erase modemst2
+
+fastboot --set-active=a reboot-bootloader
+sleep $SLEEPDURATION
+EOF
+}
 generate_avb_custom_key_commands_linux() {
 cat << EOF
 fastboot erase avb_custom_key
@@ -228,6 +282,9 @@ do_windows_replacements() {
 generate_baseband_commands_generic_windows() {
 generate_baseband_commands_generic_linux | do_windows_replacements
 }
+generate_baseband_commands_FP4_windows() {
+generate_baseband_commands_FP4_linux | do_windows_replacements
+}
 generate_avb_custom_key_commands_windows() {
 generate_avb_custom_key_commands_linux | do_windows_replacements
 }
@@ -239,6 +296,10 @@ generate_update_image_commands_linux | do_windows_replacements
 generate_header_linux > tmp/$PRODUCT-$VERSION/flash-all.sh
 generate_unlock_and_erase_commands >> tmp/$PRODUCT-$VERSION/flash-all.sh
 generate_baseband_commands_generic_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
+if test "${FP4:-}" != ""
+then
+generate_baseband_commands_FP4_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
+fi
 generate_avb_custom_key_commands_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
 generate_update_image_commands_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
 chmod a+x tmp/$PRODUCT-$VERSION/flash-all.sh
@@ -247,6 +308,10 @@ chmod a+x tmp/$PRODUCT-$VERSION/flash-all.sh
 generate_header_windows > tmp/$PRODUCT-$VERSION/flash-all.bat
 generate_unlock_and_erase_commands >> tmp/$PRODUCT-$VERSION/flash-all.bat
 generate_baseband_commands_generic_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
+if test "${FP4:-}" != ""
+then
+generate_baseband_commands_FP4_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
+fi
 generate_avb_custom_key_commands_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 generate_update_image_commands_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
@@ -259,6 +324,10 @@ EOF
 # Write flash-base.sh
 generate_header_linux > tmp/$PRODUCT-$VERSION/flash-base.sh
 generate_baseband_commands_generic_linux >> tmp/$PRODUCT-$VERSION/flash-base.sh
+if test "${FP4:-}" != ""
+then
+generate_baseband_commands_FP4_linux >> tmp/$PRODUCT-$VERSION/flash-base.sh
+fi
 generate_avb_custom_key_commands_linux >> tmp/$PRODUCT-$VERSION/flash-base.sh
 chmod a+x tmp/$PRODUCT-$VERSION/flash-base.sh
 
