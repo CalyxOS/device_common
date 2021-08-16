@@ -16,6 +16,24 @@
       "message": "Duplicate of https://review.calyxos.org/c/CalyxOS/device_common/+/3059 ?",
       "revId": "5a1653648833c6546ddb8bbc3b30844e32de78d8",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "627df0ba_873c5def",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-08-16T14:17:41Z",
+      "side": 1,
+      "message": "Fixes the same issue but it\u0027s a different approach. Both should work, I\u0027ll test and ship one.",
+      "parentUuid": "47d58456_747d17f7",
+      "revId": "5a1653648833c6546ddb8bbc3b30844e32de78d8",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
