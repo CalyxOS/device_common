@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47d58456_747d17f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-08-16T13:53:50Z",
+      "side": 1,
+      "message": "Duplicate of https://review.calyxos.org/c/CalyxOS/device_common/+/3059 ?",
+      "revId": "5a1653648833c6546ddb8bbc3b30844e32de78d8",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
