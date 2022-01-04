@@ -78,6 +78,11 @@ then
 fi
 cp -r tmp/VENDOR/firmware/$GSCFIRMWARESRC/* tmp/$PRODUCT-$VERSION
 
+if test "${AVB_CUSTOM_KEY:-}" != ""
+then
+  cp "$AVB_CUSTOM_KEY" tmp/$PRODUCT-$VERSION/avb_custom_key.img
+fi
+
 generate_license_linux() {
 cat << EOF
 # Copyright 2012 The Android Open Source Project
@@ -148,6 +153,17 @@ sleep $SLEEPDURATION
 EOF
 fi
 }
+generate_avb_custom_key_commands_linux() {
+cat << EOF
+fastboot erase avb_custom_key
+EOF
+if test "${AVB_CUSTOM_KEY:-}" != ""
+then
+cat << EOF
+fastboot flash avb_custom_key avb_custom_key.img
+EOF
+fi
+}
 generate_update_image_commands_linux() {
 cat << EOF
 fastboot -w update image-$PRODUCT-$VERSION.zip
@@ -172,6 +188,9 @@ do_windows_replacements() {
 generate_baseband_commands_generic_windows() {
 generate_baseband_commands_generic_linux | do_windows_replacements
 }
+generate_avb_custom_key_commands_windows() {
+generate_avb_custom_key_commands_linux | do_windows_replacements
+}
 generate_update_image_commands_windows() {
 generate_update_image_commands_linux | do_windows_replacements
 }
@@ -180,6 +199,7 @@ generate_update_image_commands_linux | do_windows_replacements
 generate_header_linux > tmp/$PRODUCT-$VERSION/flash-all.sh
 generate_unlock_and_erase_commands >> tmp/$PRODUCT-$VERSION/flash-all.sh
 generate_baseband_commands_generic_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
+generate_avb_custom_key_commands_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
 generate_update_image_commands_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
 chmod a+x tmp/$PRODUCT-$VERSION/flash-all.sh
 
@@ -187,6 +207,7 @@ chmod a+x tmp/$PRODUCT-$VERSION/flash-all.sh
 generate_header_windows > tmp/$PRODUCT-$VERSION/flash-all.bat
 generate_unlock_and_erase_commands >> tmp/$PRODUCT-$VERSION/flash-all.bat
 generate_baseband_commands_generic_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
+generate_avb_custom_key_commands_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 generate_update_image_commands_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
 
@@ -198,6 +219,7 @@ EOF
 # Write flash-base.sh
 generate_header_linux > tmp/$PRODUCT-$VERSION/flash-base.sh
 generate_baseband_commands_generic_linux >> tmp/$PRODUCT-$VERSION/flash-base.sh
+generate_avb_custom_key_commands_linux >> tmp/$PRODUCT-$VERSION/flash-base.sh
 chmod a+x tmp/$PRODUCT-$VERSION/flash-base.sh
 
 # Create the distributable package
