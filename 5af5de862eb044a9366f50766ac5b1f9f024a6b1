@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44622c8f_3fb2e1a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-04T16:28:42Z",
+      "side": 1,
+      "message": "Test on Linux.\n\nWindows file looks ok too.",
+      "revId": "5af5de862eb044a9366f50766ac5b1f9f024a6b1",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
