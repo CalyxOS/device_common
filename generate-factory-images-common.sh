@@ -65,11 +65,14 @@ if test "$XLOADER" != ""
 then
   cp tmp/RADIO/$XLOADERSRC tmp/$PRODUCT-$VERSION/xloader-$DEVICE-$XLOADER.img
 fi
-if test "$BOOTLOADERFILE" = ""
+if test "$BOOTLOADER" != ""
 then
-  cp tmp/RADIO/$BOOTLOADERSRC tmp/$PRODUCT-$VERSION/bootloader-$DEVICE-$BOOTLOADER.img
-else
-  cp $BOOTLOADERFILE tmp/$PRODUCT-$VERSION/bootloader-$DEVICE-$BOOTLOADER.img
+  if test "$BOOTLOADERFILE" = ""
+  then
+    cp tmp/RADIO/$BOOTLOADERSRC tmp/$PRODUCT-$VERSION/bootloader-$DEVICE-$BOOTLOADER.img
+  else
+   cp $BOOTLOADERFILE tmp/$PRODUCT-$VERSION/bootloader-$DEVICE-$BOOTLOADER.img
+  fi
 fi
 if test "$RADIO" != ""
 then
@@ -90,6 +93,11 @@ then
   fi
 fi
 cp -r tmp/VENDOR/firmware/$GSCFIRMWARESRC/* tmp/$PRODUCT-$VERSION
+
+if test "$AVB_CUSTOM_KEY" != ""
+then
+  cp "$AVB_CUSTOM_KEY" tmp/$PRODUCT-$VERSION/avb_custom_key.img
+fi
 
 # Write flash-all.sh
 cat > tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
@@ -136,6 +144,8 @@ cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
 fastboot flash xloader xloader-$DEVICE-$XLOADER.img
 EOF
 fi
+if test "$BOOTLOADER" != ""
+then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
 fastboot flash bootloader bootloader-$DEVICE-$BOOTLOADER.img
 EOF
@@ -149,6 +159,7 @@ cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
 fastboot reboot-bootloader
 sleep $SLEEPDURATION
 EOF
+fi
 if test "$RADIO" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
@@ -165,8 +176,17 @@ fastboot reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 fi
+if test "$AVB_CUSTOM_KEY" != ""
+then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
-fastboot -w update image-$PRODUCT-$VERSION.zip
+fastboot erase avb_custom_key
+fastboot flash avb_custom_key avb_custom_key.img
+EOF
+fi
+cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+fastboot --skip-reboot -w update image-$PRODUCT-$VERSION.zip
+fastboot reboot-bootloader
+sleep $SLEEPDURATION
 EOF
 chmod a+x tmp/$PRODUCT-$VERSION/flash-all.sh
 
@@ -211,6 +231,8 @@ cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
 fastboot flash xloader xloader-$DEVICE-$XLOADER.img
 EOF
 fi
+if test "$BOOTLOADER" != ""
+then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
 fastboot flash bootloader bootloader-$DEVICE-$BOOTLOADER.img
 EOF
@@ -224,6 +246,7 @@ cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
 fastboot reboot-bootloader
 ping -n $SLEEPDURATION 127.0.0.1 >nul
 EOF
+fi
 if test "$RADIO" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
@@ -240,8 +263,17 @@ fastboot reboot-bootloader
 ping -n $SLEEPDURATION 127.0.0.1 >nul
 EOF
 fi
+if test "$AVB_CUSTOM_KEY" != ""
+then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
-fastboot -w update image-$PRODUCT-$VERSION.zip
+fastboot erase avb_custom_key
+fastboot flash avb_custom_key avb_custom_key.img
+EOF
+fi
+cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+fastboot --skip-reboot -w update image-$PRODUCT-$VERSION.zip
+fastboot reboot-bootloader
+ping -n $SLEEPDURATION 127.0.0.1 >nul
 
 echo Press any key to exit...
 pause >nul
@@ -277,6 +309,8 @@ cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
 fastboot flash xloader xloader-$DEVICE-$XLOADER.img
 EOF
 fi
+if test "$BOOTLOADER" != ""
+then
 cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
 fastboot flash bootloader bootloader-$DEVICE-$BOOTLOADER.img
 EOF
@@ -290,6 +324,7 @@ cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
 fastboot reboot-bootloader
 sleep $SLEEPDURATION
 EOF
+fi
 if test "$RADIO" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
@@ -304,6 +339,13 @@ cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
 fastboot flash radio-cdma radio-cdma-$DEVICE-$CDMARADIO.img
 fastboot reboot-bootloader
 sleep $SLEEPDURATION
+EOF
+fi
+if test "$AVB_CUSTOM_KEY" != ""
+then
+cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
+fastboot erase avb_custom_key
+fastboot flash avb_custom_key avb_custom_key.img
 EOF
 fi
 chmod a+x tmp/$PRODUCT-$VERSION/flash-base.sh
