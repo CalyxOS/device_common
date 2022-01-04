@@ -35,7 +35,7 @@ rm -rf tmp
 mkdir -p tmp/$PRODUCT-$VERSION
 
 # Extract the bootloader(s) and radio(s) as necessary
-if test "$BOOTLOADERFILE" = ""
+if test "$BOOTLOADER" != "" -a "$BOOTLOADERFILE" = ""
 then
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/$BOOTLOADERSRC
 fi
@@ -49,11 +49,14 @@ unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip VENDOR/firmware/$GSCFI
 
 # Copy the various images in their staging location
 cp ${SRCPREFIX}$PRODUCT-img-$BUILD.zip tmp/$PRODUCT-$VERSION/image-$PRODUCT-$VERSION.zip
-if test "$BOOTLOADERFILE" = ""
+if test "$BOOTLOADER" != ""
 then
-  cp tmp/RADIO/$BOOTLOADERSRC tmp/$PRODUCT-$VERSION/bootloader-$DEVICE-$BOOTLOADER.img
-else
-  cp $BOOTLOADERFILE tmp/$PRODUCT-$VERSION/bootloader-$DEVICE-$BOOTLOADER.img
+  if test "$BOOTLOADERFILE" = ""
+  then
+    cp tmp/RADIO/$BOOTLOADERSRC tmp/$PRODUCT-$VERSION/bootloader-$DEVICE-$BOOTLOADER.img
+  else
+    cp $BOOTLOADERFILE tmp/$PRODUCT-$VERSION/bootloader-$DEVICE-$BOOTLOADER.img
+  fi
 fi
 if test "$RADIO" != ""
 then
@@ -105,11 +108,14 @@ fastboot erase system
 fastboot erase userdata
 EOF
 fi
+if test "$BOOTLOADER" != ""
+then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
 fastboot flash bootloader bootloader-$DEVICE-$BOOTLOADER.img
 fastboot reboot-bootloader
 sleep $SLEEPDURATION
 EOF
+fi
 if test "$RADIO" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
@@ -158,11 +164,14 @@ fastboot erase system
 fastboot erase userdata
 EOF
 fi
+if test "$BOOTLOADER" != ""
+then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
 fastboot flash bootloader bootloader-$DEVICE-$BOOTLOADER.img
 fastboot reboot-bootloader
 ping -n $SLEEPDURATION 127.0.0.1 >nul
 EOF
+fi
 if test "$RADIO" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
@@ -202,11 +211,14 @@ if ! [ \$(\$(which fastboot) --version | grep "version" | cut -c18-23 | sed 's/\
   exit 1
 fi
 EOF
+if test "$BOOTLOADER" != ""
+then
 cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
 fastboot flash bootloader bootloader-$DEVICE-$BOOTLOADER.img
 fastboot reboot-bootloader
 sleep $SLEEPDURATION
 EOF
+fi
 if test "$RADIO" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
