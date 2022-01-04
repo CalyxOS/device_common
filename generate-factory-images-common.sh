@@ -174,7 +174,9 @@ fi
 }
 generate_update_image_commands_linux() {
 cat << EOF
-fastboot -w update image-$PRODUCT-$VERSION.zip
+fastboot --skip-reboot -w update image-$PRODUCT-$VERSION.zip
+fastboot reboot-bootloader
+sleep $SLEEPDURATION
 EOF
 }
 generate_header_windows() {
