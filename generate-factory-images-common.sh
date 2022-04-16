@@ -58,8 +58,10 @@ then
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/bluetooth.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/core_nhlos.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/devcfg.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/devinfo_for_factory.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/dsp.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/featenabler.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/frp_for_factory.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/hyp.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/imagefv.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/keymaster.img
@@ -112,8 +114,10 @@ then
   cp tmp/RADIO/bluetooth.img tmp/$PRODUCT-$VERSION/bluetooth.img
   cp tmp/RADIO/core_nhlos.img tmp/$PRODUCT-$VERSION/core_nhlos.img
   cp tmp/RADIO/devcfg.img tmp/$PRODUCT-$VERSION/devcfg.img
+  cp tmp/RADIO/devinfo_for_factory.img tmp/$PRODUCT-$VERSION/devinfo_for_factory.img
   cp tmp/RADIO/dsp.img tmp/$PRODUCT-$VERSION/dsp.img
   cp tmp/RADIO/featenabler.img tmp/$PRODUCT-$VERSION/featenabler.img
+  cp tmp/RADIO/frp_for_factory.img tmp/$PRODUCT-$VERSION/frp_for_factory.img
   cp tmp/RADIO/hyp.img tmp/$PRODUCT-$VERSION/hyp.img
   cp tmp/RADIO/imagefv.img tmp/$PRODUCT-$VERSION/imagefv.img
   cp tmp/RADIO/keymaster.img tmp/$PRODUCT-$VERSION/keymaster.img
@@ -246,11 +250,14 @@ fastboot flash xbl_b xbl.img
 fastboot flash xbl_config_a xbl_config.img
 fastboot flash xbl_config_b xbl_config.img
 
-fastboot erase frp
+fastboot flash frp frp_for_factory.img
+fastboot flash devinfo devinfo_for_factory.img
 
 fastboot erase misc
 fastboot erase modemst1
 fastboot erase modemst2
+
+fastboot --set-active=a
 
 fastboot reboot-bootloader
 sleep $SLEEPDURATION
@@ -381,11 +388,14 @@ fastboot flash xbl_b xbl.img
 fastboot flash xbl_config_a xbl_config.img
 fastboot flash xbl_config_b xbl_config.img
 
-fastboot erase frp
+fastboot flash frp frp_for_factory.img
+fastboot flash devinfo devinfo_for_factory.img
 
 fastboot erase misc
 fastboot erase modemst1
 fastboot erase modemst2
+
+fastboot --set-active=a
 
 fastboot reboot-bootloader
 ping -n $SLEEPDURATION 127.0.0.1 >nul
@@ -510,11 +520,14 @@ fastboot flash xbl_config_b xbl_config.img
 fastboot flash userdata userdata.img
 fastboot flash metadata metadata.img
 
-fastboot erase frp
+fastboot flash frp frp_for_factory.img
+fastboot flash devinfo devinfo_for_factory.img
 
 fastboot erase misc
 fastboot erase modemst1
 fastboot erase modemst2
+
+fastboot --set-active=a
 
 fastboot reboot-bootloader
 sleep $SLEEPDURATION
