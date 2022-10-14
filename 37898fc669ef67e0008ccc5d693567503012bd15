@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a335c31_fc9f89b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-10-14T21:17:27Z",
+      "side": 1,
+      "message": "Note to self: Update device-flasher.\n\n10612: platform-tools: 33.0.3 (Aug 2022) | https://review.calyxos.org/c/AOSPAlliance/device-flasher/+/10612\n\nJust need to merge and build",
+      "revId": "37898fc669ef67e0008ccc5d693567503012bd15",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
