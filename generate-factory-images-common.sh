@@ -185,6 +185,8 @@ generate_license_windows
 cat << EOF
 
 PATH=%PATH%;"%SYSTEMROOT%\System32"
+fastboot getvar product 2>&1 | findstr /r /c:"^product: $PRODUCT" || echo "Factory image and device do not match. Please double check"
+fastboot getvar product 2>&1 | findstr /r /c:"^product: $PRODUCT" || exit /B 1
 EOF
 }
 do_windows_replacements() {
