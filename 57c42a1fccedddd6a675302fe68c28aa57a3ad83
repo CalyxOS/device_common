@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45484f4e_6240ac6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-11-22T21:34:42Z",
+      "side": 1,
+      "message": "Split this off to make shipping the others easier",
+      "revId": "57c42a1fccedddd6a675302fe68c28aa57a3ad83",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
