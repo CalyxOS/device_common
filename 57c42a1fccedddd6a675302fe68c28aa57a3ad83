@@ -16,6 +16,23 @@
       "message": "Split this off to make shipping the others easier",
       "revId": "57c42a1fccedddd6a675302fe68c28aa57a3ad83",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cee7a70d_d75d02fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-11-23T12:06:22Z",
+      "side": 1,
+      "message": "Last I tried this was fine, but good to double check.\n\nCan just put these two lines in a separate batch script (and hardcode value of `$PRODUCT`) to test.",
+      "revId": "57c42a1fccedddd6a675302fe68c28aa57a3ad83",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
