@@ -33,6 +33,24 @@
       "message": "Last I tried this was fine, but good to double check.\n\nCan just put these two lines in a separate batch script (and hardcode value of `$PRODUCT`) to test.",
       "revId": "57c42a1fccedddd6a675302fe68c28aa57a3ad83",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "682bd7ae_0d9eefec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-11-23T12:07:13Z",
+      "side": 1,
+      "message": "test.bat:\n```\nfastboot getvar product 2\u003e\u00261 | findstr /r /c:\"^product: FP4\" || echo \"Factory image and device do not match. Please double check\"\nfastboot getvar product 2\u003e\u00261 | findstr /r /c:\"^product: FP4\" || exit /B 1\n```",
+      "parentUuid": "cee7a70d_d75d02fd",
+      "revId": "57c42a1fccedddd6a675302fe68c28aa57a3ad83",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
