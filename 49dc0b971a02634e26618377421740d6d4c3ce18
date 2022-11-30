@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "baba7d7f_e4f68c99",
         "filename": "generate-factory-images-common.sh",
@@ -14,8 +15,25 @@
       "side": 1,
       "message": "If cmd had a $? this\u0027d be cleaner\n\nI see a %ERRORLEVEL% in powershell, from https://review.calyxos.org/c/CalyxOS/device_common/+/318",
       "revId": "49dc0b971a02634e26618377421740d6d4c3ce18",
-      "serverId": "35266860-6252-469c-a67d-185064479fc0",
-      "unresolved": true
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8da7a06_62260890",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-11-30T18:41:28Z",
+      "side": 1,
+      "message": "Moved to 14609: factory-image: bat: Check for product name before flashing factory image | https://review.calyxos.org/c/CalyxOS/device_common/+/14609",
+      "parentUuid": "baba7d7f_e4f68c99",
+      "revId": "49dc0b971a02634e26618377421740d6d4c3ce18",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
