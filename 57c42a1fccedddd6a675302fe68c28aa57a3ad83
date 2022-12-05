@@ -78,6 +78,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "297f0a41_e42b4756",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-12-05T13:34:02Z",
+      "side": 1,
+      "message": "AFAIK the script runs in cmd, not powershell.\n\nIf you save what I provided as `test.bat` and double click it, what happens?",
+      "parentUuid": "2453cf9e_e9afa18f",
+      "range": {
+        "startLine": 303,
+        "startChar": 0,
+        "endLine": 303,
+        "endChar": 134
+      },
+      "revId": "57c42a1fccedddd6a675302fe68c28aa57a3ad83",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8d0fded3_4a0d530f",
         "filename": "generate-factory-images-common.sh",
         "patchSetId": 1
