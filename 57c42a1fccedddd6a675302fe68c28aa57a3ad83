@@ -126,6 +126,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "960c768c_fcf250db",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-12-06T11:20:58Z",
+      "side": 1,
+      "message": "You need to replace $PRODUCT with an actual value, see my example.\n\nTest it with both product matching your device, and also not matching.",
+      "parentUuid": "99074890_b053c595",
+      "range": {
+        "startLine": 303,
+        "startChar": 0,
+        "endLine": 303,
+        "endChar": 134
+      },
+      "revId": "57c42a1fccedddd6a675302fe68c28aa57a3ad83",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8d0fded3_4a0d530f",
         "filename": "generate-factory-images-common.sh",
         "patchSetId": 1
