@@ -100,6 +100,30 @@
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "99074890_b053c595",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000065
+      },
+      "writtenOn": "2022-12-06T06:06:04Z",
+      "side": 1,
+      "message": "Works fine in cmd, as expected. It pukes the error message and cancels the script.",
+      "parentUuid": "297f0a41_e42b4756",
+      "range": {
+        "startLine": 303,
+        "startChar": 0,
+        "endLine": 303,
+        "endChar": 134
+      },
+      "revId": "57c42a1fccedddd6a675302fe68c28aa57a3ad83",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d0fded3_4a0d530f",
@@ -113,6 +137,30 @@
       "writtenOn": "2022-12-05T05:03:00Z",
       "side": 1,
       "message": "```\nPS C:\\Users\\aayus\u003e fastboot getvar product 2\u003e\u00261 | findstr /r /c:\"^product: $PRODUCT\" || exit /B 1\nAt line:1 char:67\n+ ... t getvar product 2\u003e\u00261 | findstr /r /c:\"^product: $PRODUCT\" || exit /B ...\n+                                                                ~~\nThe token \u0027||\u0027 is not a valid statement separator in this version.\n    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException\n    + FullyQualifiedErrorId : InvalidEndOfLine\n```",
+      "range": {
+        "startLine": 304,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 25
+      },
+      "revId": "57c42a1fccedddd6a675302fe68c28aa57a3ad83",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba848e4a_e2a9fbe3",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000065
+      },
+      "writtenOn": "2022-12-06T06:06:04Z",
+      "side": 1,
+      "message": "Works fine in cmd",
+      "parentUuid": "8d0fded3_4a0d530f",
       "range": {
         "startLine": 304,
         "startChar": 0,
