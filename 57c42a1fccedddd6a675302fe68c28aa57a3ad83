@@ -148,6 +148,30 @@
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a883fa21_8c62785c",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000065
+      },
+      "writtenOn": "2022-12-07T08:13:55Z",
+      "side": 1,
+      "message": "works",
+      "parentUuid": "960c768c_fcf250db",
+      "range": {
+        "startLine": 303,
+        "startChar": 0,
+        "endLine": 303,
+        "endChar": 134
+      },
+      "revId": "57c42a1fccedddd6a675302fe68c28aa57a3ad83",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d0fded3_4a0d530f",
