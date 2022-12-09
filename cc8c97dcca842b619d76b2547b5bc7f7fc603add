@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7453b58c_3b573a32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-12-09T14:51:31Z",
+      "side": 1,
+      "message": "Test:\n```\n$ cat \u003e /tmp/1 \u003c\u003c EOF\n\u003e if [ \\$? -ne 0 ]; then\n  echo \"Factory image and device do not match. Please double check\"\n  exit 1\nfi\n\u003e EOF\n$ cat /tmp/1\nif [ $? -ne 0 ]; then\n  echo \"Factory image and device do not match. Please double check\"\n  exit 1\nfi\n```",
+      "revId": "cc8c97dcca842b619d76b2547b5bc7f7fc603add",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
