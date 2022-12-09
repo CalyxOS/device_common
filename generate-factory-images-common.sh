@@ -158,7 +158,7 @@ if ! [ \$("\$(which fastboot)" --version | grep "version" | cut -c18-23 | sed 's
   exit 1
 fi
 fastboot getvar product 2>&1 | grep "^product: $PRODUCT$"
-if [ $? -ne 0 ]; then
+if [ \$? -ne 0 ]; then
   echo "Factory image and device do not match. Please double check"
   exit 1
 fi
@@ -448,7 +448,7 @@ if ! [ \$("\$(which fastboot)" --version | grep "version" | cut -c18-23 | sed 's
   exit 1
 fi
 fastboot getvar product 2>&1 | grep "^product: $PRODUCT$"
-if [ $? -ne 0 ]; then
+if [ \$? -ne 0 ]; then
   echo "Factory image and device do not match. Please double check"
   exit 1
 fi
