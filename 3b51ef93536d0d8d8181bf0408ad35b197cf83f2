@@ -52,6 +52,24 @@
       "parentUuid": "b0753dd3_46dbeccb",
       "revId": "3b51ef93536d0d8d8181bf0408ad35b197cf83f2",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a043c131_2d06832a",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-01-31T16:27:56Z",
+      "side": 1,
+      "message": "Even if you adjust it, all people on existing official/lineage/etc builds will not be able to flash this, overriding this with https://review.calyxos.org/c/CalyxOS/device_common/+/15413 is fine for now",
+      "parentUuid": "b90f3a64_089d8032",
+      "revId": "3b51ef93536d0d8d8181bf0408ad35b197cf83f2",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
