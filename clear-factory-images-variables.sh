@@ -22,6 +22,7 @@ unset CDMARADIOFILE
 unset DEVICE
 unset ERASE
 unset FP4
+unset AXOLOTL
 unset PRODUCT
 unset RADIO
 unset RADIOFILE
