@@ -34,6 +34,24 @@
       "parentUuid": "b69cd565_d1bd3bfb",
       "revId": "3b51ef93536d0d8d8181bf0408ad35b197cf83f2",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b90f3a64_089d8032",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1000075
+      },
+      "writtenOn": "2023-01-31T16:19:41Z",
+      "side": 1,
+      "message": "Shall i adjust the bootloader or is it fine with the fastboot product variable?",
+      "parentUuid": "b0753dd3_46dbeccb",
+      "revId": "3b51ef93536d0d8d8181bf0408ad35b197cf83f2",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
