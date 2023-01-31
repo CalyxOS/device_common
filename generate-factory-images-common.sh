@@ -33,6 +33,10 @@ if test "$SLEEPDURATION" = ""
 then
   SLEEPDURATION=5
 fi
+if test "$FASTBOOT_PRODUCT" = ""
+then
+  FASTBOOT_PRODUCT=$PRODUCT
+fi
 
 # Prepare the staging directory
 rm -rf tmp
@@ -121,7 +125,7 @@ if ! [ \$("\$(which fastboot)" --version | grep "version" | cut -c18-23 | sed 's
   echo "fastboot too old; please download the latest version at https://developer.android.com/studio/releases/platform-tools.html"
   exit 1
 fi
-fastboot getvar product 2>&1 | grep "^product: $PRODUCT$"
+fastboot getvar product 2>&1 | grep "^product: $FASTBOOT_PRODUCT$"
 if [ \$? -ne 0 ]; then
   echo "Factory image and device do not match. Please double check"
   exit 1
@@ -215,8 +219,8 @@ cat > tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
 :: limitations under the License.
 
 PATH=%PATH%;"%SYSTEMROOT%\System32"
-fastboot getvar product 2>&1 | findstr /r /c:"^product: $PRODUCT" || echo "Factory image and device do not match. Please double check"
-fastboot getvar product 2>&1 | findstr /r /c:"^product: $PRODUCT" || exit /B 1
+fastboot getvar product 2>&1 | findstr /r /c:"^product: $FASTBOOT_PRODUCT" || echo "Factory image and device do not match. Please double check"
+fastboot getvar product 2>&1 | findstr /r /c:"^product: $FASTBOOT_PRODUCT" || exit /B 1
 EOF
 if test "$UNLOCKBOOTLOADER" = "true"
 then
@@ -313,7 +317,7 @@ if ! [ \$("\$(which fastboot)" --version | grep "version" | cut -c18-23 | sed 's
   echo "fastboot too old; please download the latest version at https://developer.android.com/studio/releases/platform-tools.html"
   exit 1
 fi
-fastboot getvar product 2>&1 | grep "^product: $PRODUCT$"
+fastboot getvar product 2>&1 | grep "^product: $FASTBOOT_PRODUCT$"
 if [ \$? -ne 0 ]; then
   echo "Factory image and device do not match. Please double check"
   exit 1
