@@ -181,10 +181,12 @@ fastboot reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 fi
+cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+fastboot erase avb_custom_key
+EOF
 if test "$AVB_CUSTOM_KEY" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
-fastboot erase avb_custom_key
 fastboot flash avb_custom_key avb_custom_key.img
 EOF
 fi
@@ -270,10 +272,12 @@ fastboot reboot-bootloader
 ping -n $SLEEPDURATION 127.0.0.1 >nul
 EOF
 fi
+cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+fastboot erase avb_custom_key
+EOF
 if test "$AVB_CUSTOM_KEY" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
-fastboot erase avb_custom_key
 fastboot flash avb_custom_key avb_custom_key.img
 EOF
 fi
@@ -353,10 +357,12 @@ fastboot reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 fi
+cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
+fastboot erase avb_custom_key
+EOF
 if test "$AVB_CUSTOM_KEY" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
-fastboot erase avb_custom_key
 fastboot flash avb_custom_key avb_custom_key.img
 EOF
 fi
