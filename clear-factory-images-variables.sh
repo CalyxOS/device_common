@@ -23,6 +23,7 @@ unset DEVICE
 unset ERASE
 unset FP4
 unset FP5
+unset MOTO_BENGAL
 unset PRODUCT
 unset QCOM_FIRMWARE
 unset RADIO
