@@ -1,0 +1,310 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cdbeffe_84c28726",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-07-25T18:06:48Z",
+      "side": 1,
+      "message": "?\n\nIs this gpt.bin in the zip?",
+      "revId": "fe79c34b3fd813e2d9f9e7b365d6f684ae1e3443",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ce6f737_e38b0424",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-07-25T18:06:48Z",
+      "side": 1,
+      "message": "bootloader.img contains keymaster.mbn",
+      "revId": "fe79c34b3fd813e2d9f9e7b365d6f684ae1e3443",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "970a164f_6aa4e1fc",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-07-25T18:06:48Z",
+      "side": 1,
+      "message": "bootloader.img contains hyp.mbn",
+      "revId": "fe79c34b3fd813e2d9f9e7b365d6f684ae1e3443",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e1673e9_7b9890d8",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-07-25T18:06:48Z",
+      "side": 1,
+      "message": "bootloader.img contains tz.mbn",
+      "revId": "fe79c34b3fd813e2d9f9e7b365d6f684ae1e3443",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bda8ef1_dc037f74",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-07-25T18:06:48Z",
+      "side": 1,
+      "message": "bootloader.img contains devcfg.mbn",
+      "revId": "fe79c34b3fd813e2d9f9e7b365d6f684ae1e3443",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c5a41d9_cf1ed020",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-07-25T18:06:48Z",
+      "side": 1,
+      "message": "bootloader.img contains storsec.mbn",
+      "revId": "fe79c34b3fd813e2d9f9e7b365d6f684ae1e3443",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92e2c864_c42cb2fe",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-07-25T18:06:48Z",
+      "side": 1,
+      "message": "bootloader.img contains prov64.mbn",
+      "revId": "fe79c34b3fd813e2d9f9e7b365d6f684ae1e3443",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48e490a8_e16997b8",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-07-25T18:06:48Z",
+      "side": 1,
+      "message": "bootloader.img contains contains rpm.mbn",
+      "revId": "fe79c34b3fd813e2d9f9e7b365d6f684ae1e3443",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41a31d05_9ba4b497",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-07-25T18:06:48Z",
+      "side": 1,
+      "message": "bootloader.img contains abl.elf",
+      "revId": "fe79c34b3fd813e2d9f9e7b365d6f684ae1e3443",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2410b5f5_b67466a5",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-07-25T18:06:48Z",
+      "side": 1,
+      "message": "bootloader.img contains uefi_sec.mbn",
+      "revId": "fe79c34b3fd813e2d9f9e7b365d6f684ae1e3443",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30e2cbf9_414699c1",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-07-25T18:06:48Z",
+      "side": 1,
+      "message": "bootloader.img contains qupfw.elf",
+      "revId": "fe79c34b3fd813e2d9f9e7b365d6f684ae1e3443",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54cee84b_65149937",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-07-25T18:06:48Z",
+      "side": 1,
+      "message": "bootloader.img contains xbl_config.elf",
+      "revId": "fe79c34b3fd813e2d9f9e7b365d6f684ae1e3443",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a4063b4_c7634dd6",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-07-25T18:06:48Z",
+      "side": 1,
+      "message": "bootloader.img contains xbl.elf",
+      "revId": "fe79c34b3fd813e2d9f9e7b365d6f684ae1e3443",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "547c02f3_01cfef95",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-07-25T18:06:48Z",
+      "side": 1,
+      "message": "?\n\nIs this NON-HLOS.bin",
+      "revId": "fe79c34b3fd813e2d9f9e7b365d6f684ae1e3443",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cabf96f_309c556b",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-07-25T18:06:48Z",
+      "side": 1,
+      "message": "radio.img contains fsg.mbn",
+      "revId": "fe79c34b3fd813e2d9f9e7b365d6f684ae1e3443",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e4879ee_5490e9a7",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-07-25T18:06:48Z",
+      "side": 1,
+      "message": "?",
+      "revId": "fe79c34b3fd813e2d9f9e7b365d6f684ae1e3443",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d4418fc_129ffbb9",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-07-25T18:06:48Z",
+      "side": 1,
+      "message": "There\u0027s a dspso.bin in the zip",
+      "revId": "fe79c34b3fd813e2d9f9e7b365d6f684ae1e3443",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f0dd382_03e671a4",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-07-25T18:06:48Z",
+      "side": 1,
+      "message": "zip contains logo.bin",
+      "revId": "fe79c34b3fd813e2d9f9e7b365d6f684ae1e3443",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
