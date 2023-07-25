@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e28753fe_fe860e9c",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-25T18:30:03Z",
+      "side": 1,
+      "message": "gpt.bin",
+      "parentUuid": "9cdbeffe_84c28726",
+      "revId": "fe79c34b3fd813e2d9f9e7b365d6f684ae1e3443",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "8ce6f737_e38b0424",
         "filename": "generate-factory-images-common.sh",
         "patchSetId": 1
@@ -241,6 +259,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3307f168_a29eef09",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-25T18:30:03Z",
+      "side": 1,
+      "message": "NON-HLOS.bin",
+      "parentUuid": "547c02f3_01cfef95",
+      "revId": "fe79c34b3fd813e2d9f9e7b365d6f684ae1e3443",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3cabf96f_309c556b",
         "filename": "generate-factory-images-common.sh",
         "patchSetId": 1
@@ -273,6 +309,24 @@
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1279fdb8_4df04757",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-25T18:30:03Z",
+      "side": 1,
+      "message": "BTFM.bin",
+      "parentUuid": "1e4879ee_5490e9a7",
+      "revId": "fe79c34b3fd813e2d9f9e7b365d6f684ae1e3443",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d4418fc_129ffbb9",
@@ -286,6 +340,24 @@
       "writtenOn": "2023-07-25T18:06:48Z",
       "side": 1,
       "message": "There\u0027s a dspso.bin in the zip",
+      "revId": "fe79c34b3fd813e2d9f9e7b365d6f684ae1e3443",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75845a49_eab19066",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-07-25T18:30:03Z",
+      "side": 1,
+      "message": "dspso.bin",
+      "parentUuid": "5d4418fc_129ffbb9",
       "revId": "fe79c34b3fd813e2d9f9e7b365d6f684ae1e3443",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
     },
