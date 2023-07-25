@@ -106,6 +106,27 @@ then
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/xbl.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/xbl_config.img
 fi
+if test "$MOTO" != ""
+then
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/abl.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/bluetooth.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/devcfg.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/dsp.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/fsg.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/hyp.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/keymaster.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/logo.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/modem.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/partition.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/prov.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/qupfw.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/rpm.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/storsec.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/tz.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/uefisecapp.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/xbl.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/xbl_config.img
+fi
 
 # Copy the various images in their staging location
 cp ${SRCPREFIX}$PRODUCT-img-$BUILD.zip tmp/$PRODUCT-$VERSION/image-$PRODUCT-$VERSION.zip
@@ -182,6 +203,27 @@ then
   cp tmp/RADIO/qupfw.img tmp/$PRODUCT-$VERSION/qupfw.img
   cp tmp/RADIO/storsec.img tmp/$PRODUCT-$VERSION/storsec.img
   cp tmp/RADIO/tz.img tmp/$PRODUCT-$VERSION/tz.img
+  cp tmp/RADIO/xbl.img tmp/$PRODUCT-$VERSION/xbl.img
+  cp tmp/RADIO/xbl_config.img tmp/$PRODUCT-$VERSION/xbl_config.img
+fi
+if test "$MOTO" != ""
+then
+  cp tmp/RADIO/abl.img tmp/$PRODUCT-$VERSION/abl.img
+  cp tmp/RADIO/bluetooth.img tmp/$PRODUCT-$VERSION/bluetooth.img
+  cp tmp/RADIO/devcfg.img tmp/$PRODUCT-$VERSION/devcfg.img
+  cp tmp/RADIO/dsp.img tmp/$PRODUCT-$VERSION/dsp.img
+  cp tmp/RADIO/fsg.img tmp/$PRODUCT-$VERSION/fsg.img
+  cp tmp/RADIO/hyp.img tmp/$PRODUCT-$VERSION/hyp.img
+  cp tmp/RADIO/keymaster.img tmp/$PRODUCT-$VERSION/keymaster.img
+  cp tmp/RADIO/logo.img tmp/$PRODUCT-$VERSION/logo.img
+  cp tmp/RADIO/modem.img tmp/$PRODUCT-$VERSION/modem.img
+  cp tmp/RADIO/partition.img tmp/$PRODUCT-$VERSION/partition.img
+  cp tmp/RADIO/prov.img tmp/$PRODUCT-$VERSION/prov.img
+  cp tmp/RADIO/qupfw.img tmp/$PRODUCT-$VERSION/qupfw.img
+  cp tmp/RADIO/rpm.img tmp/$PRODUCT-$VERSION/rpm.img
+  cp tmp/RADIO/storsec.img tmp/$PRODUCT-$VERSION/storsec.img
+  cp tmp/RADIO/tz.img tmp/$PRODUCT-$VERSION/tz.img
+  cp tmp/RADIO/uefisecapp.img tmp/$PRODUCT-$VERSION/uefisecapp.img
   cp tmp/RADIO/xbl.img tmp/$PRODUCT-$VERSION/xbl.img
   cp tmp/RADIO/xbl_config.img tmp/$PRODUCT-$VERSION/xbl_config.img
 fi
@@ -362,6 +404,60 @@ fastboot flash xbl_config_b xbl_config.img
 
 fastboot flash frp frp.img
 fastboot flash devinfo devinfo.img
+
+fastboot --set-active=a
+
+fastboot reboot-bootloader
+sleep $SLEEPDURATION
+EOF
+fi
+if test "$MOTO" != ""
+then
+cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+fastboot oem fb_mode_set
+
+fastboot flash partition partition.img
+
+fastboot flash keymaster_a keymaster.img
+fastboot flash keymaster_b keymaster.img
+fastboot flash hyp_a hyp.img
+fastboot flash hyp_b hyp.img
+fastboot flash tz_a tz.img
+fastboot flash tz_b tz.img
+fastboot flash devcfg_a devcfg.img
+fastboot flash devcfg_b devcfg.img
+fastboot flash storsec_a storsec.img
+fastboot flash storsec_b storsec.img
+fastboot flash prov_a prov.img
+fastboot flash prov_b prov.img
+fastboot flash rpm_a rpm.img
+fastboot flash rpm_b rpm.img
+fastboot flash abl_a abl.img
+fastboot flash abl_b abl.img
+fastboot flash uefisecapp_a uefisecapp.img
+fastboot flash uefisecapp_b uefisecapp.img
+fastboot flash qupfw_a qupfw.img
+fastboot flash qupfw_b qupfw.img
+fastboot flash xbl_config_a xbl_config.img
+fastboot flash xbl_config_b xbl_config.img
+fastboot flash xbl_a xbl.img
+fastboot flash xbl_b xbl.img
+
+fastboot flash modem_a modem.img
+fastboot flash modem_b modem.img
+fastboot flash fsg_a fsg.img
+fastboot flash fsg_b fsg.img
+
+fastboot flash bluetooth_a bluetooth.img
+fastboot flash bluetooth_b bluetooth.img
+fastboot flash dsp_a dsp.img
+fastboot flash dsp_b dsp.img
+fastboot flash logo_a logo.img
+fastboot flash logo_b logo.img
+
+fastboot erase ddr
+
+fastboot oem fb_mode_clear
 
 fastboot --set-active=a
 
@@ -556,6 +652,60 @@ fastboot reboot-bootloader
 ping -n $SLEEPDURATION 127.0.0.1 >nul
 EOF
 fi
+if test "$MOTO" != ""
+then
+cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+fastboot oem fb_mode_set
+
+fastboot flash partition partition.img
+
+fastboot flash keymaster_a keymaster.img
+fastboot flash keymaster_b keymaster.img
+fastboot flash hyp_a hyp.img
+fastboot flash hyp_b hyp.img
+fastboot flash tz_a tz.img
+fastboot flash tz_b tz.img
+fastboot flash devcfg_a devcfg.img
+fastboot flash devcfg_b devcfg.img
+fastboot flash storsec_a storsec.img
+fastboot flash storsec_b storsec.img
+fastboot flash prov_a prov.img
+fastboot flash prov_b prov.img
+fastboot flash rpm_a rpm.img
+fastboot flash rpm_b rpm.img
+fastboot flash abl_a abl.img
+fastboot flash abl_b abl.img
+fastboot flash uefisecapp_a uefisecapp.img
+fastboot flash uefisecapp_b uefisecapp.img
+fastboot flash qupfw_a qupfw.img
+fastboot flash qupfw_b qupfw.img
+fastboot flash xbl_config_a xbl_config.img
+fastboot flash xbl_config_b xbl_config.img
+fastboot flash xbl_a xbl.img
+fastboot flash xbl_b xbl.img
+
+fastboot flash modem_a modem.img
+fastboot flash modem_b modem.img
+fastboot flash fsg_a fsg.img
+fastboot flash fsg_b fsg.img
+
+fastboot flash bluetooth_a bluetooth.img
+fastboot flash bluetooth_b bluetooth.img
+fastboot flash dsp_a dsp.img
+fastboot flash dsp_b dsp.img
+fastboot flash logo_a logo.img
+fastboot flash logo_b logo.img
+
+fastboot erase ddr
+
+fastboot oem fb_mode_clear
+
+fastboot --set-active=a
+
+fastboot reboot-bootloader
+sleep $SLEEPDURATION
+EOF
+fi
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
 fastboot erase avb_custom_key
 EOF
@@ -733,6 +883,60 @@ fastboot flash xbl_config_b xbl_config.img
 
 fastboot flash frp frp.img
 fastboot flash devinfo devinfo.bin
+
+fastboot --set-active=a
+
+fastboot reboot-bootloader
+sleep $SLEEPDURATION
+EOF
+fi
+if test "$MOTO" != ""
+then
+cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
+fastboot oem fb_mode_set
+
+fastboot flash partition partition.img
+
+fastboot flash keymaster_a keymaster.img
+fastboot flash keymaster_b keymaster.img
+fastboot flash hyp_a hyp.img
+fastboot flash hyp_b hyp.img
+fastboot flash tz_a tz.img
+fastboot flash tz_b tz.img
+fastboot flash devcfg_a devcfg.img
+fastboot flash devcfg_b devcfg.img
+fastboot flash storsec_a storsec.img
+fastboot flash storsec_b storsec.img
+fastboot flash prov_a prov.img
+fastboot flash prov_b prov.img
+fastboot flash rpm_a rpm.img
+fastboot flash rpm_b rpm.img
+fastboot flash abl_a abl.img
+fastboot flash abl_b abl.img
+fastboot flash uefisecapp_a uefisecapp.img
+fastboot flash uefisecapp_b uefisecapp.img
+fastboot flash qupfw_a qupfw.img
+fastboot flash qupfw_b qupfw.img
+fastboot flash xbl_config_a xbl_config.img
+fastboot flash xbl_config_b xbl_config.img
+fastboot flash xbl_a xbl.img
+fastboot flash xbl_b xbl.img
+
+fastboot flash modem_a modem.img
+fastboot flash modem_b modem.img
+fastboot flash fsg_a fsg.img
+fastboot flash fsg_b fsg.img
+
+fastboot flash bluetooth_a bluetooth.img
+fastboot flash bluetooth_b bluetooth.img
+fastboot flash dsp_a dsp.img
+fastboot flash dsp_b dsp.img
+fastboot flash logo_a logo.img
+fastboot flash logo_b logo.img
+
+fastboot erase ddr
+
+fastboot oem fb_mode_clear
 
 fastboot --set-active=a
 
