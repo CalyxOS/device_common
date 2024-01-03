@@ -245,16 +245,22 @@ fi
 if test "$BOOTLOADER" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
-fastboot flash bootloader bootloader-$DEVICE-$BOOTLOADER.img
-fastboot reboot-bootloader
+fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img || exit \$?
+fastboot --set-active=other reboot-bootloader || exit \$?
+sleep $SLEEPDURATION
+fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img || exit \$?
+fastboot --set-active=other reboot-bootloader || exit \$?
 sleep $SLEEPDURATION
 EOF
 fi
 if test "$RADIO" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
-fastboot flash radio radio-$DEVICE-$RADIO.img
-fastboot reboot-bootloader
+fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img || exit \$?
+fastboot --set-active=other reboot-bootloader || exit \$?
+sleep $SLEEPDURATION
+fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img || exit \$?
+fastboot --set-active=other reboot-bootloader || exit \$?
 sleep $SLEEPDURATION
 EOF
 fi
@@ -464,16 +470,22 @@ fi
 if test "$BOOTLOADER" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
-fastboot flash bootloader bootloader-$DEVICE-$BOOTLOADER.img
-fastboot reboot-bootloader
+fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img || exit 1
+fastboot --set-active=other reboot-bootloader || exit 1
+ping -n $SLEEPDURATION 127.0.0.1 >nul
+fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img || exit 1
+fastboot --set-active=other reboot-bootloader || exit 1
 ping -n $SLEEPDURATION 127.0.0.1 >nul
 EOF
 fi
 if test "$RADIO" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
-fastboot flash radio radio-$DEVICE-$RADIO.img
-fastboot reboot-bootloader
+fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img || exit 1
+fastboot --set-active=other reboot-bootloader || exit 1
+ping -n $SLEEPDURATION 127.0.0.1 >nul
+fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img || exit 1
+fastboot --set-active=other reboot-bootloader || exit 1
 ping -n $SLEEPDURATION 127.0.0.1 >nul
 EOF
 fi
@@ -677,16 +689,22 @@ EOF
 if test "$BOOTLOADER" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
-fastboot flash bootloader bootloader-$DEVICE-$BOOTLOADER.img
-fastboot reboot-bootloader
+fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img || exit \$?
+fastboot --set-active=other reboot-bootloader || exit \$?
+sleep $SLEEPDURATION
+fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img || exit \$?
+fastboot --set-active=other reboot-bootloader || exit \$?
 sleep $SLEEPDURATION
 EOF
 fi
 if test "$RADIO" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
-fastboot flash radio radio-$DEVICE-$RADIO.img
-fastboot reboot-bootloader
+fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img || exit \$?
+fastboot --set-active=other reboot-bootloader || exit \$?
+sleep $SLEEPDURATION
+fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img || exit \$?
+fastboot --set-active=other reboot-bootloader || exit \$?
 sleep $SLEEPDURATION
 EOF
 fi
