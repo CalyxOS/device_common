@@ -13,10 +13,6 @@
 # limitations under the License.
 
 # Use the default values if they weren't explicitly set
-if test "$XLOADERSRC" = ""
-then
-  XLOADERSRC=xloader.img
-fi
 if test "$BOOTLOADERSRC" = ""
 then
   BOOTLOADERSRC=bootloader.img
@@ -39,10 +35,6 @@ rm -rf tmp
 mkdir -p tmp/$PRODUCT-$VERSION
 
 # Extract the bootloader(s) and radio(s) as necessary
-if test "$XLOADER" != ""
-then
-  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/$XLOADERSRC
-fi
 if test "$BOOTLOADERFILE" = ""
 then
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/$BOOTLOADERSRC
@@ -51,20 +43,12 @@ if test "$RADIO" != "" -a "$RADIOFILE" = ""
 then
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/$RADIOSRC
 fi
-if test "$CDMARADIO" != "" -a "$CDMARADIOFILE" = ""
-then
-  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/radio-cdma.img
-fi
 
 # Extract the GSC firmware
 unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip VENDOR/firmware/$GSCFIRMWARESRC/*
 
 # Copy the various images in their staging location
 cp ${SRCPREFIX}$PRODUCT-img-$BUILD.zip tmp/$PRODUCT-$VERSION/image-$PRODUCT-$VERSION.zip
-if test "$XLOADER" != ""
-then
-  cp tmp/RADIO/$XLOADERSRC tmp/$PRODUCT-$VERSION/xloader-$DEVICE-$XLOADER.img
-fi
 if test "$BOOTLOADERFILE" = ""
 then
   cp tmp/RADIO/$BOOTLOADERSRC tmp/$PRODUCT-$VERSION/bootloader-$DEVICE-$BOOTLOADER.img
@@ -78,15 +62,6 @@ then
     cp tmp/RADIO/$RADIOSRC tmp/$PRODUCT-$VERSION/radio-$DEVICE-$RADIO.img
   else
     cp $RADIOFILE tmp/$PRODUCT-$VERSION/radio-$DEVICE-$RADIO.img
-  fi
-fi
-if test "$CDMARADIO" != ""
-then
-  if test "$CDMARADIOFILE" = ""
-  then
-    cp tmp/RADIO/radio-cdma.img tmp/$PRODUCT-$VERSION/radio-cdma-$DEVICE-$CDMARADIO.img
-  else
-    cp $CDMARADIOFILE tmp/$PRODUCT-$VERSION/radio-cdma-$DEVICE-$CDMARADIO.img
   fi
 fi
 cp -r tmp/VENDOR/firmware/$GSCFIRMWARESRC/* tmp/$PRODUCT-$VERSION
@@ -130,22 +105,8 @@ fastboot erase system
 fastboot erase userdata
 EOF
 fi
-if test "$XLOADER" != ""
-then
-cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
-fastboot flash xloader xloader-$DEVICE-$XLOADER.img
-EOF
-fi
 cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
 fastboot flash bootloader bootloader-$DEVICE-$BOOTLOADER.img
-EOF
-if test "$TWINBOOTLOADERS" = "true"
-then
-cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
-fastboot flash bootloader2 bootloader-$DEVICE-$BOOTLOADER.img
-EOF
-fi
-cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
 fastboot reboot-bootloader
 sleep $SLEEPDURATION
 EOF
@@ -153,14 +114,6 @@ if test "$RADIO" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
 fastboot flash radio radio-$DEVICE-$RADIO.img
-fastboot reboot-bootloader
-sleep $SLEEPDURATION
-EOF
-fi
-if test "$CDMARADIO" != ""
-then
-cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
-fastboot flash radio-cdma radio-cdma-$DEVICE-$CDMARADIO.img
 fastboot reboot-bootloader
 sleep $SLEEPDURATION
 EOF
@@ -205,22 +158,8 @@ fastboot erase system
 fastboot erase userdata
 EOF
 fi
-if test "$XLOADER" != ""
-then
-cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
-fastboot flash xloader xloader-$DEVICE-$XLOADER.img
-EOF
-fi
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
 fastboot flash bootloader bootloader-$DEVICE-$BOOTLOADER.img
-EOF
-if test "$TWINBOOTLOADERS" = "true"
-then
-cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
-fastboot flash bootloader2 bootloader-$DEVICE-$BOOTLOADER.img
-EOF
-fi
-cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
 fastboot reboot-bootloader
 ping -n $SLEEPDURATION 127.0.0.1 >nul
 EOF
@@ -228,14 +167,6 @@ if test "$RADIO" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
 fastboot flash radio radio-$DEVICE-$RADIO.img
-fastboot reboot-bootloader
-ping -n $SLEEPDURATION 127.0.0.1 >nul
-EOF
-fi
-if test "$CDMARADIO" != ""
-then
-cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
-fastboot flash radio-cdma radio-cdma-$DEVICE-$CDMARADIO.img
 fastboot reboot-bootloader
 ping -n $SLEEPDURATION 127.0.0.1 >nul
 EOF
@@ -271,22 +202,8 @@ if ! [ \$(\$(which fastboot) --version | grep "version" | cut -c18-23 | sed 's/\
   exit 1
 fi
 EOF
-if test "$XLOADER" != ""
-then
-cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
-fastboot flash xloader xloader-$DEVICE-$XLOADER.img
-EOF
-fi
 cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
 fastboot flash bootloader bootloader-$DEVICE-$BOOTLOADER.img
-EOF
-if test "$TWINBOOTLOADERS" = "true"
-then
-cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
-fastboot flash bootloader2 bootloader-$DEVICE-$BOOTLOADER.img
-EOF
-fi
-cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
 fastboot reboot-bootloader
 sleep $SLEEPDURATION
 EOF
@@ -298,10 +215,6 @@ fastboot reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 fi
-if test "$CDMARADIO" != ""
-then
-cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
-fastboot flash radio-cdma radio-cdma-$DEVICE-$CDMARADIO.img
 fastboot reboot-bootloader
 sleep $SLEEPDURATION
 EOF
