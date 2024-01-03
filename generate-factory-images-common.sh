@@ -155,16 +155,22 @@ generate_baseband_commands_generic_linux() {
 if test "${BOOTLOADER:-}" != ""
 then
 cat << EOF
-fastboot flash bootloader bootloader-$DEVICE-$BOOTLOADER.img
-fastboot reboot-bootloader
+fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img
+fastboot --set-active=other reboot-bootloader
+sleep $SLEEPDURATION
+fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img
+fastboot --set-active=other reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 fi
 if test "${RADIO:-}" != ""
 then
 cat << EOF
-fastboot flash radio radio-$DEVICE-$RADIO.img
-fastboot reboot-bootloader
+fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img
+fastboot --set-active=other reboot-bootloader
+sleep $SLEEPDURATION
+fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img
+fastboot --set-active=other reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 fi
