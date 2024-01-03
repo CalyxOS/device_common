@@ -245,7 +245,10 @@ fi
 if test "$BOOTLOADER" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
-fastboot flash bootloader bootloader-$DEVICE-$BOOTLOADER.img
+fastboot flash bootloader_a bootloader-$DEVICE-$BOOTLOADER.img
+fastboot reboot-bootloader
+sleep $SLEEPDURATION
+fastboot flash bootloader_b bootloader-$DEVICE-$BOOTLOADER.img
 fastboot reboot-bootloader
 sleep $SLEEPDURATION
 EOF
@@ -253,7 +256,10 @@ fi
 if test "$RADIO" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
-fastboot flash radio radio-$DEVICE-$RADIO.img
+fastboot flash radio_a radio-$DEVICE-$RADIO.img
+fastboot reboot-bootloader
+sleep $SLEEPDURATION
+fastboot flash radio_b radio-$DEVICE-$RADIO.img
 fastboot reboot-bootloader
 sleep $SLEEPDURATION
 EOF
@@ -464,7 +470,10 @@ fi
 if test "$BOOTLOADER" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
-fastboot flash bootloader bootloader-$DEVICE-$BOOTLOADER.img
+fastboot flash bootloader_a bootloader-$DEVICE-$BOOTLOADER.img
+fastboot reboot-bootloader
+ping -n $SLEEPDURATION 127.0.0.1 >nul
+fastboot flash bootloader_b bootloader-$DEVICE-$BOOTLOADER.img
 fastboot reboot-bootloader
 ping -n $SLEEPDURATION 127.0.0.1 >nul
 EOF
@@ -472,7 +481,10 @@ fi
 if test "$RADIO" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
-fastboot flash radio radio-$DEVICE-$RADIO.img
+fastboot flash radio_a radio-$DEVICE-$RADIO.img
+fastboot reboot-bootloader
+ping -n $SLEEPDURATION 127.0.0.1 >nul
+fastboot flash radio_b radio-$DEVICE-$RADIO.img
 fastboot reboot-bootloader
 ping -n $SLEEPDURATION 127.0.0.1 >nul
 EOF
@@ -677,7 +689,10 @@ EOF
 if test "$BOOTLOADER" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
-fastboot flash bootloader bootloader-$DEVICE-$BOOTLOADER.img
+fastboot flash bootloader_a bootloader-$DEVICE-$BOOTLOADER.img
+fastboot reboot-bootloader
+sleep $SLEEPDURATION
+fastboot flash bootloader_b bootloader-$DEVICE-$BOOTLOADER.img
 fastboot reboot-bootloader
 sleep $SLEEPDURATION
 EOF
@@ -685,7 +700,10 @@ fi
 if test "$RADIO" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
-fastboot flash radio radio-$DEVICE-$RADIO.img
+fastboot flash radio_a radio-$DEVICE-$RADIO.img
+fastboot reboot-bootloader
+sleep $SLEEPDURATION
+fastboot flash radio_b radio-$DEVICE-$RADIO.img
 fastboot reboot-bootloader
 sleep $SLEEPDURATION
 EOF
