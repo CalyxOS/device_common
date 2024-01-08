@@ -22,6 +22,7 @@ unset CDMARADIOFILE
 unset DEVICE
 unset ERASE
 unset FP4
+unset FP5
 unset PRODUCT
 unset QCOM_FIRMWARE
 unset RADIO
