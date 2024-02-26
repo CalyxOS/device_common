@@ -379,9 +379,7 @@ fastboot erase misc
 fastboot erase modemst1
 fastboot erase modemst2
 
-fastboot --set-active=a
-
-fastboot reboot-bootloader
+fastboot --set-active=a reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 fi
@@ -438,9 +436,7 @@ fastboot flash frp frp.img
 
 fastboot erase misc
 
-fastboot --set-active=a
-
-fastboot reboot-bootloader
+fastboot --set-active=a reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 fi
@@ -483,9 +479,7 @@ fastboot flash xbl_config_b xbl_config.img
 fastboot flash frp frp.img
 fastboot flash devinfo devinfo.img
 
-fastboot --set-active=a
-
-fastboot reboot-bootloader
+fastboot --set-active=a reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 fi
@@ -537,9 +531,7 @@ fastboot erase ddr
 
 fastboot oem fb_mode_clear
 
-fastboot --set-active=a
-
-fastboot reboot-bootloader
+fastboot --set-active=a reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 fi
@@ -663,9 +655,7 @@ fastboot erase misc
 fastboot erase modemst1
 fastboot erase modemst2
 
-fastboot --set-active=a
-
-fastboot reboot-bootloader
+fastboot --set-active=a reboot-bootloader
 ping -n $SLEEPDURATION 127.0.0.1 >nul
 EOF
 fi
@@ -722,9 +712,7 @@ fastboot flash frp frp.img
 
 fastboot erase misc
 
-fastboot --set-active=a
-
-fastboot reboot-bootloader
+fastboot --set-active=a reboot-bootloader
 ping -n $SLEEPDURATION 127.0.0.1 >nul
 EOF
 fi
@@ -767,9 +755,7 @@ fastboot flash xbl_config_b xbl_config.img
 fastboot flash frp frp.img
 fastboot flash devinfo devinfo.bin
 
-fastboot --set-active=a
-
-fastboot reboot-bootloader
+fastboot --set-active=a reboot-bootloader
 ping -n $SLEEPDURATION 127.0.0.1 >nul
 EOF
 fi
@@ -821,9 +807,7 @@ fastboot erase ddr
 
 fastboot oem fb_mode_clear
 
-fastboot --set-active=a
-
-fastboot reboot-bootloader
+fastboot --set-active=a reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 fi
@@ -946,9 +930,7 @@ fastboot erase misc
 fastboot erase modemst1
 fastboot erase modemst2
 
-fastboot --set-active=a
-
-fastboot reboot-bootloader
+fastboot --set-active=a reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 fi
@@ -1005,9 +987,7 @@ fastboot flash frp frp.img
 
 fastboot erase misc
 
-fastboot --set-active=a
-
-fastboot reboot-bootloader
+fastboot --set-active=a reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 fi
@@ -1050,9 +1030,7 @@ fastboot flash xbl_config_b xbl_config.img
 fastboot flash frp frp.img
 fastboot flash devinfo devinfo.bin
 
-fastboot --set-active=a
-
-fastboot reboot-bootloader
+fastboot --set-active=a reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 fi
@@ -1104,9 +1082,7 @@ fastboot erase ddr
 
 fastboot oem fb_mode_clear
 
-fastboot --set-active=a
-
-fastboot reboot-bootloader
+fastboot --set-active=a reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 fi
