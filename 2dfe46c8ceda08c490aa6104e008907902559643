@@ -16,6 +16,24 @@
       "message": "I think the $ might get processed by the shell that\u0027s writing the script :/",
       "revId": "2dfe46c8ceda08c490aa6104e008907902559643",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15af9579_7929296d",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-02-26T20:11:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90ea2e6b_6c49a571",
+      "revId": "2dfe46c8ceda08c490aa6104e008907902559643",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
