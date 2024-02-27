@@ -18,6 +18,24 @@
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "45c217d2_282b4559",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-02-27T15:57:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c5ddb82_ee67a1f8",
+      "revId": "9e19ab81eec47cbc018e1317da5c6210d6fa6556",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4efd88e_4d4412c9",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-02-27T15:53:57Z",
       "side": 1,
       "message": "Just `bootloader` here, and everywhere below.",
+      "revId": "9e19ab81eec47cbc018e1317da5c6210d6fa6556",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12b9b969_2a51cd94",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-02-27T15:57:59Z",
+      "side": 1,
+      "message": "Done, I\u0027m glad that you caught this!",
+      "parentUuid": "f4efd88e_4d4412c9",
       "revId": "9e19ab81eec47cbc018e1317da5c6210d6fa6556",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
