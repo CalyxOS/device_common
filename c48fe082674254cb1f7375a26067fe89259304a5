@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cc086e6_7eac01b7",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-02-29T18:20:36Z",
+      "side": 1,
+      "message": "flash-all.bat",
+      "revId": "c48fe082674254cb1f7375a26067fe89259304a5",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76ba38df_299afbd3",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-02-29T18:20:36Z",
+      "side": 1,
+      "message": "ping -n $SLEEPDURATION 127.0.0.1 \u003enul",
+      "revId": "c48fe082674254cb1f7375a26067fe89259304a5",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45762396_772977fd",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 1020,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-02-29T18:20:36Z",
+      "side": 1,
+      "message": "flash-base.sh",
+      "revId": "c48fe082674254cb1f7375a26067fe89259304a5",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
