@@ -51,6 +51,24 @@
       "parentUuid": "a0d37a1a_82784b2e",
       "revId": "8221989a12b29751716fabf0f362d0400b473381",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "771db314_2c0f94bf",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-03-04T17:29:38Z",
+      "side": 1,
+      "message": "https://gitlab.com/CalyxOS/calyxos/-/issues/2157 in the future - can revert this part when we get around to doing that.\n\nI think it should be fine, we may want to handle it a bit better in flasher too though.\n\nNot a blocker and should\u0027ve done it a long time ago, but better late than never.",
+      "parentUuid": "961d01f0_f21cb5af",
+      "revId": "8221989a12b29751716fabf0f362d0400b473381",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
