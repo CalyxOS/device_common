@@ -16,6 +16,24 @@
       "message": "It\u0027s possible we haven\u0027t been proactive in removing flash lines that are no longer relevant. For this change to work, we will *need* to remove such lines.",
       "revId": "49d1e42fd9a5f22d049bde8bc2f787b9091ea6ce",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b2fce48_041c8777",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-03-13T20:39:42Z",
+      "side": 1,
+      "message": "Actually, this change does at least some of that!: https://review.calyxos.org/c/CalyxOS/device_common/+/23947",
+      "parentUuid": "0bc8d5c1_0fe6cf37",
+      "revId": "49d1e42fd9a5f22d049bde8bc2f787b9091ea6ce",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
