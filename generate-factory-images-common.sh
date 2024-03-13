@@ -267,43 +267,43 @@ fi
 if test "$FP4" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
-fastboot flash abl_a abl.img
-fastboot flash abl_b abl.img
-fastboot flash aop_a aop.img
-fastboot flash aop_b aop.img
-fastboot flash bluetooth_a bluetooth.img
-fastboot flash bluetooth_b bluetooth.img
-fastboot flash core_nhlos_a core_nhlos.img
-fastboot flash core_nhlos_b core_nhlos.img
-fastboot flash devcfg_a devcfg.img
-fastboot flash devcfg_b devcfg.img
-fastboot flash dsp_a dsp.img
-fastboot flash dsp_b dsp.img
-fastboot flash featenabler_a featenabler.img
-fastboot flash featenabler_b featenabler.img
-fastboot flash hyp_a hyp.img
-fastboot flash hyp_b hyp.img
-fastboot flash imagefv_a imagefv.img
-fastboot flash imagefv_b imagefv.img
-fastboot flash keymaster_a keymaster.img
-fastboot flash keymaster_b keymaster.img
-fastboot flash modem_a modem.img
-fastboot flash modem_b modem.img
-fastboot flash multiimgoem_a multiimgoem.img
-fastboot flash multiimgoem_b multiimgoem.img
-fastboot flash qupfw_a qupfw.img
-fastboot flash qupfw_b qupfw.img
-fastboot flash tz_a tz.img
-fastboot flash tz_b tz.img
-fastboot flash uefisecapp_a uefisecapp.img
-fastboot flash uefisecapp_b uefisecapp.img
-fastboot flash xbl_a xbl.img
-fastboot flash xbl_b xbl.img
-fastboot flash xbl_config_a xbl_config.img
-fastboot flash xbl_config_b xbl_config.img
+fastboot flash abl_a abl.img || exit \$?
+fastboot flash abl_b abl.img || exit \$?
+fastboot flash aop_a aop.img || exit \$?
+fastboot flash aop_b aop.img || exit \$?
+fastboot flash bluetooth_a bluetooth.img || exit \$?
+fastboot flash bluetooth_b bluetooth.img || exit \$?
+fastboot flash core_nhlos_a core_nhlos.img || exit \$?
+fastboot flash core_nhlos_b core_nhlos.img || exit \$?
+fastboot flash devcfg_a devcfg.img || exit \$?
+fastboot flash devcfg_b devcfg.img || exit \$?
+fastboot flash dsp_a dsp.img || exit \$?
+fastboot flash dsp_b dsp.img || exit \$?
+fastboot flash featenabler_a featenabler.img || exit \$?
+fastboot flash featenabler_b featenabler.img || exit \$?
+fastboot flash hyp_a hyp.img || exit \$?
+fastboot flash hyp_b hyp.img || exit \$?
+fastboot flash imagefv_a imagefv.img || exit \$?
+fastboot flash imagefv_b imagefv.img || exit \$?
+fastboot flash keymaster_a keymaster.img || exit \$?
+fastboot flash keymaster_b keymaster.img || exit \$?
+fastboot flash modem_a modem.img || exit \$?
+fastboot flash modem_b modem.img || exit \$?
+fastboot flash multiimgoem_a multiimgoem.img || exit \$?
+fastboot flash multiimgoem_b multiimgoem.img || exit \$?
+fastboot flash qupfw_a qupfw.img || exit \$?
+fastboot flash qupfw_b qupfw.img || exit \$?
+fastboot flash tz_a tz.img || exit \$?
+fastboot flash tz_b tz.img || exit \$?
+fastboot flash uefisecapp_a uefisecapp.img || exit \$?
+fastboot flash uefisecapp_b uefisecapp.img || exit \$?
+fastboot flash xbl_a xbl.img || exit \$?
+fastboot flash xbl_b xbl.img || exit \$?
+fastboot flash xbl_config_a xbl_config.img || exit \$?
+fastboot flash xbl_config_b xbl_config.img || exit \$?
 
-fastboot flash frp frp.img
-fastboot flash devinfo devinfo.img
+fastboot flash frp frp.img || exit \$?
+fastboot flash devinfo devinfo.img || exit \$?
 
 fastboot erase misc
 fastboot erase modemst1
@@ -316,41 +316,41 @@ fi
 if test "$AXOLOTL" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
-fastboot flash ImageFv_a ImageFv.img
-fastboot flash ImageFv_b ImageFv.img
-fastboot flash abl_a abl.img
-fastboot flash abl_b abl.img
-fastboot flash aop_a aop.img
-fastboot flash aop_b aop.img
-fastboot flash bluetooth_a bluetooth.img
-fastboot flash bluetooth_b bluetooth.img
-fastboot flash cmnlib_a cmnlib.img
-fastboot flash cmnlib_b cmnlib.img
-fastboot flash cmnlib64_a cmnlib64.img
-fastboot flash cmnlib64_b cmnlib64.img
-fastboot flash devcfg_a devcfg.img
-fastboot flash devcfg_b devcfg.img
-fastboot flash dsp_a dsp.img
-fastboot flash dsp_b dsp.img
-fastboot flash hyp_a hyp.img
-fastboot flash hyp_b hyp.img
-fastboot flash keymaster_a keymaster.img
-fastboot flash keymaster_b keymaster.img
-fastboot flash modem_a modem.img
-fastboot flash modem_b modem.img
-fastboot flash qupfw_a qupfw.img
-fastboot flash qupfw_b qupfw.img
-fastboot flash storsec_a storsec.img
-fastboot flash storsec_b storsec.img
-fastboot flash tz_a tz.img
-fastboot flash tz_b tz.img
-fastboot flash xbl_a xbl.img
-fastboot flash xbl_b xbl.img
-fastboot flash xbl_config_a xbl_config.img
-fastboot flash xbl_config_b xbl_config.img
+fastboot flash ImageFv_a ImageFv.img || exit \$?
+fastboot flash ImageFv_b ImageFv.img || exit \$?
+fastboot flash abl_a abl.img || exit \$?
+fastboot flash abl_b abl.img || exit \$?
+fastboot flash aop_a aop.img || exit \$?
+fastboot flash aop_b aop.img || exit \$?
+fastboot flash bluetooth_a bluetooth.img || exit \$?
+fastboot flash bluetooth_b bluetooth.img || exit \$?
+fastboot flash cmnlib_a cmnlib.img || exit \$?
+fastboot flash cmnlib_b cmnlib.img || exit \$?
+fastboot flash cmnlib64_a cmnlib64.img || exit \$?
+fastboot flash cmnlib64_b cmnlib64.img || exit \$?
+fastboot flash devcfg_a devcfg.img || exit \$?
+fastboot flash devcfg_b devcfg.img || exit \$?
+fastboot flash dsp_a dsp.img || exit \$?
+fastboot flash dsp_b dsp.img || exit \$?
+fastboot flash hyp_a hyp.img || exit \$?
+fastboot flash hyp_b hyp.img || exit \$?
+fastboot flash keymaster_a keymaster.img || exit \$?
+fastboot flash keymaster_b keymaster.img || exit \$?
+fastboot flash modem_a modem.img || exit \$?
+fastboot flash modem_b modem.img || exit \$?
+fastboot flash qupfw_a qupfw.img || exit \$?
+fastboot flash qupfw_b qupfw.img || exit \$?
+fastboot flash storsec_a storsec.img || exit \$?
+fastboot flash storsec_b storsec.img || exit \$?
+fastboot flash tz_a tz.img || exit \$?
+fastboot flash tz_b tz.img || exit \$?
+fastboot flash xbl_a xbl.img || exit \$?
+fastboot flash xbl_b xbl.img || exit \$?
+fastboot flash xbl_config_a xbl_config.img || exit \$?
+fastboot flash xbl_config_b xbl_config.img || exit \$?
 
-fastboot flash frp frp.img
-fastboot flash devinfo devinfo.bin
+fastboot flash frp frp.img || exit \$?
+fastboot flash devinfo devinfo.bin || exit \$?
 
 fastboot --set-active=a reboot-bootloader
 sleep $SLEEPDURATION
@@ -361,44 +361,44 @@ then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
 fastboot oem fb_mode_set
 
-fastboot flash partition partition.img
+fastboot flash partition partition.img || exit \$?
 
-fastboot flash keymaster_a keymaster.img
-fastboot flash keymaster_b keymaster.img
-fastboot flash hyp_a hyp.img
-fastboot flash hyp_b hyp.img
-fastboot flash tz_a tz.img
-fastboot flash tz_b tz.img
-fastboot flash devcfg_a devcfg.img
-fastboot flash devcfg_b devcfg.img
-fastboot flash storsec_a storsec.img
-fastboot flash storsec_b storsec.img
-fastboot flash prov_a prov.img
-fastboot flash prov_b prov.img
-fastboot flash rpm_a rpm.img
-fastboot flash rpm_b rpm.img
-fastboot flash abl_a abl.img
-fastboot flash abl_b abl.img
-fastboot flash uefisecapp_a uefisecapp.img
-fastboot flash uefisecapp_b uefisecapp.img
-fastboot flash qupfw_a qupfw.img
-fastboot flash qupfw_b qupfw.img
-fastboot flash xbl_config_a xbl_config.img
-fastboot flash xbl_config_b xbl_config.img
-fastboot flash xbl_a xbl.img
-fastboot flash xbl_b xbl.img
+fastboot flash keymaster_a keymaster.img || exit \$?
+fastboot flash keymaster_b keymaster.img || exit \$?
+fastboot flash hyp_a hyp.img || exit \$?
+fastboot flash hyp_b hyp.img || exit \$?
+fastboot flash tz_a tz.img || exit \$?
+fastboot flash tz_b tz.img || exit \$?
+fastboot flash devcfg_a devcfg.img || exit \$?
+fastboot flash devcfg_b devcfg.img || exit \$?
+fastboot flash storsec_a storsec.img || exit \$?
+fastboot flash storsec_b storsec.img || exit \$?
+fastboot flash prov_a prov.img || exit \$?
+fastboot flash prov_b prov.img || exit \$?
+fastboot flash rpm_a rpm.img || exit \$?
+fastboot flash rpm_b rpm.img || exit \$?
+fastboot flash abl_a abl.img || exit \$?
+fastboot flash abl_b abl.img || exit \$?
+fastboot flash uefisecapp_a uefisecapp.img || exit \$?
+fastboot flash uefisecapp_b uefisecapp.img || exit \$?
+fastboot flash qupfw_a qupfw.img || exit \$?
+fastboot flash qupfw_b qupfw.img || exit \$?
+fastboot flash xbl_config_a xbl_config.img || exit \$?
+fastboot flash xbl_config_b xbl_config.img || exit \$?
+fastboot flash xbl_a xbl.img || exit \$?
+fastboot flash xbl_b xbl.img || exit \$?
 
-fastboot flash modem_a modem.img
-fastboot flash modem_b modem.img
-fastboot flash fsg_a fsg.img
-fastboot flash fsg_b fsg.img
+fastboot flash modem_a modem.img || exit \$?
+fastboot flash modem_b modem.img || exit \$?
+fastboot flash fsg_a fsg.img || exit \$?
+fastboot flash fsg_b fsg.img || exit \$?
 
-fastboot flash bluetooth_a bluetooth.img
-fastboot flash bluetooth_b bluetooth.img
-fastboot flash dsp_a dsp.img
-fastboot flash dsp_b dsp.img
-fastboot flash logo_a logo.img
-fastboot flash logo_b logo.img
+fastboot flash bluetooth_a bluetooth.img || exit \$?
+fastboot flash bluetooth_b bluetooth.img || exit \$?
+fastboot flash dsp_a dsp.img || exit \$?
+fastboot flash dsp_b dsp.img || exit \$?
+fastboot flash logo_a logo.img || exit \$?
+fastboot flash logo_b logo.img || exit \$?
 
 fastboot erase ddr
 
@@ -414,7 +414,7 @@ EOF
 if test "$AVB_CUSTOM_KEY" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
-fastboot flash avb_custom_key avb_custom_key.img
+fastboot flash avb_custom_key avb_custom_key.img || exit \$?
 EOF
 fi
 cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
@@ -442,8 +442,7 @@ cat > tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
 :: limitations under the License.
 
 PATH=%PATH%;"%SYSTEMROOT%\System32"
-fastboot getvar product 2>&1 | findstr /r /c:"^product: $FASTBOOT_PRODUCT" || echo "Factory image and device do not match. Please double check"
-fastboot getvar product 2>&1 | findstr /r /c:"^product: $FASTBOOT_PRODUCT" || exit /B 1
+fastboot getvar product 2>&1 | findstr /r /c:"^product: $FASTBOOT_PRODUCT" || ( echo "Factory image and device do not match. Please double check" && exit /B 1 )
 EOF
 if test "$UNLOCKBOOTLOADER" = "true"
 then
@@ -486,43 +485,43 @@ fi
 if test "$FP4" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
-fastboot flash abl_a abl.img
-fastboot flash abl_b abl.img
-fastboot flash aop_a aop.img
-fastboot flash aop_b aop.img
-fastboot flash bluetooth_a bluetooth.img
-fastboot flash bluetooth_b bluetooth.img
-fastboot flash core_nhlos_a core_nhlos.img
-fastboot flash core_nhlos_b core_nhlos.img
-fastboot flash devcfg_a devcfg.img
-fastboot flash devcfg_b devcfg.img
-fastboot flash dsp_a dsp.img
-fastboot flash dsp_b dsp.img
-fastboot flash featenabler_a featenabler.img
-fastboot flash featenabler_b featenabler.img
-fastboot flash hyp_a hyp.img
-fastboot flash hyp_b hyp.img
-fastboot flash imagefv_a imagefv.img
-fastboot flash imagefv_b imagefv.img
-fastboot flash keymaster_a keymaster.img
-fastboot flash keymaster_b keymaster.img
-fastboot flash modem_a modem.img
-fastboot flash modem_b modem.img
-fastboot flash multiimgoem_a multiimgoem.img
-fastboot flash multiimgoem_b multiimgoem.img
-fastboot flash qupfw_a qupfw.img
-fastboot flash qupfw_b qupfw.img
-fastboot flash tz_a tz.img
-fastboot flash tz_b tz.img
-fastboot flash uefisecapp_a uefisecapp.img
-fastboot flash uefisecapp_b uefisecapp.img
-fastboot flash xbl_a xbl.img
-fastboot flash xbl_b xbl.img
-fastboot flash xbl_config_a xbl_config.img
-fastboot flash xbl_config_b xbl_config.img
+fastboot flash abl_a abl.img || exit /B 1
+fastboot flash abl_b abl.img || exit /B 1
+fastboot flash aop_a aop.img || exit /B 1
+fastboot flash aop_b aop.img || exit /B 1
+fastboot flash bluetooth_a bluetooth.img || exit /B 1
+fastboot flash bluetooth_b bluetooth.img || exit /B 1
+fastboot flash core_nhlos_a core_nhlos.img || exit /B 1
+fastboot flash core_nhlos_b core_nhlos.img || exit /B 1
+fastboot flash devcfg_a devcfg.img || exit /B 1
+fastboot flash devcfg_b devcfg.img || exit /B 1
+fastboot flash dsp_a dsp.img || exit /B 1
+fastboot flash dsp_b dsp.img || exit /B 1
+fastboot flash featenabler_a featenabler.img || exit /B 1
+fastboot flash featenabler_b featenabler.img || exit /B 1
+fastboot flash hyp_a hyp.img || exit /B 1
+fastboot flash hyp_b hyp.img || exit /B 1
+fastboot flash imagefv_a imagefv.img || exit /B 1
+fastboot flash imagefv_b imagefv.img || exit /B 1
+fastboot flash keymaster_a keymaster.img || exit /B 1
+fastboot flash keymaster_b keymaster.img || exit /B 1
+fastboot flash modem_a modem.img || exit /B 1
+fastboot flash modem_b modem.img || exit /B 1
+fastboot flash multiimgoem_a multiimgoem.img || exit /B 1
+fastboot flash multiimgoem_b multiimgoem.img || exit /B 1
+fastboot flash qupfw_a qupfw.img || exit /B 1
+fastboot flash qupfw_b qupfw.img || exit /B 1
+fastboot flash tz_a tz.img || exit /B 1
+fastboot flash tz_b tz.img || exit /B 1
+fastboot flash uefisecapp_a uefisecapp.img || exit /B 1
+fastboot flash uefisecapp_b uefisecapp.img || exit /B 1
+fastboot flash xbl_a xbl.img || exit /B 1
+fastboot flash xbl_b xbl.img || exit /B 1
+fastboot flash xbl_config_a xbl_config.img || exit /B 1
+fastboot flash xbl_config_b xbl_config.img || exit /B 1
 
-fastboot flash frp frp.img
-fastboot flash devinfo devinfo.img
+fastboot flash frp frp.img || exit /B 1
+fastboot flash devinfo devinfo.img || exit /B 1
 
 fastboot erase misc
 fastboot erase modemst1
@@ -535,41 +534,41 @@ fi
 if test "$AXOLOTL" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
-fastboot flash ImageFv_a ImageFv.img
-fastboot flash ImageFv_b ImageFv.img
-fastboot flash abl_a abl.img
-fastboot flash abl_b abl.img
-fastboot flash aop_a aop.img
-fastboot flash aop_b aop.img
-fastboot flash bluetooth_a bluetooth.img
-fastboot flash bluetooth_b bluetooth.img
-fastboot flash cmnlib_a cmnlib.img
-fastboot flash cmnlib_b cmnlib.img
-fastboot flash cmnlib64_a cmnlib64.img
-fastboot flash cmnlib64_b cmnlib64.img
-fastboot flash devcfg_a devcfg.img
-fastboot flash devcfg_b devcfg.img
-fastboot flash dsp_a dsp.img
-fastboot flash dsp_b dsp.img
-fastboot flash hyp_a hyp.img
-fastboot flash hyp_b hyp.img
-fastboot flash keymaster_a keymaster.img
-fastboot flash keymaster_b keymaster.img
-fastboot flash modem_a modem.img
-fastboot flash modem_b modem.img
-fastboot flash qupfw_a qupfw.img
-fastboot flash qupfw_b qupfw.img
-fastboot flash storsec_a storsec.img
-fastboot flash storsec_b storsec.img
-fastboot flash tz_a tz.img
-fastboot flash tz_b tz.img
-fastboot flash xbl_a xbl.img
-fastboot flash xbl_b xbl.img
-fastboot flash xbl_config_a xbl_config.img
-fastboot flash xbl_config_b xbl_config.img
+fastboot flash ImageFv_a ImageFv.img || exit /B 1
+fastboot flash ImageFv_b ImageFv.img || exit /B 1
+fastboot flash abl_a abl.img || exit /B 1
+fastboot flash abl_b abl.img || exit /B 1
+fastboot flash aop_a aop.img || exit /B 1
+fastboot flash aop_b aop.img || exit /B 1
+fastboot flash bluetooth_a bluetooth.img || exit /B 1
+fastboot flash bluetooth_b bluetooth.img || exit /B 1
+fastboot flash cmnlib_a cmnlib.img || exit /B 1
+fastboot flash cmnlib_b cmnlib.img || exit /B 1
+fastboot flash cmnlib64_a cmnlib64.img || exit /B 1
+fastboot flash cmnlib64_b cmnlib64.img || exit /B 1
+fastboot flash devcfg_a devcfg.img || exit /B 1
+fastboot flash devcfg_b devcfg.img || exit /B 1
+fastboot flash dsp_a dsp.img || exit /B 1
+fastboot flash dsp_b dsp.img || exit /B 1
+fastboot flash hyp_a hyp.img || exit /B 1
+fastboot flash hyp_b hyp.img || exit /B 1
+fastboot flash keymaster_a keymaster.img || exit /B 1
+fastboot flash keymaster_b keymaster.img || exit /B 1
+fastboot flash modem_a modem.img || exit /B 1
+fastboot flash modem_b modem.img || exit /B 1
+fastboot flash qupfw_a qupfw.img || exit /B 1
+fastboot flash qupfw_b qupfw.img || exit /B 1
+fastboot flash storsec_a storsec.img || exit /B 1
+fastboot flash storsec_b storsec.img || exit /B 1
+fastboot flash tz_a tz.img || exit /B 1
+fastboot flash tz_b tz.img || exit /B 1
+fastboot flash xbl_a xbl.img || exit /B 1
+fastboot flash xbl_b xbl.img || exit /B 1
+fastboot flash xbl_config_a xbl_config.img || exit /B 1
+fastboot flash xbl_config_b xbl_config.img || exit /B 1
 
-fastboot flash frp frp.img
-fastboot flash devinfo devinfo.bin
+fastboot flash frp frp.img || exit /B 1
+fastboot flash devinfo devinfo.bin || exit /B 1
 
 fastboot --set-active=a reboot-bootloader
 ping -n $SLEEPDURATION 127.0.0.1 >nul
@@ -580,44 +579,44 @@ then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
 fastboot oem fb_mode_set
 
-fastboot flash partition partition.img
+fastboot flash partition partition.img || exit /B 1
 
-fastboot flash keymaster_a keymaster.img
-fastboot flash keymaster_b keymaster.img
-fastboot flash hyp_a hyp.img
-fastboot flash hyp_b hyp.img
-fastboot flash tz_a tz.img
-fastboot flash tz_b tz.img
-fastboot flash devcfg_a devcfg.img
-fastboot flash devcfg_b devcfg.img
-fastboot flash storsec_a storsec.img
-fastboot flash storsec_b storsec.img
-fastboot flash prov_a prov.img
-fastboot flash prov_b prov.img
-fastboot flash rpm_a rpm.img
-fastboot flash rpm_b rpm.img
-fastboot flash abl_a abl.img
-fastboot flash abl_b abl.img
-fastboot flash uefisecapp_a uefisecapp.img
-fastboot flash uefisecapp_b uefisecapp.img
-fastboot flash qupfw_a qupfw.img
-fastboot flash qupfw_b qupfw.img
-fastboot flash xbl_config_a xbl_config.img
-fastboot flash xbl_config_b xbl_config.img
-fastboot flash xbl_a xbl.img
-fastboot flash xbl_b xbl.img
+fastboot flash keymaster_a keymaster.img || exit /B 1
+fastboot flash keymaster_b keymaster.img || exit /B 1
+fastboot flash hyp_a hyp.img || exit /B 1
+fastboot flash hyp_b hyp.img || exit /B 1
+fastboot flash tz_a tz.img || exit /B 1
+fastboot flash tz_b tz.img || exit /B 1
+fastboot flash devcfg_a devcfg.img || exit /B 1
+fastboot flash devcfg_b devcfg.img || exit /B 1
+fastboot flash storsec_a storsec.img || exit /B 1
+fastboot flash storsec_b storsec.img || exit /B 1
+fastboot flash prov_a prov.img || exit /B 1
+fastboot flash prov_b prov.img || exit /B 1
+fastboot flash rpm_a rpm.img || exit /B 1
+fastboot flash rpm_b rpm.img || exit /B 1
+fastboot flash abl_a abl.img || exit /B 1
+fastboot flash abl_b abl.img || exit /B 1
+fastboot flash uefisecapp_a uefisecapp.img || exit /B 1
+fastboot flash uefisecapp_b uefisecapp.img || exit /B 1
+fastboot flash qupfw_a qupfw.img || exit /B 1
+fastboot flash qupfw_b qupfw.img || exit /B 1
+fastboot flash xbl_config_a xbl_config.img || exit /B 1
+fastboot flash xbl_config_b xbl_config.img || exit /B 1
+fastboot flash xbl_a xbl.img || exit /B 1
+fastboot flash xbl_b xbl.img || exit /B 1
 
-fastboot flash modem_a modem.img
-fastboot flash modem_b modem.img
-fastboot flash fsg_a fsg.img
-fastboot flash fsg_b fsg.img
+fastboot flash modem_a modem.img || exit /B 1
+fastboot flash modem_b modem.img || exit /B 1
+fastboot flash fsg_a fsg.img || exit /B 1
+fastboot flash fsg_b fsg.img || exit /B 1
 
-fastboot flash bluetooth_a bluetooth.img
-fastboot flash bluetooth_b bluetooth.img
-fastboot flash dsp_a dsp.img
-fastboot flash dsp_b dsp.img
-fastboot flash logo_a logo.img
-fastboot flash logo_b logo.img
+fastboot flash bluetooth_a bluetooth.img || exit /B 1
+fastboot flash bluetooth_b bluetooth.img || exit /B 1
+fastboot flash dsp_a dsp.img || exit /B 1
+fastboot flash dsp_b dsp.img || exit /B 1
+fastboot flash logo_a logo.img || exit /B 1
+fastboot flash logo_b logo.img || exit /B 1
 
 fastboot erase ddr
 
@@ -633,7 +632,7 @@ EOF
 if test "$AVB_CUSTOM_KEY" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
-fastboot flash avb_custom_key avb_custom_key.img
+fastboot flash avb_custom_key avb_custom_key.img || exit /B 1
 EOF
 fi
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
@@ -699,46 +698,46 @@ fi
 if test "$FP4" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
-fastboot flash abl_a abl.img
-fastboot flash abl_b abl.img
-fastboot flash aop_a aop.img
-fastboot flash aop_b aop.img
-fastboot flash bluetooth_a bluetooth.img
-fastboot flash bluetooth_b bluetooth.img
-fastboot flash core_nhlos_a core_nhlos.img
-fastboot flash core_nhlos_b core_nhlos.img
-fastboot flash devcfg_a devcfg.img
-fastboot flash devcfg_b devcfg.img
-fastboot flash dsp_a dsp.img
-fastboot flash dsp_b dsp.img
-fastboot flash featenabler_a featenabler.img
-fastboot flash featenabler_b featenabler.img
-fastboot flash hyp_a hyp.img
-fastboot flash hyp_b hyp.img
-fastboot flash imagefv_a imagefv.img
-fastboot flash imagefv_b imagefv.img
-fastboot flash keymaster_a keymaster.img
-fastboot flash keymaster_b keymaster.img
-fastboot flash modem_a modem.img
-fastboot flash modem_b modem.img
-fastboot flash multiimgoem_a multiimgoem.img
-fastboot flash multiimgoem_b multiimgoem.img
-fastboot flash qupfw_a qupfw.img
-fastboot flash qupfw_b qupfw.img
-fastboot flash tz_a tz.img
-fastboot flash tz_b tz.img
-fastboot flash uefisecapp_a uefisecapp.img
-fastboot flash uefisecapp_b uefisecapp.img
-fastboot flash xbl_a xbl.img
-fastboot flash xbl_b xbl.img
-fastboot flash xbl_config_a xbl_config.img
-fastboot flash xbl_config_b xbl_config.img
+fastboot flash abl_a abl.img || exit \$?
+fastboot flash abl_b abl.img || exit \$?
+fastboot flash aop_a aop.img || exit \$?
+fastboot flash aop_b aop.img || exit \$?
+fastboot flash bluetooth_a bluetooth.img || exit \$?
+fastboot flash bluetooth_b bluetooth.img || exit \$?
+fastboot flash core_nhlos_a core_nhlos.img || exit \$?
+fastboot flash core_nhlos_b core_nhlos.img || exit \$?
+fastboot flash devcfg_a devcfg.img || exit \$?
+fastboot flash devcfg_b devcfg.img || exit \$?
+fastboot flash dsp_a dsp.img || exit \$?
+fastboot flash dsp_b dsp.img || exit \$?
+fastboot flash featenabler_a featenabler.img || exit \$?
+fastboot flash featenabler_b featenabler.img || exit \$?
+fastboot flash hyp_a hyp.img || exit \$?
+fastboot flash hyp_b hyp.img || exit \$?
+fastboot flash imagefv_a imagefv.img || exit \$?
+fastboot flash imagefv_b imagefv.img || exit \$?
+fastboot flash keymaster_a keymaster.img || exit \$?
+fastboot flash keymaster_b keymaster.img || exit \$?
+fastboot flash modem_a modem.img || exit \$?
+fastboot flash modem_b modem.img || exit \$?
+fastboot flash multiimgoem_a multiimgoem.img || exit \$?
+fastboot flash multiimgoem_b multiimgoem.img || exit \$?
+fastboot flash qupfw_a qupfw.img || exit \$?
+fastboot flash qupfw_b qupfw.img || exit \$?
+fastboot flash tz_a tz.img || exit \$?
+fastboot flash tz_b tz.img || exit \$?
+fastboot flash uefisecapp_a uefisecapp.img || exit \$?
+fastboot flash uefisecapp_b uefisecapp.img || exit \$?
+fastboot flash xbl_a xbl.img || exit \$?
+fastboot flash xbl_b xbl.img || exit \$?
+fastboot flash xbl_config_a xbl_config.img || exit \$?
+fastboot flash xbl_config_b xbl_config.img || exit \$?
 
-fastboot flash userdata userdata.img
-fastboot flash metadata metadata.img
+fastboot flash userdata userdata.img || exit \$?
+fastboot flash metadata metadata.img || exit \$?
 
-fastboot flash frp frp.img
-fastboot flash devinfo devinfo.img
+fastboot flash frp frp.img || exit \$?
+fastboot flash devinfo devinfo.img || exit \$?
 
 fastboot erase misc
 fastboot erase modemst1
@@ -751,41 +750,41 @@ fi
 if test "$AXOLOTL" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
-fastboot flash ImageFv_a ImageFv.img
-fastboot flash ImageFv_b ImageFv.img
-fastboot flash abl_a abl.img
-fastboot flash abl_b abl.img
-fastboot flash aop_a aop.img
-fastboot flash aop_b aop.img
-fastboot flash bluetooth_a bluetooth.img
-fastboot flash bluetooth_b bluetooth.img
-fastboot flash cmnlib_a cmnlib.img
-fastboot flash cmnlib_b cmnlib.img
-fastboot flash cmnlib64_a cmnlib64.img
-fastboot flash cmnlib64_b cmnlib64.img
-fastboot flash devcfg_a devcfg.img
-fastboot flash devcfg_b devcfg.img
-fastboot flash dsp_a dsp.img
-fastboot flash dsp_b dsp.img
-fastboot flash hyp_a hyp.img
-fastboot flash hyp_b hyp.img
-fastboot flash keymaster_a keymaster.img
-fastboot flash keymaster_b keymaster.img
-fastboot flash modem_a modem.img
-fastboot flash modem_b modem.img
-fastboot flash qupfw_a qupfw.img
-fastboot flash qupfw_b qupfw.img
-fastboot flash storsec_a storsec.img
-fastboot flash storsec_b storsec.img
-fastboot flash tz_a tz.img
-fastboot flash tz_b tz.img
-fastboot flash xbl_a xbl.img
-fastboot flash xbl_b xbl.img
-fastboot flash xbl_config_a xbl_config.img
-fastboot flash xbl_config_b xbl_config.img
+fastboot flash ImageFv_a ImageFv.img || exit \$?
+fastboot flash ImageFv_b ImageFv.img || exit \$?
+fastboot flash abl_a abl.img || exit \$?
+fastboot flash abl_b abl.img || exit \$?
+fastboot flash aop_a aop.img || exit \$?
+fastboot flash aop_b aop.img || exit \$?
+fastboot flash bluetooth_a bluetooth.img || exit \$?
+fastboot flash bluetooth_b bluetooth.img || exit \$?
+fastboot flash cmnlib_a cmnlib.img || exit \$?
+fastboot flash cmnlib_b cmnlib.img || exit \$?
+fastboot flash cmnlib64_a cmnlib64.img || exit \$?
+fastboot flash cmnlib64_b cmnlib64.img || exit \$?
+fastboot flash devcfg_a devcfg.img || exit \$?
+fastboot flash devcfg_b devcfg.img || exit \$?
+fastboot flash dsp_a dsp.img || exit \$?
+fastboot flash dsp_b dsp.img || exit \$?
+fastboot flash hyp_a hyp.img || exit \$?
+fastboot flash hyp_b hyp.img || exit \$?
+fastboot flash keymaster_a keymaster.img || exit \$?
+fastboot flash keymaster_b keymaster.img || exit \$?
+fastboot flash modem_a modem.img || exit \$?
+fastboot flash modem_b modem.img || exit \$?
+fastboot flash qupfw_a qupfw.img || exit \$?
+fastboot flash qupfw_b qupfw.img || exit \$?
+fastboot flash storsec_a storsec.img || exit \$?
+fastboot flash storsec_b storsec.img || exit \$?
+fastboot flash tz_a tz.img || exit \$?
+fastboot flash tz_b tz.img || exit \$?
+fastboot flash xbl_a xbl.img || exit \$?
+fastboot flash xbl_b xbl.img || exit \$?
+fastboot flash xbl_config_a xbl_config.img || exit \$?
+fastboot flash xbl_config_b xbl_config.img || exit \$?
 
-fastboot flash frp frp.img
-fastboot flash devinfo devinfo.bin
+fastboot flash frp frp.img || exit \$?
+fastboot flash devinfo devinfo.bin || exit \$?
 
 fastboot --set-active=a reboot-bootloader
 sleep $SLEEPDURATION
@@ -796,44 +795,44 @@ then
 cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
 fastboot oem fb_mode_set
 
-fastboot flash partition partition.img
+fastboot flash partition partition.img || exit \$?
 
-fastboot flash keymaster_a keymaster.img
-fastboot flash keymaster_b keymaster.img
-fastboot flash hyp_a hyp.img
-fastboot flash hyp_b hyp.img
-fastboot flash tz_a tz.img
-fastboot flash tz_b tz.img
-fastboot flash devcfg_a devcfg.img
-fastboot flash devcfg_b devcfg.img
-fastboot flash storsec_a storsec.img
-fastboot flash storsec_b storsec.img
-fastboot flash prov_a prov.img
-fastboot flash prov_b prov.img
-fastboot flash rpm_a rpm.img
-fastboot flash rpm_b rpm.img
-fastboot flash abl_a abl.img
-fastboot flash abl_b abl.img
-fastboot flash uefisecapp_a uefisecapp.img
-fastboot flash uefisecapp_b uefisecapp.img
-fastboot flash qupfw_a qupfw.img
-fastboot flash qupfw_b qupfw.img
-fastboot flash xbl_config_a xbl_config.img
-fastboot flash xbl_config_b xbl_config.img
-fastboot flash xbl_a xbl.img
-fastboot flash xbl_b xbl.img
+fastboot flash keymaster_a keymaster.img || exit \$?
+fastboot flash keymaster_b keymaster.img || exit \$?
+fastboot flash hyp_a hyp.img || exit \$?
+fastboot flash hyp_b hyp.img || exit \$?
+fastboot flash tz_a tz.img || exit \$?
+fastboot flash tz_b tz.img || exit \$?
+fastboot flash devcfg_a devcfg.img || exit \$?
+fastboot flash devcfg_b devcfg.img || exit \$?
+fastboot flash storsec_a storsec.img || exit \$?
+fastboot flash storsec_b storsec.img || exit \$?
+fastboot flash prov_a prov.img || exit \$?
+fastboot flash prov_b prov.img || exit \$?
+fastboot flash rpm_a rpm.img || exit \$?
+fastboot flash rpm_b rpm.img || exit \$?
+fastboot flash abl_a abl.img || exit \$?
+fastboot flash abl_b abl.img || exit \$?
+fastboot flash uefisecapp_a uefisecapp.img || exit \$?
+fastboot flash uefisecapp_b uefisecapp.img || exit \$?
+fastboot flash qupfw_a qupfw.img || exit \$?
+fastboot flash qupfw_b qupfw.img || exit \$?
+fastboot flash xbl_config_a xbl_config.img || exit \$?
+fastboot flash xbl_config_b xbl_config.img || exit \$?
+fastboot flash xbl_a xbl.img || exit \$?
+fastboot flash xbl_b xbl.img || exit \$?
 
-fastboot flash modem_a modem.img
-fastboot flash modem_b modem.img
-fastboot flash fsg_a fsg.img
-fastboot flash fsg_b fsg.img
+fastboot flash modem_a modem.img || exit \$?
+fastboot flash modem_b modem.img || exit \$?
+fastboot flash fsg_a fsg.img || exit \$?
+fastboot flash fsg_b fsg.img || exit \$?
 
-fastboot flash bluetooth_a bluetooth.img
-fastboot flash bluetooth_b bluetooth.img
-fastboot flash dsp_a dsp.img
-fastboot flash dsp_b dsp.img
-fastboot flash logo_a logo.img
-fastboot flash logo_b logo.img
+fastboot flash bluetooth_a bluetooth.img || exit \$?
+fastboot flash bluetooth_b bluetooth.img || exit \$?
+fastboot flash dsp_a dsp.img || exit \$?
+fastboot flash dsp_b dsp.img || exit \$?
+fastboot flash logo_a logo.img || exit \$?
+fastboot flash logo_b logo.img || exit \$?
 
 fastboot erase ddr
 
@@ -849,7 +848,7 @@ EOF
 if test "$AVB_CUSTOM_KEY" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
-fastboot flash avb_custom_key avb_custom_key.img
+fastboot flash avb_custom_key avb_custom_key.img || exit \$?
 EOF
 fi
 chmod a+x tmp/$PRODUCT-$VERSION/flash-base.sh
