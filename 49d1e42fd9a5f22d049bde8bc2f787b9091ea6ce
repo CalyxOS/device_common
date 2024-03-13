@@ -69,6 +69,24 @@
       "parentUuid": "0aea9edb_ac907376",
       "revId": "49d1e42fd9a5f22d049bde8bc2f787b9091ea6ce",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3506b8f1_0edffb67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-03-13T21:37:29Z",
+      "side": 1,
+      "message": "^ Having said the above, I wonder if it would be better and easier to have the `|| exit` only for the very first partition that requires unlock_critical, which we should make sure is always the first partition tried.",
+      "parentUuid": "806476ec_d29cecd7",
+      "revId": "49d1e42fd9a5f22d049bde8bc2f787b9091ea6ce",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
