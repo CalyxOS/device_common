@@ -16,6 +16,24 @@
       "message": "TODO.\n\nSuper easy though, can do it for a bunch to be sure.",
       "revId": "15bd4862f6835cf694073ba79f1c2e674ab77e1e",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82933c27_d723ffd6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-03-14T14:01:04Z",
+      "side": 1,
+      "message": "Tested generation with https://review.calyxos.org/c/CalyxOS/vendor_calyx/+/25217 (no target files provided).\n\nGeneration looks good, no changes to scripts for any device in vars/devices.",
+      "parentUuid": "043c5991_79ef1129",
+      "revId": "15bd4862f6835cf694073ba79f1c2e674ab77e1e",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
