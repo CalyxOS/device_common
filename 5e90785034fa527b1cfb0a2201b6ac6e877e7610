@@ -16,6 +16,23 @@
       "message": "I\u0027ve tested each of the modifications and ensured they work on the appropriate platforms, but I haven\u0027t tested generating scripts yet.\n\nThis is an easy option that I know will help prevent FP4/FP5 bricks without us needing to worry about anything else. That\u0027s why I decided to submit it, in case we get stuck on the other options for too long.",
       "revId": "5e90785034fa527b1cfb0a2201b6ac6e877e7610",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de58a7ba_f4a16e46",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-03-14T13:13:29Z",
+      "side": 1,
+      "message": "Actually generate scripts and check+try those",
+      "revId": "5e90785034fa527b1cfb0a2201b6ac6e877e7610",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
