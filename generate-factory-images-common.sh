@@ -102,6 +102,8 @@ EOF
 generate_license_linux
 cat << EOF
 
+set -eu
+
 fastboot_version="\$("\$(which fastboot)" --version | grep "^fastboot version" | cut -c18-23 | sed 's/\.//g' )"
 if ! [ "\${fastboot_version:-0}" -ge 3301 ]; then
   echo "fastboot too old; please download the latest version at https://developer.android.com/studio/releases/platform-tools.html"
