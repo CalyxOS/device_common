@@ -305,22 +305,22 @@ fi
 if test "$BOOTLOADER" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
-fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img || exit \$?
-fastboot --set-active=other reboot-bootloader || exit \$?
+fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img
+fastboot --set-active=other reboot-bootloader
 sleep $SLEEPDURATION
-fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img || exit \$?
-fastboot --set-active=other reboot-bootloader || exit \$?
+fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img
+fastboot --set-active=other reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 fi
 if test "$RADIO" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
-fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img || exit \$?
-fastboot --set-active=other reboot-bootloader || exit \$?
+fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img
+fastboot --set-active=other reboot-bootloader
 sleep $SLEEPDURATION
-fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img || exit \$?
-fastboot --set-active=other reboot-bootloader || exit \$?
+fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img
+fastboot --set-active=other reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 fi
@@ -861,22 +861,22 @@ EOF
 if test "$BOOTLOADER" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
-fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img || exit \$?
-fastboot --set-active=other reboot-bootloader || exit \$?
+fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img
+fastboot --set-active=other reboot-bootloader
 sleep $SLEEPDURATION
-fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img || exit \$?
-fastboot --set-active=other reboot-bootloader || exit \$?
+fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img
+fastboot --set-active=other reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 fi
 if test "$RADIO" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
-fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img || exit \$?
-fastboot --set-active=other reboot-bootloader || exit \$?
+fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img
+fastboot --set-active=other reboot-bootloader
 sleep $SLEEPDURATION
-fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img || exit \$?
-fastboot --set-active=other reboot-bootloader || exit \$?
+fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img
+fastboot --set-active=other reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 fi
