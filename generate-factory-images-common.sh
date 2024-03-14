@@ -69,10 +69,8 @@ then
 fi
 cp -r tmp/VENDOR/firmware/$GSCFIRMWARESRC/* tmp/$PRODUCT-$VERSION
 
-# Write flash-all.sh
-cat > tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
-#!/bin/sh
-
+generate_license_linux() {
+cat << EOF
 # Copyright 2012 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -86,21 +84,39 @@ cat > tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+EOF
+}
+
+generate_license_windows() {
+generate_license_linux | sed -e 's/^#/::/'
+}
+
+# Write flash-all.sh
+generate_header_linux() {
+cat << EOF
+#!/bin/sh
+
+EOF
+generate_license_linux
+cat << EOF
 
 if ! [ \$(\$(which fastboot) --version | grep "version" | cut -c18-23 | sed 's/\.//g' ) -ge 3301 ]; then
   echo "fastboot too old; please download the latest version at https://developer.android.com/studio/releases/platform-tools.html"
   exit 1
 fi
 EOF
+}
+
+generate_unlock_and_erase_commands() {
 if test "$UNLOCKBOOTLOADER" = "true"
 then
-cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+cat << EOF
 fastboot oem unlock
 EOF
 fi
 if test "$ERASEALL" = "true"
 then
-cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+cat << EOF
 fastboot erase boot
 fastboot erase cache
 fastboot erase recovery
@@ -108,9 +124,12 @@ fastboot erase system
 fastboot erase userdata
 EOF
 fi
+}
+
+generate_baseband_commands_generic_linux() {
 if test "$BOOTLOADER" != ""
 then
-cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+cat << EOF
 fastboot flash bootloader bootloader-$DEVICE-$BOOTLOADER.img
 fastboot reboot-bootloader
 sleep $SLEEPDURATION
@@ -118,55 +137,42 @@ EOF
 fi
 if test "$RADIO" != ""
 then
-cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+cat << EOF
 fastboot flash radio radio-$DEVICE-$RADIO.img
 fastboot reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 fi
-cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+}
+
+generate_header_linux > tmp/$PRODUCT-$VERSION/flash-all.sh
+generate_unlock_and_erase_commands >> tmp/$PRODUCT-$VERSION/flash-all.sh
+generate_baseband_commands_generic_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
+generate_update_image_commands_linux() {
+cat << EOF
 fastboot -w update image-$PRODUCT-$VERSION.zip
 EOF
+}
+generate_update_image_commands_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
 chmod a+x tmp/$PRODUCT-$VERSION/flash-all.sh
 
 # Write flash-all.bat
-cat > tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+generate_header_windows() {
+cat << EOF
 @ECHO OFF
-:: Copyright 2012 The Android Open Source Project
-::
-:: Licensed under the Apache License, Version 2.0 (the "License");
-:: you may not use this file except in compliance with the License.
-:: You may obtain a copy of the License at
-::
-::      http://www.apache.org/licenses/LICENSE-2.0
-::
-:: Unless required by applicable law or agreed to in writing, software
-:: distributed under the License is distributed on an "AS IS" BASIS,
-:: WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-:: See the License for the specific language governing permissions and
-:: limitations under the License.
+
+EOF
+generate_license_windows
+cat << EOF
 
 PATH=%PATH%;"%SYSTEMROOT%\System32"
 EOF
-if test "$UNLOCKBOOTLOADER" = "true"
-then
-cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
-fastboot oem unlock
-EOF
-fi
-if test "$ERASEALL" = "true"
-then
-cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
-fastboot erase boot
-fastboot erase cache
-fastboot erase recovery
-fastboot erase system
-fastboot erase userdata
-EOF
-fi
+}
+
+generate_baseband_commands_generic_windows() {
 if test "$BOOTLOADER" != ""
 then
-cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+cat << EOF
 fastboot flash bootloader bootloader-$DEVICE-$BOOTLOADER.img
 fastboot reboot-bootloader
 ping -n $SLEEPDURATION 127.0.0.1 >nul
@@ -174,14 +180,23 @@ EOF
 fi
 if test "$RADIO" != ""
 then
-cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+cat << EOF
 fastboot flash radio radio-$DEVICE-$RADIO.img
 fastboot reboot-bootloader
 ping -n $SLEEPDURATION 127.0.0.1 >nul
 EOF
-fi
-cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+}
+
+generate_header_windows > tmp/$PRODUCT-$VERSION/flash-all.bat
+generate_unlock_and_erase_commands >> tmp/$PRODUCT-$VERSION/flash-all.bat
+generate_baseband_commands_generic_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
+generate_update_image_commands_windows() {
+cat << EOF
 fastboot -w update image-$PRODUCT-$VERSION.zip
+EOF
+}
+generate_update_image_commands_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
+cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
 
 echo Press any key to exit...
 pause >nul
@@ -189,48 +204,8 @@ exit
 EOF
 
 # Write flash-base.sh
-cat > tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
-#!/bin/sh
-
-# Copyright 2012 The Android Open Source Project
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-if ! [ \$(\$(which fastboot) --version | grep "version" | cut -c18-23 | sed 's/\.//g' ) -ge 3301 ]; then
-  echo "fastboot too old; please download the latest version at https://developer.android.com/studio/releases/platform-tools.html"
-  exit 1
-fi
-EOF
-if test "$BOOTLOADER" != ""
-then
-cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
-fastboot flash bootloader bootloader-$DEVICE-$BOOTLOADER.img
-fastboot reboot-bootloader
-sleep $SLEEPDURATION
-EOF
-fi
-if test "$RADIO" != ""
-then
-cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
-fastboot flash radio radio-$DEVICE-$RADIO.img
-fastboot reboot-bootloader
-sleep $SLEEPDURATION
-EOF
-fi
-fastboot reboot-bootloader
-sleep $SLEEPDURATION
-EOF
-fi
+generate_header_linux > tmp/$PRODUCT-$VERSION/flash-base.sh
+generate_baseband_commands_generic_linux >> tmp/$PRODUCT-$VERSION/flash-base.sh
 chmod a+x tmp/$PRODUCT-$VERSION/flash-base.sh
 
 # Create the distributable package
