@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7d89b7b_0f38cb26",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-03-14T18:20:20Z",
+      "side": 1,
+      "message": "nit: This string could come from a variable as is done in the \"Recommend using device-flasher\" change, but that could also happen later, maybe after or during dedup.",
+      "revId": "6f601b2452b65f2992db244c357ab91f64a87346",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
