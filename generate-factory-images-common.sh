@@ -13,6 +13,9 @@
 # limitations under the License.
 
 # Use the default values if they weren't explicitly set
+
+readonly NOT_DEVICE_FLASHER_MESSAGE="Use device-flasher to flash your device properly! Enter Y to continue anyway."
+
 if test "$BOOTLOADERSRC" = ""
 then
   BOOTLOADERSRC=bootloader.img
@@ -286,6 +289,13 @@ cat << EOF
 
 set -eu
 
+if test -z "\${DEVICE_FLASHER_VERSION:-}"; then
+  printf '$NOT_DEVICE_FLASHER_MESSAGE '
+  read answer
+  if [ "\$answer" != "Y" ]; then
+    exit 1
+  fi
+fi
 fastboot_version="\$("\$(which fastboot)" --version | grep "^fastboot version" | cut -c18-23 | sed 's/\.//g' )"
 if ! [ "\${fastboot_version:-0}" -ge 3301 ]; then
   echo "fastboot too old; please download the latest version at https://developer.android.com/studio/releases/platform-tools.html"
@@ -563,6 +573,8 @@ EOF
 generate_license_windows
 cat << EOF
 
+if "%DEVICE_FLASHER_VERSION%"=="" choice /M "$NOT_DEVICE_FLASHER_MESSAGE"
+if not %ERRORLEVEL%==1 if "%DEVICE_FLASHER_VERSION%"=="" exit /B 1
 PATH=%PATH%;"%SYSTEMROOT%\System32"
 fastboot getvar product 2>&1 | findstr /r /c:"^product: $FASTBOOT_PRODUCT" || echo "Factory image and device do not match. Please double check"
 fastboot getvar product 2>&1 | findstr /r /c:"^product: $FASTBOOT_PRODUCT" || exit /B 1
