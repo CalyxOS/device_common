@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+readonly NOT_DEVICE_FLASHER_MESSAGE="Use device-flasher to flash your device properly! See install guide at https://calyxos.org for more info. Enter Y to continue anyway."
+
 # Critical variables
 : "${PRODUCT:?Error: PRODUCT variable must be set}"
 : "${VERSION:?Error: VERSION variable must be set}"
@@ -113,6 +115,13 @@ cat << EOF
 
 set -eu
 
+if test -z "\${DEVICE_FLASHER_VERSION:-}"; then
+  printf '$NOT_DEVICE_FLASHER_MESSAGE '
+  read answer
+  if [ "\$answer" != "Y" ]; then
+    exit 1
+  fi
+fi
 fastboot_version="\$("\$(which fastboot)" --version | grep "^fastboot version" | cut -c18-23 | sed 's/\.//g' )"
 if ! [ "\${fastboot_version:-0}" -ge 3301 ]; then
   echo "fastboot too old; please download the latest version at https://developer.android.com/studio/releases/platform-tools.html"
@@ -184,6 +193,8 @@ EOF
 generate_license_windows
 cat << EOF
 
+if "%DEVICE_FLASHER_VERSION%"=="" choice /M "$NOT_DEVICE_FLASHER_MESSAGE"
+if not %ERRORLEVEL%==1 if "%DEVICE_FLASHER_VERSION%"=="" exit /B 1
 PATH=%PATH%;"%SYSTEMROOT%\System32"
 fastboot getvar product 2>&1 | findstr /r /c:"^product: $PRODUCT" || echo "Factory image and device do not match. Please double check"
 fastboot getvar product 2>&1 | findstr /r /c:"^product: $PRODUCT" || exit /B 1
