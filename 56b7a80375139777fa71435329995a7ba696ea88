@@ -51,6 +51,24 @@
       "parentUuid": "8fc6ba8c_a20012bd",
       "revId": "56b7a80375139777fa71435329995a7ba696ea88",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8aa17de4_193a3dfd",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-03-14T18:22:41Z",
+      "side": 1,
+      "message": "Untested https://review.calyxos.org/c/CalyxOS/device-flasher/+/25224 Set flasher version as environment variable",
+      "parentUuid": "ce936435_7f6ee66a",
+      "revId": "56b7a80375139777fa71435329995a7ba696ea88",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
