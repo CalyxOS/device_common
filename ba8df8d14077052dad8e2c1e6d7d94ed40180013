@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b5a35e3_6a27d132",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-03-14T13:08:04Z",
+      "side": 1,
+      "message": "Intentional fixup to avoid blocking shipping of that commit while we discuss this.",
+      "revId": "ba8df8d14077052dad8e2c1e6d7d94ed40180013",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
