@@ -34,6 +34,24 @@
       "parentUuid": "fe1357c0_3d204c5c",
       "revId": "ee8f51c1ac67ef4ae0e3dc69979724ea72091756",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31d8a28c_1dd9e75b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-03-14T14:01:16Z",
+      "side": 1,
+      "message": "Tested generation with https://review.calyxos.org/c/CalyxOS/vendor_calyx/+/25217 (no target files provided).\n\nGeneration looks good to me, changes to devices in vars/devices here: https://zifb.in/kJRKblYbb7",
+      "parentUuid": "7a8ab1f3_b30d8d30",
+      "revId": "ee8f51c1ac67ef4ae0e3dc69979724ea72091756",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
