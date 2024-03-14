@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37528a05_04dc5851",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-03-14T13:24:38Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "cc1a4d9a94f8f8562e7d8a8b7d6a2f3f7558b47a",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc418ed2_4a35bb37",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 8
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-03-14T13:24:38Z",
+      "side": 1,
+      "message": "Commenting here as notes since all the sections below are basically the exact same thing just repeated.",
+      "revId": "cc1a4d9a94f8f8562e7d8a8b7d6a2f3f7558b47a",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "170d46b3_c10072c6",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 8
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-03-14T13:24:38Z",
+      "side": 1,
+      "message": "If device is slot A right now, this\u0027d flash B.\n\nAll slot commands here use other so they work both ways, if you\u0027re in B, this\u0027d flash A, and so on for the rest below.",
+      "revId": "cc1a4d9a94f8f8562e7d8a8b7d6a2f3f7558b47a",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3f84a7a_8d92c400",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 8
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-03-14T13:24:38Z",
+      "side": 1,
+      "message": "This would then boot into B.\nNow, if we had a bad bootloader here, it wouldn\u0027t boot.\n\nHopefully it falls back into A, but if not, tough luck. Not much we can do about that anyways, and it\u0027s the same as before.",
+      "revId": "cc1a4d9a94f8f8562e7d8a8b7d6a2f3f7558b47a",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "797e53a9_38a84af3",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 8
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-03-14T13:24:38Z",
+      "side": 1,
+      "message": "We\u0027d be booted into slot B here. We flash the same bootloader to slot A.\n\nWe know that it works because we\u0027re already running that image, and flashing from it.",
+      "revId": "cc1a4d9a94f8f8562e7d8a8b7d6a2f3f7558b47a",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9abf7ea4_043ae432",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 8
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-03-14T13:24:38Z",
+      "side": 1,
+      "message": "This would boot into A again.\n\nAt this point, we\u0027d have successfully updated both slots, and we know that they work given the above.\n\nIt\u0027d avoid any further mismatches / bricks due to rollback like we\u0027ve seen.",
+      "revId": "cc1a4d9a94f8f8562e7d8a8b7d6a2f3f7558b47a",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
