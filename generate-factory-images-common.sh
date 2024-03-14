@@ -335,7 +335,7 @@ fi
 if test "$FP4" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
-fastboot flash abl_a abl.img
+fastboot flash abl_a abl.img || { echo 'WARNING: Use device-flasher or be sure to unlock critical to avoid bricking your device!'; exit \$?; }
 fastboot flash abl_b abl.img
 fastboot flash aop_a aop.img
 fastboot flash aop_b aop.img
@@ -386,7 +386,7 @@ fi
 if test "$FP5" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
-fastboot flash abl_a abl.img
+fastboot flash abl_a abl.img || { echo 'WARNING: Use device-flasher or be sure to unlock critical to avoid bricking your device!'; exit \$?; }
 fastboot flash abl_b abl.img
 fastboot flash aop_a aop.img
 fastboot flash aop_b aop.img
@@ -621,7 +621,7 @@ fi
 if test "$FP4" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
-fastboot flash abl_a abl.img
+fastboot flash abl_a abl.img || ( echo WARNING: Use device-flasher or be sure to unlock critical to avoid bricking your device! && exit /B 1 )
 fastboot flash abl_b abl.img
 fastboot flash aop_a aop.img
 fastboot flash aop_b aop.img
@@ -672,7 +672,7 @@ fi
 if test "$FP5" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
-fastboot flash abl_a abl.img
+fastboot flash abl_a abl.img || ( echo WARNING: Use device-flasher or be sure to unlock critical to avoid bricking your device! && exit /B 1 )
 fastboot flash abl_b abl.img
 fastboot flash aop_a aop.img
 fastboot flash aop_b aop.img
@@ -901,7 +901,7 @@ fi
 if test "$FP4" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
-fastboot flash abl_a abl.img
+fastboot flash abl_a abl.img || { echo 'WARNING: Use device-flasher or be sure to unlock critical to avoid bricking your device!'; exit \$?; }
 fastboot flash abl_b abl.img
 fastboot flash aop_a aop.img
 fastboot flash aop_b aop.img
@@ -955,7 +955,7 @@ fi
 if test "$FP5" != ""
 then
 cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
-fastboot flash abl_a abl.img
+fastboot flash abl_a abl.img || { echo 'WARNING: Use device-flasher or be sure to unlock critical to avoid bricking your device!'; exit \$?; }
 fastboot flash abl_b abl.img
 fastboot flash aop_a aop.img
 fastboot flash aop_b aop.img
