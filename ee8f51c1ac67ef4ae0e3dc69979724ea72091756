@@ -52,6 +52,24 @@
       "parentUuid": "7a8ab1f3_b30d8d30",
       "revId": "ee8f51c1ac67ef4ae0e3dc69979724ea72091756",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "980bb2c0_a0557833",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-03-14T16:29:33Z",
+      "side": 1,
+      "message": "Works fine on lynx",
+      "parentUuid": "31d8a28c_1dd9e75b",
+      "revId": "ee8f51c1ac67ef4ae0e3dc69979724ea72091756",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }

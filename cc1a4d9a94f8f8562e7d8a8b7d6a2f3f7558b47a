@@ -109,6 +109,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "bf9e377f_50a9f27b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-03-14T16:29:33Z",
+      "side": 1,
+      "message": "Pixels are mentioned on the first line.",
+      "parentUuid": "adc0fd5f_b915c4ff",
+      "revId": "cc1a4d9a94f8f8562e7d8a8b7d6a2f3f7558b47a",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "bc418ed2_4a35bb37",
         "filename": "generate-factory-images-common.sh",
         "patchSetId": 8
