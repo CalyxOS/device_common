@@ -87,6 +87,24 @@
       "parentUuid": "806476ec_d29cecd7",
       "revId": "49d1e42fd9a5f22d049bde8bc2f787b9091ea6ce",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94f9cfb9_3b83b6eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-03-14T12:56:14Z",
+      "side": 1,
+      "message": "The issue with any checks has always been duplicating them for windows. No reason to block those for linux, just saying that\u0027s why we did it in flasher, it was easier.\n\nAbout leaving partitions partially flashed - well, that\u0027d have happened either way.",
+      "parentUuid": "3506b8f1_0edffb67",
+      "revId": "49d1e42fd9a5f22d049bde8bc2f787b9091ea6ce",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
