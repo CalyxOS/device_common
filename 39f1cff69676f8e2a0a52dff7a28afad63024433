@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a3aa089_84d5e39f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-03-14T13:08:59Z",
+      "side": 1,
+      "message": "Alternative solution: 25215: flash-*.sh: set -euo pipefail | https://review.calyxos.org/c/CalyxOS/device_common/+/25215",
+      "revId": "39f1cff69676f8e2a0a52dff7a28afad63024433",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
