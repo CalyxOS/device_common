@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1bfad30_c748e4e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-03-14T18:18:55Z",
+      "side": 1,
+      "message": "Tested with generated scripts for FP5 based on this and the parent change (Stop flash if first partition fails), on Linux and Windows. Both are working as expected.\n\nOn Linux, you have to press Enter after pressing Y, and it needs to be a capital Y. I think that\u0027s fine.",
+      "revId": "56b7a80375139777fa71435329995a7ba696ea88",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8fc6ba8c_a20012bd",
@@ -14,6 +31,24 @@
       "writtenOn": "2024-03-14T18:14:04Z",
       "side": 1,
       "message": "At least on linux here, I see:\n\n`_\u003d./device-flasher.linux`\n\nBut I don\u0027t know where that\u0027s coming from and if that\u0027s reliable, so setting a dedicated variable like this is best.\n\nI think I\u0027ll set it to the version, and in the future we can do a version detection like below to avoid issues, since that has also caused 1 brick so far.",
+      "revId": "56b7a80375139777fa71435329995a7ba696ea88",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce936435_7f6ee66a",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-03-14T18:18:55Z",
+      "side": 1,
+      "message": "Yep, that sounds good, not sure if that\u0027s reliable either. This just expects the variable to be set to anything at all right now.",
+      "parentUuid": "8fc6ba8c_a20012bd",
       "revId": "56b7a80375139777fa71435329995a7ba696ea88",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
