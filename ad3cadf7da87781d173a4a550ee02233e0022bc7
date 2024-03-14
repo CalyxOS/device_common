@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1407bca3_21c7a02b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-03-14T14:01:34Z",
+      "side": 1,
+      "message": "Tested generation with https://review.calyxos.org/c/CalyxOS/vendor_calyx/+/25217 (no target files provided).\n\nGeneration looks good to me, changes to devices in vars/devices here: https://zifb.in/XU2KntEJba",
+      "revId": "ad3cadf7da87781d173a4a550ee02233e0022bc7",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
