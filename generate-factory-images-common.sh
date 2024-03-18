@@ -581,6 +581,8 @@ do_windows_replacements() {
   sed \
     -e 's/^sleep \([0-9]\+\)$/ping -n \1 127.0.0.1 >nul/' \
     -e 's/|| exit \$?$/|| exit \/B 1/' \
+    -e 's/^\(fastboot .*$\)/\1 || exit \/B 1/' \
+    -e 's/\( || exit \/B 1\)\+$/\1/' \
 
 }
 generate_baseband_commands_generic_windows() {
