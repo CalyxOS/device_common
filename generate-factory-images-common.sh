@@ -273,12 +273,9 @@ cat << EOF
 # limitations under the License.
 EOF
 }
-
 generate_license_windows() {
 generate_license_linux | sed -e 's/^#/::/'
 }
-
-# Write flash-all.sh
 generate_header_linux() {
 cat << EOF
 #!/bin/sh
@@ -300,7 +297,6 @@ if [ \$? -ne 0 ]; then
 fi
 EOF
 }
-
 generate_unlock_and_erase_commands() {
 if test "$UNLOCKBOOTLOADER" = "true"
 then
@@ -319,7 +315,6 @@ fastboot erase userdata
 EOF
 fi
 }
-
 generate_baseband_commands_generic_linux() {
 if test "$BOOTLOADER" != ""
 then
@@ -344,12 +339,6 @@ sleep $SLEEPDURATION
 EOF
 fi
 }
-
-generate_header_linux > tmp/$PRODUCT-$VERSION/flash-all.sh
-generate_unlock_and_erase_commands >> tmp/$PRODUCT-$VERSION/flash-all.sh
-generate_baseband_commands_generic_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
-if test "$FP4" != ""
-then
 generate_baseband_commands_FP4_linux() {
 cat << EOF
 fastboot flash abl_a abl.img || { echo 'WARNING: Use device-flasher or be sure to unlock critical to avoid bricking your device!'; exit \$?; }
@@ -398,10 +387,6 @@ fastboot --set-active=a reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 }
-generate_baseband_commands_FP4_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
-fi
-if test "$FP5" != ""
-then
 generate_baseband_commands_FP5_linux() {
 cat << EOF
 fastboot flash abl_a abl.img || { echo 'WARNING: Use device-flasher or be sure to unlock critical to avoid bricking your device!'; exit \$?; }
@@ -460,10 +445,6 @@ fastboot --set-active=a reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 }
-generate_baseband_commands_FP5_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
-fi
-if test "$AXOLOTL" != ""
-then
 generate_baseband_commands_axolotl_linux() {
 cat << EOF
 fastboot flash ImageFv_a ImageFv.img
@@ -506,10 +487,6 @@ fastboot --set-active=a reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 }
-generate_baseband_commands_axolotl_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
-fi
-if test "$MOTO" != ""
-then
 generate_baseband_commands_moto_linux() {
 cat << EOF
 fastboot oem fb_mode_set
@@ -561,8 +538,6 @@ fastboot --set-active=a reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 }
-generate_baseband_commands_moto_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
-fi
 generate_avb_custom_key_commands_linux() {
 cat << EOF
 fastboot erase avb_custom_key
@@ -574,7 +549,6 @@ fastboot flash avb_custom_key avb_custom_key.img
 EOF
 fi
 }
-generate_avb_custom_key_commands_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
 generate_update_image_commands_linux() {
 cat << EOF
 fastboot --skip-reboot -w update image-$PRODUCT-$VERSION.zip
@@ -582,10 +556,6 @@ fastboot reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 }
-generate_update_image_commands_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
-chmod a+x tmp/$PRODUCT-$VERSION/flash-all.sh
-
-# Write flash-all.bat
 generate_header_windows() {
 cat << EOF
 @ECHO OFF
@@ -599,55 +569,78 @@ fastboot getvar product 2>&1 | findstr /r /c:"^product: $FASTBOOT_PRODUCT" || ec
 fastboot getvar product 2>&1 | findstr /r /c:"^product: $FASTBOOT_PRODUCT" || exit /B 1
 EOF
 }
-
 do_windows_replacements() {
   sed \
     -e 's/^sleep \([0-9]\+\)$/ping -n \1 127.0.0.1 >nul/' \
 
 }
-
 generate_baseband_commands_generic_windows() {
 generate_baseband_commands_generic_linux | do_windows_replacements
 }
+generate_baseband_commands_FP4_windows() {
+generate_baseband_commands_FP4_linux | do_windows_replacements
+}
+generate_baseband_commands_FP5_windows() {
+generate_baseband_commands_FP5_linux | do_windows_replacements
+}
+generate_baseband_commands_axolotl_windows() {
+generate_baseband_commands_axolotl_linux | do_windows_replacements
+}
+generate_baseband_commands_moto_windows() {
+generate_baseband_commands_moto_linux | do_windows_replacements
+}
+generate_avb_custom_key_commands_windows() {
+generate_avb_custom_key_commands_linux | do_windows_replacements
+}
+generate_update_image_commands_windows() {
+generate_update_image_commands_linux | do_windows_replacements
+}
 
+# Write flash-all.sh
+generate_header_linux > tmp/$PRODUCT-$VERSION/flash-all.sh
+generate_unlock_and_erase_commands >> tmp/$PRODUCT-$VERSION/flash-all.sh
+generate_baseband_commands_generic_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
+if test "$FP4" != ""
+then
+generate_baseband_commands_FP4_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
+fi
+if test "$FP5" != ""
+then
+generate_baseband_commands_FP5_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
+fi
+if test "$AXOLOTL" != ""
+then
+generate_baseband_commands_axolotl_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
+fi
+if test "$MOTO" != ""
+then
+generate_baseband_commands_moto_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
+fi
+generate_avb_custom_key_commands_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
+generate_update_image_commands_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
+chmod a+x tmp/$PRODUCT-$VERSION/flash-all.sh
+
+# Write flash-all.bat
 generate_header_windows > tmp/$PRODUCT-$VERSION/flash-all.bat
 generate_unlock_and_erase_commands >> tmp/$PRODUCT-$VERSION/flash-all.bat
 generate_baseband_commands_generic_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 if test "$FP4" != ""
 then
-generate_baseband_commands_FP4_windows() {
-generate_baseband_commands_FP4_linux | do_windows_replacements
-}
 generate_baseband_commands_FP4_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 fi
 if test "$FP5" != ""
 then
-generate_baseband_commands_FP5_windows() {
-generate_baseband_commands_FP5_linux | do_windows_replacements
-}
 generate_baseband_commands_FP5_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 fi
 if test "$AXOLOTL" != ""
 then
-generate_baseband_commands_axolotl_windows() {
-generate_baseband_commands_axolotl_linux | do_windows_replacements
-}
 generate_baseband_commands_axolotl_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 fi
 if test "$MOTO" != ""
 then
-generate_baseband_commands_moto_windows() {
-generate_baseband_commands_moto_linux | do_windows_replacements
-}
 generate_baseband_commands_moto_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 fi
-generate_avb_custom_key_commands_windows() {
-generate_avb_custom_key_commands_linux | do_windows_replacements
-}
 generate_avb_custom_key_commands_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
-generate_update_image_commands_windows() {
-generate_update_image_commands_linux | do_windows_replacements
-}
 generate_update_image_commands_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
 
