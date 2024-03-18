@@ -169,31 +169,21 @@ PATH=%PATH%;"%SYSTEMROOT%\System32"
 EOF
 }
 
+do_windows_replacements() {
+  sed \
+    -e 's/^sleep \([0-9]\+\)$/ping -n \1 127.0.0.1 >nul/' \
+
+}
+
 generate_baseband_commands_generic_windows() {
-if test "$BOOTLOADER" != ""
-then
-cat << EOF
-fastboot flash bootloader bootloader-$DEVICE-$BOOTLOADER.img
-fastboot reboot-bootloader
-ping -n $SLEEPDURATION 127.0.0.1 >nul
-EOF
-fi
-if test "$RADIO" != ""
-then
-cat << EOF
-fastboot flash radio radio-$DEVICE-$RADIO.img
-fastboot reboot-bootloader
-ping -n $SLEEPDURATION 127.0.0.1 >nul
-EOF
+generate_baseband_commands_generic_linux | do_windows_replacements
 }
 
 generate_header_windows > tmp/$PRODUCT-$VERSION/flash-all.bat
 generate_unlock_and_erase_commands >> tmp/$PRODUCT-$VERSION/flash-all.bat
 generate_baseband_commands_generic_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 generate_update_image_commands_windows() {
-cat << EOF
-fastboot -w update image-$PRODUCT-$VERSION.zip
-EOF
+generate_update_image_commands_linux | do_windows_replacements
 }
 generate_update_image_commands_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
