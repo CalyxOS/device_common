@@ -86,12 +86,9 @@ cat << EOF
 # limitations under the License.
 EOF
 }
-
 generate_license_windows() {
 generate_license_linux | sed -e 's/^#/::/'
 }
-
-# Write flash-all.sh
 generate_header_linux() {
 cat << EOF
 #!/bin/sh
@@ -106,7 +103,6 @@ if ! [ \$(\$(which fastboot) --version | grep "version" | cut -c18-23 | sed 's/\
 fi
 EOF
 }
-
 generate_unlock_and_erase_commands() {
 if test "$UNLOCKBOOTLOADER" = "true"
 then
@@ -125,7 +121,6 @@ fastboot erase userdata
 EOF
 fi
 }
-
 generate_baseband_commands_generic_linux() {
 if test "$BOOTLOADER" != ""
 then
@@ -144,19 +139,11 @@ sleep $SLEEPDURATION
 EOF
 fi
 }
-
-generate_header_linux > tmp/$PRODUCT-$VERSION/flash-all.sh
-generate_unlock_and_erase_commands >> tmp/$PRODUCT-$VERSION/flash-all.sh
-generate_baseband_commands_generic_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
 generate_update_image_commands_linux() {
 cat << EOF
 fastboot -w update image-$PRODUCT-$VERSION.zip
 EOF
 }
-generate_update_image_commands_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
-chmod a+x tmp/$PRODUCT-$VERSION/flash-all.sh
-
-# Write flash-all.bat
 generate_header_windows() {
 cat << EOF
 @ECHO OFF
@@ -168,23 +155,29 @@ cat << EOF
 PATH=%PATH%;"%SYSTEMROOT%\System32"
 EOF
 }
-
 do_windows_replacements() {
   sed \
     -e 's/^sleep \([0-9]\+\)$/ping -n \1 127.0.0.1 >nul/' \
 
 }
-
 generate_baseband_commands_generic_windows() {
 generate_baseband_commands_generic_linux | do_windows_replacements
 }
-
-generate_header_windows > tmp/$PRODUCT-$VERSION/flash-all.bat
-generate_unlock_and_erase_commands >> tmp/$PRODUCT-$VERSION/flash-all.bat
-generate_baseband_commands_generic_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 generate_update_image_commands_windows() {
 generate_update_image_commands_linux | do_windows_replacements
 }
+
+# Write flash-all.sh
+generate_header_linux > tmp/$PRODUCT-$VERSION/flash-all.sh
+generate_unlock_and_erase_commands >> tmp/$PRODUCT-$VERSION/flash-all.sh
+generate_baseband_commands_generic_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
+generate_update_image_commands_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
+chmod a+x tmp/$PRODUCT-$VERSION/flash-all.sh
+
+# Write flash-all.bat
+generate_header_windows > tmp/$PRODUCT-$VERSION/flash-all.bat
+generate_unlock_and_erase_commands >> tmp/$PRODUCT-$VERSION/flash-all.bat
+generate_baseband_commands_generic_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 generate_update_image_commands_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
 
