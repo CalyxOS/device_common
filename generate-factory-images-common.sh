@@ -600,29 +600,15 @@ fastboot getvar product 2>&1 | findstr /r /c:"^product: $FASTBOOT_PRODUCT" || ex
 EOF
 }
 
+do_windows_replacements() {
+  sed \
+    -e 's/^sleep \([0-9]\+\)$/ping -n \1 127.0.0.1 >nul/' \
+    -e 's/|| exit \$?$/|| exit \/B 1/' \
+
+}
+
 generate_baseband_commands_generic_windows() {
-if test "$BOOTLOADER" != ""
-then
-cat << EOF
-fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img || exit /B 1
-fastboot --set-active=other reboot-bootloader || exit /B 1
-ping -n $SLEEPDURATION 127.0.0.1 >nul
-fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img || exit /B 1
-fastboot --set-active=other reboot-bootloader || exit /B 1
-ping -n $SLEEPDURATION 127.0.0.1 >nul
-EOF
-fi
-if test "$RADIO" != ""
-then
-cat << EOF
-fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img || exit /B 1
-fastboot --set-active=other reboot-bootloader || exit /B 1
-ping -n $SLEEPDURATION 127.0.0.1 >nul
-fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img || exit /B 1
-fastboot --set-active=other reboot-bootloader || exit /B 1
-ping -n $SLEEPDURATION 127.0.0.1 >nul
-EOF
-fi
+generate_baseband_commands_generic_linux | do_windows_replacements
 }
 
 generate_header_windows > tmp/$PRODUCT-$VERSION/flash-all.bat
@@ -631,236 +617,37 @@ generate_baseband_commands_generic_windows >> tmp/$PRODUCT-$VERSION/flash-all.ba
 if test "$FP4" != ""
 then
 generate_baseband_commands_FP4_windows() {
-cat << EOF
-fastboot flash abl_a abl.img || ( echo WARNING: Use device-flasher or be sure to unlock critical to avoid bricking your device! && exit /B 1 )
-fastboot flash abl_b abl.img
-fastboot flash aop_a aop.img
-fastboot flash aop_b aop.img
-fastboot flash bluetooth_a bluetooth.img
-fastboot flash bluetooth_b bluetooth.img
-fastboot flash core_nhlos_a core_nhlos.img
-fastboot flash core_nhlos_b core_nhlos.img
-fastboot flash devcfg_a devcfg.img
-fastboot flash devcfg_b devcfg.img
-fastboot flash dsp_a dsp.img
-fastboot flash dsp_b dsp.img
-fastboot flash featenabler_a featenabler.img
-fastboot flash featenabler_b featenabler.img
-fastboot flash hyp_a hyp.img
-fastboot flash hyp_b hyp.img
-fastboot flash imagefv_a imagefv.img
-fastboot flash imagefv_b imagefv.img
-fastboot flash keymaster_a keymaster.img
-fastboot flash keymaster_b keymaster.img
-fastboot flash modem_a modem.img
-fastboot flash modem_b modem.img
-fastboot flash multiimgoem_a multiimgoem.img
-fastboot flash multiimgoem_b multiimgoem.img
-fastboot flash qupfw_a qupfw.img
-fastboot flash qupfw_b qupfw.img
-fastboot flash tz_a tz.img
-fastboot flash tz_b tz.img
-fastboot flash uefisecapp_a uefisecapp.img
-fastboot flash uefisecapp_b uefisecapp.img
-fastboot flash xbl_a xbl.img
-fastboot flash xbl_b xbl.img
-fastboot flash xbl_config_a xbl_config.img
-fastboot flash xbl_config_b xbl_config.img
-
-fastboot flash frp frp.img
-fastboot flash devinfo devinfo.img
-
-fastboot erase misc
-fastboot erase modemst1
-fastboot erase modemst2
-
-fastboot --set-active=a reboot-bootloader
-ping -n $SLEEPDURATION 127.0.0.1 >nul
-EOF
+generate_baseband_commands_FP4_linux | do_windows_replacements
 }
 generate_baseband_commands_FP4_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 fi
 if test "$FP5" != ""
 then
 generate_baseband_commands_FP5_windows() {
-cat << EOF
-fastboot flash abl_a abl.img || ( echo WARNING: Use device-flasher or be sure to unlock critical to avoid bricking your device! && exit /B 1 )
-fastboot flash abl_b abl.img
-fastboot flash aop_a aop.img
-fastboot flash aop_b aop.img
-fastboot flash bluetooth_a bluetooth.img
-fastboot flash bluetooth_b bluetooth.img
-fastboot flash cpucp_a cpucp.img
-fastboot flash cpucp_b cpucp.img
-fastboot flash devcfg_a devcfg.img
-fastboot flash devcfg_b devcfg.img
-fastboot flash dsp_a dsp.img
-fastboot flash dsp_b dsp.img
-fastboot flash featenabler_a featenabler.img
-fastboot flash featenabler_b featenabler.img
-fastboot flash hyp_a hyp.img
-fastboot flash hyp_b hyp.img
-fastboot flash imagefv_a imagefv.img
-fastboot flash imagefv_b imagefv.img
-fastboot flash keymaster_a keymaster.img
-fastboot flash keymaster_b keymaster.img
-fastboot flash modem_a modem.img
-fastboot flash modem_b modem.img
-fastboot flash multiimgoem_a multiimgoem.img
-fastboot flash multiimgoem_b multiimgoem.img
-fastboot flash qupfw_a qupfw.img
-fastboot flash qupfw_b qupfw.img
-fastboot flash shrm_a shrm.img
-fastboot flash shrm_b shrm.img
-fastboot flash studybk_a studybk.img
-fastboot flash studybk_b studybk.img
-fastboot flash tz_a tz.img
-fastboot flash tz_b tz.img
-fastboot flash uefisecapp_a uefisecapp.img
-fastboot flash uefisecapp_b uefisecapp.img
-fastboot flash xbl_a xbl.img
-fastboot flash xbl_b xbl.img
-fastboot flash xbl_config_a xbl_config.img
-fastboot flash xbl_config_b xbl_config.img
-
-fastboot flash apdp apdp.img
-fastboot flash ddr ddr.img
-fastboot flash logfs logfs.img
-fastboot flash rtice rtice.img
-fastboot flash storsec storsec.img
-fastboot flash study study.img
-
-fastboot flash frp frp.img
-
-fastboot erase misc
-fastboot erase modemst1
-fastboot erase modemst2
-
-fastboot --set-active=a reboot-bootloader
-ping -n $SLEEPDURATION 127.0.0.1 >nul
-EOF
+generate_baseband_commands_FP5_linux | do_windows_replacements
 }
 generate_baseband_commands_FP5_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 fi
 if test "$AXOLOTL" != ""
 then
 generate_baseband_commands_axolotl_windows() {
-cat << EOF
-fastboot flash ImageFv_a ImageFv.img
-fastboot flash ImageFv_b ImageFv.img
-fastboot flash abl_a abl.img
-fastboot flash abl_b abl.img
-fastboot flash aop_a aop.img
-fastboot flash aop_b aop.img
-fastboot flash bluetooth_a bluetooth.img
-fastboot flash bluetooth_b bluetooth.img
-fastboot flash cmnlib_a cmnlib.img
-fastboot flash cmnlib_b cmnlib.img
-fastboot flash cmnlib64_a cmnlib64.img
-fastboot flash cmnlib64_b cmnlib64.img
-fastboot flash devcfg_a devcfg.img
-fastboot flash devcfg_b devcfg.img
-fastboot flash dsp_a dsp.img
-fastboot flash dsp_b dsp.img
-fastboot flash hyp_a hyp.img
-fastboot flash hyp_b hyp.img
-fastboot flash keymaster_a keymaster.img
-fastboot flash keymaster_b keymaster.img
-fastboot flash modem_a modem.img
-fastboot flash modem_b modem.img
-fastboot flash qupfw_a qupfw.img
-fastboot flash qupfw_b qupfw.img
-fastboot flash storsec_a storsec.img
-fastboot flash storsec_b storsec.img
-fastboot flash tz_a tz.img
-fastboot flash tz_b tz.img
-fastboot flash xbl_a xbl.img
-fastboot flash xbl_b xbl.img
-fastboot flash xbl_config_a xbl_config.img
-fastboot flash xbl_config_b xbl_config.img
-
-fastboot flash frp frp.img
-fastboot flash devinfo devinfo.bin
-
-fastboot --set-active=a reboot-bootloader
-ping -n $SLEEPDURATION 127.0.0.1 >nul
-EOF
+generate_baseband_commands_axolotl_linux | do_windows_replacements
 }
 generate_baseband_commands_axolotl_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 fi
 if test "$MOTO" != ""
 then
 generate_baseband_commands_moto_windows() {
-cat << EOF
-fastboot oem fb_mode_set
-
-fastboot flash partition partition.img
-
-fastboot flash keymaster_a keymaster.img
-fastboot flash keymaster_b keymaster.img
-fastboot flash hyp_a hyp.img
-fastboot flash hyp_b hyp.img
-fastboot flash tz_a tz.img
-fastboot flash tz_b tz.img
-fastboot flash devcfg_a devcfg.img
-fastboot flash devcfg_b devcfg.img
-fastboot flash storsec_a storsec.img
-fastboot flash storsec_b storsec.img
-fastboot flash prov_a prov.img
-fastboot flash prov_b prov.img
-fastboot flash rpm_a rpm.img
-fastboot flash rpm_b rpm.img
-fastboot flash abl_a abl.img
-fastboot flash abl_b abl.img
-fastboot flash uefisecapp_a uefisecapp.img
-fastboot flash uefisecapp_b uefisecapp.img
-fastboot flash qupfw_a qupfw.img
-fastboot flash qupfw_b qupfw.img
-fastboot flash xbl_config_a xbl_config.img
-fastboot flash xbl_config_b xbl_config.img
-fastboot flash xbl_a xbl.img
-fastboot flash xbl_b xbl.img
-
-fastboot flash modem_a modem.img
-fastboot flash modem_b modem.img
-fastboot flash fsg_a fsg.img
-fastboot flash fsg_b fsg.img
-
-fastboot flash bluetooth_a bluetooth.img
-fastboot flash bluetooth_b bluetooth.img
-fastboot flash dsp_a dsp.img
-fastboot flash dsp_b dsp.img
-fastboot flash logo_a logo.img
-fastboot flash logo_b logo.img
-
-fastboot erase ddr
-
-fastboot oem fb_mode_clear
-
-fastboot --set-active=a reboot-bootloader
-sleep $SLEEPDURATION
-EOF
+generate_baseband_commands_moto_linux | do_windows_replacements
 }
 generate_baseband_commands_moto_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 fi
 generate_avb_custom_key_commands_windows() {
-cat >> EOF
-fastboot erase avb_custom_key
-EOF
-if test "$AVB_CUSTOM_KEY" != ""
-then
-cat >> EOF
-fastboot flash avb_custom_key avb_custom_key.img
-EOF
-fi
+generate_avb_custom_key_commands_linux | do_windows_replacements
 }
 generate_avb_custom_key_commands_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 generate_update_image_commands_windows() {
-cat << EOF
-fastboot --skip-reboot -w update image-$PRODUCT-$VERSION.zip
-fastboot reboot-bootloader
-ping -n $SLEEPDURATION 127.0.0.1 >nul
-EOF
+generate_update_image_commands_linux | do_windows_replacements
 }
 generate_update_image_commands_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
