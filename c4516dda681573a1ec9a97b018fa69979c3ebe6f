@@ -16,6 +16,24 @@
       "message": "Also replace `exit $?` with `exit /B 1`",
       "revId": "c4516dda681573a1ec9a97b018fa69979c3ebe6f",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95622601_29643a64",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-03-27T13:58:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ee01b07_61ca69f7",
+      "revId": "c4516dda681573a1ec9a97b018fa69979c3ebe6f",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
