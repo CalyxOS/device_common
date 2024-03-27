@@ -16,6 +16,24 @@
       "message": "This is an unbound variable if it isn\u0027t set, and the script exits. We either need a POSIX way to do it, or remove `-u` from `set -euo pipefail`. I\u0027d prefer the former.",
       "revId": "1ec9fc44b8979a72b4f0d049c0cf087052c30ed1",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98ccd7e1_faefddbe",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-03-27T15:22:33Z",
+      "side": 1,
+      "message": "Sounds ok to me. One way is to use the variable from before, and set a default.\n\nWe\u0027ll deal with the version requirement when we get to it.\n\nOr just set a default version of 1.0.0 or something, and enforce that we\u0027re 1.0.9 or greater.",
+      "parentUuid": "7fea3d2d_3adf111a",
+      "revId": "1ec9fc44b8979a72b4f0d049c0cf087052c30ed1",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
