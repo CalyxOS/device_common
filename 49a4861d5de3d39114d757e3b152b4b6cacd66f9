@@ -33,6 +33,24 @@
       "message": "Chain tested working for: hawao, FP5, bluejay, shiba\n\nTested on Linux and Windows, always with updated device-flasher, and occasionally also without device-flasher to verify.",
       "revId": "49a4861d5de3d39114d757e3b152b4b6cacd66f9",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2295218_d3533015",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-03-27T22:15:53Z",
+      "side": 1,
+      "message": "Not done with it forever necessarily, but... this works, so I\u0027d love to get it tested on more devices, making sure it works on production, submitted, and we can clean it up or whatever after that. 🙏\n\nIf someone else wants to unravel the Windows replacements, they\u0027re welcome to, but I don\u0027t want to spend another full+ day testing if possible.",
+      "parentUuid": "a7d4dae5_a570d89a",
+      "revId": "49a4861d5de3d39114d757e3b152b4b6cacd66f9",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
