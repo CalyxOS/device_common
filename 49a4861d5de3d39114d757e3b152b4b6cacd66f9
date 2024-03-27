@@ -16,6 +16,23 @@
       "message": "It\u0027s a bit ugly, but it does work, so I\u0027d really like to just be done with it.",
       "revId": "49a4861d5de3d39114d757e3b152b4b6cacd66f9",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c64f54d_b181578f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-03-27T21:59:02Z",
+      "side": 1,
+      "message": "Chain tested working for: hawao, FP5, bluejay, shiba\n\nTested on Linux and Windows, always with updated device-flasher, and occasionally also without device-flasher to verify.",
+      "revId": "49a4861d5de3d39114d757e3b152b4b6cacd66f9",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
