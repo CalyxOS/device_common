@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "633ec859_801a7a71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-03-27T21:57:05Z",
+      "side": 1,
+      "message": "Chain tested working for: hawao, FP5, bluejay, shiba\n\nTested on Linux and Windows, always with updated device-flasher, and occasionally also without device-flasher to verify.",
+      "revId": "db44e852be58b2ec9749207fc8d60f95d502288c",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
