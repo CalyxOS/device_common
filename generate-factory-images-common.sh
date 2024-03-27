@@ -15,6 +15,7 @@
 # Use the default values if they weren't explicitly set
 
 readonly NOT_DEVICE_FLASHER_MESSAGE="Use device-flasher to flash your device properly! Enter Y to continue anyway."
+readonly UNLOCK_CRITICAL_WARNING='ERROR: Flashing failed. Use device-flasher or be sure to unlock critical to avoid bricking your device!'
 
 if test "$BOOTLOADERSRC" = ""
 then
@@ -352,7 +353,7 @@ fi
 }
 generate_baseband_commands_FP4_linux() {
 cat << EOF
-fastboot flash abl_a abl.img || { echo 'WARNING: Use device-flasher or be sure to unlock critical to avoid bricking your device!'; exit \$?; }
+fastboot flash abl_a abl.img || { echo '$UNLOCK_CRITICAL_WARNING'; exit \$?; }
 fastboot flash abl_b abl.img
 fastboot flash aop_a aop.img
 fastboot flash aop_b aop.img
@@ -400,7 +401,7 @@ EOF
 }
 generate_baseband_commands_FP5_linux() {
 cat << EOF
-fastboot flash abl_a abl.img || { echo 'WARNING: Use device-flasher or be sure to unlock critical to avoid bricking your device!'; exit \$?; }
+fastboot flash abl_a abl.img || { echo '$UNLOCK_CRITICAL_WARNING'; exit \$?; }
 fastboot flash abl_b abl.img
 fastboot flash aop_a aop.img
 fastboot flash aop_b aop.img
@@ -588,6 +589,10 @@ do_windows_replacements() {
     -e 's/|| exit \$?$/|| exit \/B 1/' \
     -e 's/^\(fastboot .*$\)/\1 || exit \/B 1/' \
     -e 's/\( || exit \/B 1\)\+$/\1/' \
+    -e 's/'"'"'; exit \$?;/ \&\& exit \/B 1/' \
+    -e 's/ { echo '"'"'/ ( echo /' \
+    -e 's/ } / ) /' \
+    -e 's/\( exit \/B 1 )\) || exit \/B 1/\1/' \
 
 }
 generate_baseband_commands_generic_windows() {
