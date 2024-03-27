@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "423a84c9_74b04c24",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-03-27T15:20:52Z",
+      "side": 1,
+      "message": "This was just a quick copy from calyx/scripts/*/*.sh without too much thought.",
+      "revId": "dd02bdf64b62bc9b2f0687db7fbd55d858b1e99b",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "876f1707_785579cd",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
