@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a582787f_10daa64f",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-03-27T13:27:56Z",
+      "side": 1,
+      "message": "Only if it doesn\u0027t already have `|| exit /B 1` (baseband commands generic)",
+      "revId": "4c2a49fcc377bc0160f558e087c8ef9fe8325cdc",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
