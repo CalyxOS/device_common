@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9134adea_93308149",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-03-27T20:54:22Z",
+      "side": 0,
+      "message": "Oops, this needs to be handled now.\n\nAt this moment, with the tip of the chain, for Fairphone batch scripts, this is generated:\n`fastboot flash abl_a abl.img || { echo \u0027WARNING: Use device-flasher or be sure to unlock critical to avoid bricking your device!\u0027; exit $?; } || exit /B 1`\n\nWhich is kind of funny, because it\u0027s not entirely broken. It tries to run `{` as a command, which doesn\u0027t exist so it moves on to `exit /B 1` and exits. It just doesn\u0027t show the error message.\n\nWe could even ship like this. I\u0027d rather fix it though of course.",
+      "revId": "112d853beee0f9258bfbfc1dd40b423de7c6c38a",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
