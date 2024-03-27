@@ -34,6 +34,23 @@
       "parentUuid": "876f1707_785579cd",
       "revId": "dd02bdf64b62bc9b2f0687db7fbd55d858b1e99b",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef2fc0cc_2f9ef096",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-03-27T15:13:41Z",
+      "side": 1,
+      "message": "Turns out `-o pipefail` isn\u0027t even POSIX-compliant, it\u0027s a bash thing. Can we safely assume bash?",
+      "revId": "dd02bdf64b62bc9b2f0687db7fbd55d858b1e99b",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
