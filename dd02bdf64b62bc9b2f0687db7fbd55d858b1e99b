@@ -104,6 +104,24 @@
       "parentUuid": "bc4af41b_d15c88d2",
       "revId": "dd02bdf64b62bc9b2f0687db7fbd55d858b1e99b",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5ed1258_7e630df7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-03-27T17:43:12Z",
+      "side": 1,
+      "message": "```\n$ fastboot --version\nfastboot version 33.0.3-8952118\nInstalled as /var/home/owner/calyx/device-flasher-with-version/platform-tools/fastboot\n```\n\nMy directory had \"version\" in the name and it was messing this up, because both of those lines were matching the grep. That\u0027s kind of annoying. I can fix it in a separate change.",
+      "parentUuid": "512766e8_7a14a1df",
+      "revId": "dd02bdf64b62bc9b2f0687db7fbd55d858b1e99b",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
