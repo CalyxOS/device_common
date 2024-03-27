@@ -87,6 +87,24 @@
       "parentUuid": "166adb08_df4ca775",
       "revId": "ad3cadf7da87781d173a4a550ee02233e0022bc7",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0195be6_e3f2b8c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-03-27T21:56:50Z",
+      "side": 1,
+      "message": "Not tested in FP4 or shift, but tested on moto hawao.",
+      "parentUuid": "95fe69e5_19964c8d",
+      "revId": "ad3cadf7da87781d173a4a550ee02233e0022bc7",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
