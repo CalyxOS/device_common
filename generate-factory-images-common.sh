@@ -296,7 +296,8 @@ if test -z "\${DEVICE_FLASHER_VERSION:-}"; then
     exit 1
   fi
 fi
-if ! [ \$("\$(which fastboot)" --version | grep "version" | cut -c18-23 | sed 's/\.//g' ) -ge 3301 ]; then
+fastboot_version="\$("\$(which fastboot)" --version | grep "^fastboot version" | cut -c18-23 | sed 's/\.//g' )"
+if ! [ "\${fastboot_version:-0}" -ge 3301 ]; then
   echo "fastboot too old; please download the latest version at https://developer.android.com/studio/releases/platform-tools.html"
   exit 1
 fi
