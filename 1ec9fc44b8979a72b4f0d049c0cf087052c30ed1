@@ -34,6 +34,24 @@
       "parentUuid": "7fea3d2d_3adf111a",
       "revId": "1ec9fc44b8979a72b4f0d049c0cf087052c30ed1",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "386a4888_d0957f56",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-03-27T16:58:44Z",
+      "side": 1,
+      "message": "Parameter expansion is POSIX, this should work fine (and /bin/sh and /bin/dash are good-enough checks to confirm).\n\nAlso https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html",
+      "parentUuid": "98ccd7e1_faefddbe",
+      "revId": "1ec9fc44b8979a72b4f0d049c0cf087052c30ed1",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
