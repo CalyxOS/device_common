@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7d4dae5_a570d89a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-03-27T21:53:55Z",
+      "side": 1,
+      "message": "It\u0027s a bit ugly, but it does work, so I\u0027d really like to just be done with it.",
+      "revId": "49a4861d5de3d39114d757e3b152b4b6cacd66f9",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
