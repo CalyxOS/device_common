@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "876f1707_785579cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-03-27T15:06:38Z",
+      "side": 1,
+      "message": "FP5: `./flash-all.sh: line 26: [: too many arguments`\n\nThat line is unchanged. It probably moved past it quietly before. It\u0027s:\n```\nif ! [ $(\"$(which fastboot)\" --version | grep \"version\" | cut -c18-23 | sed \u0027s/\\.//g\u0027 ) -ge 3301 ]; then\n```",
+      "revId": "dd02bdf64b62bc9b2f0687db7fbd55d858b1e99b",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
