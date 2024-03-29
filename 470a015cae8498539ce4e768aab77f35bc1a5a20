@@ -16,6 +16,24 @@
       "message": "Hasn\u0027t been an issue on FP4, but any reason not to match here?\n\nAfter this, we don\u0027t erase modemst on anything.",
       "revId": "470a015cae8498539ce4e768aab77f35bc1a5a20",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f15e41ae_f1b3d1b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2024-03-29T15:26:11Z",
+      "side": 1,
+      "message": "It won\u0027t have any effect, since FP4 just has one hardware variant. It was more important to wipe it on motos with the modem region change, but we don\u0027t do that yet (and I haven\u0027t seen any reports of things breaking)",
+      "parentUuid": "8af9032d_86a2f87c",
+      "revId": "470a015cae8498539ce4e768aab77f35bc1a5a20",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
