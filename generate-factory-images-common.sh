@@ -435,8 +435,6 @@ fastboot flash study study.img
 fastboot flash frp frp.img
 
 fastboot erase misc
-fastboot erase modemst1
-fastboot erase modemst2
 
 fastboot --set-active=a
 
@@ -721,8 +719,6 @@ fastboot flash study study.img
 fastboot flash frp frp.img
 
 fastboot erase misc
-fastboot erase modemst1
-fastboot erase modemst2
 
 fastboot --set-active=a
 
@@ -1004,8 +1000,6 @@ fastboot flash study study.img
 fastboot flash frp frp.img
 
 fastboot erase misc
-fastboot erase modemst1
-fastboot erase modemst2
 
 fastboot --set-active=a
 
