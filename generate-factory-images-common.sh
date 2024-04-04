@@ -391,8 +391,6 @@ fastboot flash frp frp.img
 fastboot flash devinfo devinfo.img
 
 fastboot erase misc
-fastboot erase modemst1
-fastboot erase modemst2
 
 fastboot --set-active=a reboot-bootloader
 sleep $SLEEPDURATION
