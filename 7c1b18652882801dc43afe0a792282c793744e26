@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5775677_860017c8",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-04-04T15:15:56Z",
+      "side": 1,
+      "message": "Nit: It\u0027s *nix rather than just linux, since these are used on macOS / darwin too.",
+      "revId": "7c1b18652882801dc43afe0a792282c793744e26",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "433b4209_444c4ca1",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-04-04T15:15:56Z",
+      "side": 1,
+      "message": "Nit: I\u0027m all for deduplication, and while this sed is simple and easily understandable, in general it\u0027d be good to avoid that. Some duplication is ok, IMO.",
+      "revId": "7c1b18652882801dc43afe0a792282c793744e26",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fefe574_de725fa8",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-04-04T15:15:56Z",
+      "side": 1,
+      "message": "Nit: Not used by us.",
+      "revId": "7c1b18652882801dc43afe0a792282c793744e26",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
