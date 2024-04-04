@@ -34,6 +34,24 @@
       "parentUuid": "75085414_6855ef58",
       "revId": "ee936656a21e4db973350ed62bd484631410d3ed",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ab8aac2_05957cf4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-04-04T15:25:21Z",
+      "side": 1,
+      "message": "That\u0027s fine, but we need to revert what this is fixing then.",
+      "parentUuid": "75085414_6855ef58",
+      "revId": "ee936656a21e4db973350ed62bd484631410d3ed",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
