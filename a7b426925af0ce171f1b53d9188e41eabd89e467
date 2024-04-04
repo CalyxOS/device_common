@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f275cba_622c5883",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-04-04T15:21:10Z",
+      "side": 1,
+      "message": "This is not easily readable, you\u0027d have to see the generated output to figure out what exactly is going on clearly.",
+      "revId": "a7b426925af0ce171f1b53d9188e41eabd89e467",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
