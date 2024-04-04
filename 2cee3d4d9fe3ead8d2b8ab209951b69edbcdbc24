@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f3a3961_88cce43c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-04-04T16:31:17Z",
+      "side": 1,
+      "message": "25742: factory: 2cee3d4 \"Remove individual flash failure exits\" | https://review.calyxos.org/c/CalyxOS/scripts/+/25742",
+      "revId": "2cee3d4d9fe3ead8d2b8ab209951b69edbcdbc24",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
