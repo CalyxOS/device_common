@@ -340,29 +340,29 @@ generate_baseband_commands_generic_linux() {
 if test "$BOOTLOADER" != ""
 then
 cat << EOF
-fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img || exit \$?
-fastboot --set-active=other reboot-bootloader || exit \$?
+fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img
+fastboot --set-active=other reboot-bootloader
 sleep $SLEEPDURATION
-fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img || exit \$?
-fastboot --set-active=other reboot-bootloader || exit \$?
+fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img
+fastboot --set-active=other reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 fi
 if test "$RADIO" != ""
 then
 cat << EOF
-fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img || exit \$?
-fastboot --set-active=other reboot-bootloader || exit \$?
+fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img
+fastboot --set-active=other reboot-bootloader
 sleep $SLEEPDURATION
-fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img || exit \$?
-fastboot --set-active=other reboot-bootloader || exit \$?
+fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img
+fastboot --set-active=other reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 fi
 }
 generate_baseband_commands_FP4_linux() {
 cat << EOF
-fastboot flash abl_a abl.img || { echo 'WARNING: Use device-flasher or be sure to unlock critical to avoid bricking your device!'; exit \$?; }
+fastboot flash abl_a abl.img
 fastboot flash abl_b abl.img
 fastboot flash aop_a aop.img
 fastboot flash aop_b aop.img
@@ -416,7 +416,7 @@ EOF
 }
 generate_baseband_commands_FP5_linux() {
 cat << EOF
-fastboot flash abl_a abl.img || { echo 'WARNING: Use device-flasher or be sure to unlock critical to avoid bricking your device!'; exit \$?; }
+fastboot flash abl_a abl.img
 fastboot flash abl_b abl.img
 fastboot flash aop_a aop.img
 fastboot flash aop_b aop.img
@@ -597,7 +597,6 @@ EOF
 do_windows_replacements() {
   sed \
     -e 's/^sleep \([0-9]\+\)$/ping -n \1 127.0.0.1 >nul/' \
-    -e 's/|| exit \$?$/|| exit \/B 1/' \
     -e 's/^\(fastboot .*$\)/\1 || exit \/B 1/' \
     -e 's/\( || exit \/B 1\)\+$/\1/' \
 
