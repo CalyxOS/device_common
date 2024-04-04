@@ -105,6 +105,24 @@
       "parentUuid": "95fe69e5_19964c8d",
       "revId": "ad3cadf7da87781d173a4a550ee02233e0022bc7",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f00fa4c8_12c858ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-04-04T14:56:44Z",
+      "side": 1,
+      "message": "Fine on shift too.",
+      "parentUuid": "b0195be6_e3f2b8c3",
+      "revId": "ad3cadf7da87781d173a4a550ee02233e0022bc7",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
