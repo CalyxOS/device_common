@@ -320,22 +320,22 @@ generate_baseband_commands_generic_linux() {
 if test "$BOOTLOADER" != ""
 then
 cat << EOF
-fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img || exit \$?
-fastboot --set-active=other reboot-bootloader || exit \$?
+fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img
+fastboot --set-active=other reboot-bootloader
 sleep $SLEEPDURATION
-fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img || exit \$?
-fastboot --set-active=other reboot-bootloader || exit \$?
+fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img
+fastboot --set-active=other reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 fi
 if test "$RADIO" != ""
 then
 cat << EOF
-fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img || exit \$?
-fastboot --set-active=other reboot-bootloader || exit \$?
+fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img
+fastboot --set-active=other reboot-bootloader
 sleep $SLEEPDURATION
-fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img || exit \$?
-fastboot --set-active=other reboot-bootloader || exit \$?
+fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img
+fastboot --set-active=other reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 fi
@@ -571,7 +571,6 @@ EOF
 do_windows_replacements() {
   sed \
     -e 's/^sleep \([0-9]\+\)$/ping -n \1 127.0.0.1 >nul/' \
-    -e 's/|| exit \$?$/|| exit \/B 1/' \
     -e 's/^\(fastboot .*$\)/\1 || exit \/B 1/' \
     -e 's/\( || exit \/B 1\)\+$/\1/' \
 
