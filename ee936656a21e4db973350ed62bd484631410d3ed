@@ -16,6 +16,24 @@
       "message": "This isn\u0027t needed anymore though - given that the script exits on any failure, for both windows and *nix",
       "revId": "ee936656a21e4db973350ed62bd484631410d3ed",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b714f23c_175d5817",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-04-04T15:24:59Z",
+      "side": 1,
+      "message": "In similar vein, https://review.calyxos.org/c/CalyxOS/device_common/+/25216",
+      "parentUuid": "75085414_6855ef58",
+      "revId": "ee936656a21e4db973350ed62bd484631410d3ed",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
