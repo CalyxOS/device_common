@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31733e4d_bb118968",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-04-04T16:37:12Z",
+      "side": 1,
+      "message": "25744: factory: 03886da \"FP4: Don\u0027t erase modemst1,2\" | https://review.calyxos.org/c/CalyxOS/scripts/+/25744",
+      "revId": "03886dab82b6afc5e00cfee11eca4d8655b81e0f",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
