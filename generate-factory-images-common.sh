@@ -55,19 +55,24 @@ if test "$FP4" != ""
 then
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/abl.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/aop.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/apdp.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/bluetooth.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/core_nhlos.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/ddr.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/devcfg.img
-  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/devinfo.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/dsp.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/featenabler.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/frp.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/hyp.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/imagefv.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/keymaster.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/logfs.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/modem.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/multiimgoem.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/qupfw.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/storsec.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/toolsfv.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/tunning.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/tz.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/uefisecapp.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/xbl.img
@@ -171,19 +176,24 @@ if test "$FP4" != ""
 then
   cp tmp/RADIO/abl.img tmp/$PRODUCT-$VERSION/abl.img
   cp tmp/RADIO/aop.img tmp/$PRODUCT-$VERSION/aop.img
+  cp tmp/RADIO/apdp.img tmp/$PRODUCT-$VERSION/apdp.img
   cp tmp/RADIO/bluetooth.img tmp/$PRODUCT-$VERSION/bluetooth.img
   cp tmp/RADIO/core_nhlos.img tmp/$PRODUCT-$VERSION/core_nhlos.img
+  cp tmp/RADIO/ddr.img tmp/$PRODUCT-$VERSION/ddr.img
   cp tmp/RADIO/devcfg.img tmp/$PRODUCT-$VERSION/devcfg.img
-  cp tmp/RADIO/devinfo.img tmp/$PRODUCT-$VERSION/devinfo.img
   cp tmp/RADIO/dsp.img tmp/$PRODUCT-$VERSION/dsp.img
   cp tmp/RADIO/featenabler.img tmp/$PRODUCT-$VERSION/featenabler.img
   cp tmp/RADIO/frp.img tmp/$PRODUCT-$VERSION/frp.img
   cp tmp/RADIO/hyp.img tmp/$PRODUCT-$VERSION/hyp.img
   cp tmp/RADIO/imagefv.img tmp/$PRODUCT-$VERSION/imagefv.img
   cp tmp/RADIO/keymaster.img tmp/$PRODUCT-$VERSION/keymaster.img
+  cp tmp/RADIO/logfs.img tmp/$PRODUCT-$VERSION/logfs.img
   cp tmp/RADIO/modem.img tmp/$PRODUCT-$VERSION/modem.img
   cp tmp/RADIO/multiimgoem.img tmp/$PRODUCT-$VERSION/multiimgoem.img
   cp tmp/RADIO/qupfw.img tmp/$PRODUCT-$VERSION/qupfw.img
+  cp tmp/RADIO/storsec.img tmp/$PRODUCT-$VERSION/storsec.img
+  cp tmp/RADIO/toolsfv.img tmp/$PRODUCT-$VERSION/toolsfv.img
+  cp tmp/RADIO/tunning.img tmp/$PRODUCT-$VERSION/tunning.img
   cp tmp/RADIO/tz.img tmp/$PRODUCT-$VERSION/tz.img
   cp tmp/RADIO/uefisecapp.img tmp/$PRODUCT-$VERSION/uefisecapp.img
   cp tmp/RADIO/xbl.img tmp/$PRODUCT-$VERSION/xbl.img
@@ -387,8 +397,14 @@ fastboot flash xbl_b xbl.img
 fastboot flash xbl_config_a xbl_config.img
 fastboot flash xbl_config_b xbl_config.img
 
+fastboot flash apdp apdp.img
+fastboot flash ddr ddr.img
+fastboot flash logfs logfs.img
+fastboot flash storsec storsec.img
+fastboot flash toolsfv toolsfv.img
+fastboot flash tunning tunning.img
+
 fastboot flash frp frp.img
-fastboot flash devinfo devinfo.img
 
 fastboot erase misc
 fastboot erase modemst1
