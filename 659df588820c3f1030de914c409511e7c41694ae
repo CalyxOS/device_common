@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45da6b6c_fa30433f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-05-29T14:54:00Z",
+      "side": 1,
+      "message": "Can confirm that file is included in prod calyx_axolotl-target_files-24507000.zip",
+      "revId": "659df588820c3f1030de914c409511e7c41694ae",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
