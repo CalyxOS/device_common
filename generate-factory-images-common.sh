@@ -108,7 +108,7 @@ then
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/cmnlib.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/cmnlib64.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/devcfg.img
-  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/devinfo.bin
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/devinfo.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/dsp.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/frp.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/hyp.img
@@ -227,7 +227,7 @@ then
   cp tmp/RADIO/cmnlib.img tmp/$PRODUCT-$VERSION/cmnlib.img
   cp tmp/RADIO/cmnlib64.img tmp/$PRODUCT-$VERSION/cmnlib64.img
   cp tmp/RADIO/devcfg.img tmp/$PRODUCT-$VERSION/devcfg.img
-  cp tmp/RADIO/devinfo.bin tmp/$PRODUCT-$VERSION/devinfo.bin
+  cp tmp/RADIO/devinfo.img tmp/$PRODUCT-$VERSION/devinfo.img
   cp tmp/RADIO/dsp.img tmp/$PRODUCT-$VERSION/dsp.img
   cp tmp/RADIO/frp.img tmp/$PRODUCT-$VERSION/frp.img
   cp tmp/RADIO/hyp.img tmp/$PRODUCT-$VERSION/hyp.img
@@ -496,7 +496,7 @@ fastboot flash xbl_config_a xbl_config.img
 fastboot flash xbl_config_b xbl_config.img
 
 fastboot flash frp frp.img
-fastboot flash devinfo devinfo.bin
+fastboot flash devinfo devinfo.img
 
 fastboot --set-active=a reboot-bootloader
 sleep $SLEEPDURATION
