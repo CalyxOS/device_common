@@ -16,6 +16,23 @@
       "message": "25743: factory: 7613ddd \"Recommend using device-flasher\" | https://review.calyxos.org/c/CalyxOS/scripts/+/25743",
       "revId": "7613ddd81a16bad9bae455069f256a96153839f1",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5612e44_3b6fe048",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-05-30T11:26:49Z",
+      "side": 1,
+      "message": "device-flasher is still going to stick around, and this is mostly done anyways.",
+      "revId": "7613ddd81a16bad9bae455069f256a96153839f1",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ],
   "submitRequirementResults": [
