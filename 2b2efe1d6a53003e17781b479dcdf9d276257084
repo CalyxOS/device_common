@@ -16,6 +16,24 @@
       "message": "Maybe this should include \"Please see the install guide on calyxos.org\"?",
       "revId": "2b2efe1d6a53003e17781b479dcdf9d276257084",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ca38fdd_c1f17c3a",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-07-01T16:51:52Z",
+      "side": 1,
+      "message": "https://calyxos.org if that helps make it clickable",
+      "parentUuid": "e1834fb4_ed35c540",
+      "revId": "2b2efe1d6a53003e17781b479dcdf9d276257084",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
