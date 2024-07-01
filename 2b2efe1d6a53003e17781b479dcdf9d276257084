@@ -34,6 +34,24 @@
       "parentUuid": "e1834fb4_ed35c540",
       "revId": "2b2efe1d6a53003e17781b479dcdf9d276257084",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10587150_cfa09e0c",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-07-01T18:01:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ca38fdd_c1f17c3a",
+      "revId": "2b2efe1d6a53003e17781b479dcdf9d276257084",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
