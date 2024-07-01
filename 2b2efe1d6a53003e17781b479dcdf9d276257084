@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1834fb4_ed35c540",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-07-01T14:32:26Z",
+      "side": 1,
+      "message": "Maybe this should include \"Please see the install guide on calyxos.org\"?",
+      "revId": "2b2efe1d6a53003e17781b479dcdf9d276257084",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
