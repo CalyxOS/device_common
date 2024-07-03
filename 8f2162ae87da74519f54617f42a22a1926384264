@@ -16,6 +16,24 @@
       "message": "Not a fan of this tbh. It\u0027s still readable, but a simple function call would be better.\n\n```\ngenerate_sleep_command($os) {\nif os is linux # *nix actually but going with what the script already has\n  sleep\nelse if os is linux\n  ping\nfi\n}\n```\n\nBut that\u0027ll involve re-doing the whole thing.",
       "revId": "8f2162ae87da74519f54617f42a22a1926384264",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80e63421_2e47b41d",
+        "filename": "generate-factory-images-common.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-07-03T12:32:27Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "7292f07e_bc3676bd",
+      "revId": "8f2162ae87da74519f54617f42a22a1926384264",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ],
   "submitRequirementResults": [
