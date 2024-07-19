@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b4a0ca4_e31de515",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-07-19T20:58:24Z",
+      "side": 1,
+      "message": "Thought of this when going through web flasher logs.\n\nMade the change, but how stock does it came to mind when writing the commit message.\n\nUntested.",
+      "revId": "7c9bc28281b7fdefa784d5b5603945108b66e980",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
