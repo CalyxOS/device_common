@@ -338,6 +338,19 @@ fi
 generate_baseband_commands_generic_linux() {
 if test "$BOOTLOADER" != ""
 then
+if test "$RADIO" != ""
+then
+cat << EOF
+fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img
+fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img
+fastboot --set-active=other reboot-bootloader
+sleep $SLEEPDURATION
+fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img
+fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img
+fastboot --set-active=other reboot-bootloader
+sleep $SLEEPDURATION
+EOF
+else
 cat << EOF
 fastboot flash --slot=other bootloader bootloader-$DEVICE-$BOOTLOADER.img
 fastboot --set-active=other reboot-bootloader
@@ -347,16 +360,6 @@ fastboot --set-active=other reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 fi
-if test "$RADIO" != ""
-then
-cat << EOF
-fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img
-fastboot --set-active=other reboot-bootloader
-sleep $SLEEPDURATION
-fastboot flash --slot=other radio radio-$DEVICE-$RADIO.img
-fastboot --set-active=other reboot-bootloader
-sleep $SLEEPDURATION
-EOF
 fi
 }
 generate_baseband_commands_FP4_linux() {
