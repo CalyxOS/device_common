@@ -152,6 +152,34 @@ then
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/xbl.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/xbl_config.img
 fi
+if test "$OTTER" != ""
+then
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/abl.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/aop.img
+#  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/apdp.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/bluetooth.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/cpucp.img
+#  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/ddr.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/devcfg.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/dsp.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/featenabler.img
+#  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/frp.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/hyp.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/imagefv.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/keymaster.img
+#  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/logfs.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/modem.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/multiimgoem.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/qupfw.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/qweslicstore.img
+#  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/rtice.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/shrm.img
+#  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/storsec.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/tz.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/uefisecapp.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/xbl.img
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/xbl_config.img
+fi
 
 # Copy the various images in their staging location
 cp ${SRCPREFIX}$PRODUCT-img-$BUILD.zip tmp/$PRODUCT-$VERSION/image-$PRODUCT-$VERSION.zip
@@ -268,6 +296,34 @@ then
   cp tmp/RADIO/qupfw.img tmp/$PRODUCT-$VERSION/qupfw.img
   cp tmp/RADIO/rpm.img tmp/$PRODUCT-$VERSION/rpm.img
   cp tmp/RADIO/storsec.img tmp/$PRODUCT-$VERSION/storsec.img
+  cp tmp/RADIO/tz.img tmp/$PRODUCT-$VERSION/tz.img
+  cp tmp/RADIO/uefisecapp.img tmp/$PRODUCT-$VERSION/uefisecapp.img
+  cp tmp/RADIO/xbl.img tmp/$PRODUCT-$VERSION/xbl.img
+  cp tmp/RADIO/xbl_config.img tmp/$PRODUCT-$VERSION/xbl_config.img
+fi
+if test "$OTTER" != ""
+then
+  cp tmp/RADIO/abl.img tmp/$PRODUCT-$VERSION/abl.img
+  cp tmp/RADIO/aop.img tmp/$PRODUCT-$VERSION/aop.img
+#  cp tmp/RADIO/apdp.img tmp/$PRODUCT-$VERSION/apdp.img
+  cp tmp/RADIO/bluetooth.img tmp/$PRODUCT-$VERSION/bluetooth.img
+  cp tmp/RADIO/cpucp.img tmp/$PRODUCT-$VERSION/cpucp.img
+#  cp tmp/RADIO/ddr.img tmp/$PRODUCT-$VERSION/ddr.img
+  cp tmp/RADIO/devcfg.img tmp/$PRODUCT-$VERSION/devcfg.img
+  cp tmp/RADIO/dsp.img tmp/$PRODUCT-$VERSION/dsp.img
+  cp tmp/RADIO/featenabler.img tmp/$PRODUCT-$VERSION/featenabler.img
+#  cp tmp/RADIO/frp.img tmp/$PRODUCT-$VERSION/frp.img
+  cp tmp/RADIO/hyp.img tmp/$PRODUCT-$VERSION/hyp.img
+  cp tmp/RADIO/imagefv.img tmp/$PRODUCT-$VERSION/imagefv.img
+  cp tmp/RADIO/keymaster.img tmp/$PRODUCT-$VERSION/keymaster.img
+#  cp tmp/RADIO/logfs.img tmp/$PRODUCT-$VERSION/logfs.img
+  cp tmp/RADIO/modem.img tmp/$PRODUCT-$VERSION/modem.img
+  cp tmp/RADIO/multiimgoem.img tmp/$PRODUCT-$VERSION/multiimgoem.img
+  cp tmp/RADIO/qupfw.img tmp/$PRODUCT-$VERSION/qupfw.img
+  cp tmp/RADIO/qweslicstore.img tmp/$PRODUCT-$VERSION/qweslicstore.img
+#  cp tmp/RADIO/rtice.img tmp/$PRODUCT-$VERSION/rtice.img
+  cp tmp/RADIO/shrm.img tmp/$PRODUCT-$VERSION/shrm.img
+#  cp tmp/RADIO/storsec.img tmp/$PRODUCT-$VERSION/storsec.img
   cp tmp/RADIO/tz.img tmp/$PRODUCT-$VERSION/tz.img
   cp tmp/RADIO/uefisecapp.img tmp/$PRODUCT-$VERSION/uefisecapp.img
   cp tmp/RADIO/xbl.img tmp/$PRODUCT-$VERSION/xbl.img
@@ -572,6 +628,61 @@ fastboot --set-active=a reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 }
+generate_baseband_commands_otter_linux() {
+cat << EOF
+fastboot flash abl_a abl.img
+fastboot flash abl_b abl.img
+fastboot flash aop_a aop.img
+fastboot flash aop_b aop.img
+fastboot flash bluetooth_a bluetooth.img
+fastboot flash bluetooth_b bluetooth.img
+fastboot flash cpucp_a cpucp.img
+fastboot flash cpucp_b cpucp.img
+fastboot flash devcfg_a devcfg.img
+fastboot flash devcfg_b devcfg.img
+fastboot flash dsp_a dsp.img
+fastboot flash dsp_b dsp.img
+fastboot flash featenabler_a featenabler.img
+fastboot flash featenabler_b featenabler.img
+fastboot flash hyp_a hyp.img
+fastboot flash hyp_b hyp.img
+fastboot flash imagefv_a imagefv.img
+fastboot flash imagefv_b imagefv.img
+fastboot flash keymaster_a keymaster.img
+fastboot flash keymaster_b keymaster.img
+fastboot flash modem_a modem.img
+fastboot flash modem_b modem.img
+fastboot flash multiimgoem_a multiimgoem.img
+fastboot flash multiimgoem_b multiimgoem.img
+fastboot flash qupfw_a qupfw.img
+fastboot flash qupfw_b qupfw.img
+fastboot flash qweslicstore_a qweslicstore.img
+fastboot flash qweslicstore_b qweslicstore.img
+fastboot flash shrm_a shrm.img
+fastboot flash shrm_b shrm.img
+fastboot flash tz_a tz.img
+fastboot flash tz_b tz.img
+fastboot flash uefisecapp_a uefisecapp.img
+fastboot flash uefisecapp_b uefisecapp.img
+fastboot flash xbl_a xbl.img
+fastboot flash xbl_b xbl.img
+fastboot flash xbl_config_a xbl_config.img
+fastboot flash xbl_config_b xbl_config.img
+
+#fastboot flash apdp apdp.img
+#fastboot flash ddr ddr.img
+#fastboot flash logfs logfs.img
+#fastboot flash rtice rtice.img
+#fastboot flash storsec storsec.img
+
+#fastboot flash frp frp.img
+
+fastboot erase misc
+
+fastboot --set-active=a reboot-bootloader
+sleep $SLEEPDURATION
+EOF
+}
 generate_avb_custom_key_commands_linux() {
 cat << EOF
 fastboot erase avb_custom_key
@@ -654,6 +765,10 @@ if test "$MOTO" != ""
 then
 generate_baseband_commands_moto_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
 fi
+if test "$OTTER" != ""
+then
+generate_baseband_commands_otter_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
+fi
 generate_avb_custom_key_commands_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
 generate_update_image_commands_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
 chmod a+x tmp/$PRODUCT-$VERSION/flash-all.sh
@@ -677,6 +792,10 @@ fi
 if test "$MOTO" != ""
 then
 generate_baseband_commands_moto_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
+fi
+if test "$OTTER" != ""
+then
+generate_baseband_commands_otter_windows >> tmp/$PRODUCT-$VERSION/flash-all.sh
 fi
 generate_avb_custom_key_commands_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 generate_update_image_commands_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
@@ -705,6 +824,10 @@ fi
 if test "$MOTO" != ""
 then
 generate_baseband_commands_moto_linux >> tmp/$PRODUCT-$VERSION/flash-base.sh
+fi
+if test "$OTTER" != ""
+then
+generate_baseband_commands_otter_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
 fi
 generate_avb_custom_key_commands_linux >> tmp/$PRODUCT-$VERSION/flash-base.sh
 chmod a+x tmp/$PRODUCT-$VERSION/flash-base.sh
