@@ -25,6 +25,7 @@ unset FP4
 unset FP5
 unset MOTO_BENGAL
 unset MOTO_BLAIR
+unset OTTER
 unset PRODUCT
 unset QCOM_FIRMWARE
 unset RADIO
