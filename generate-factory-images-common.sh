@@ -110,7 +110,7 @@ then
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/xbl.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/xbl_config.img
 fi
-if test "$MOTO" != ""
+if test "$MOTO_BENGAL" != ""
 then
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/abl.img
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/bluetooth.img
@@ -210,7 +210,7 @@ then
   cp tmp/RADIO/xbl.img tmp/$PRODUCT-$VERSION/xbl.img
   cp tmp/RADIO/xbl_config.img tmp/$PRODUCT-$VERSION/xbl_config.img
 fi
-if test "$MOTO" != ""
+if test "$MOTO_BENGAL" != ""
 then
   cp tmp/RADIO/abl.img tmp/$PRODUCT-$VERSION/abl.img
   cp tmp/RADIO/bluetooth.img tmp/$PRODUCT-$VERSION/bluetooth.img
@@ -437,7 +437,7 @@ fastboot --set-active=a reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 }
-generate_baseband_commands_moto_linux() {
+generate_baseband_commands_moto_bengal_linux() {
 cat << EOF
 fastboot oem fb_mode_set
 
@@ -537,8 +537,8 @@ generate_baseband_commands_FP4_linux | do_windows_replacements
 generate_baseband_commands_FP5_windows() {
 generate_baseband_commands_FP5_linux | do_windows_replacements
 }
-generate_baseband_commands_moto_windows() {
-generate_baseband_commands_moto_linux | do_windows_replacements
+generate_baseband_commands_moto_bengal_windows() {
+generate_baseband_commands_moto_bengal_linux | do_windows_replacements
 }
 generate_avb_custom_key_commands_windows() {
 generate_avb_custom_key_commands_linux | do_windows_replacements
@@ -559,9 +559,9 @@ if test "$FP5" != ""
 then
 generate_baseband_commands_FP5_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
 fi
-if test "$MOTO" != ""
+if test "$MOTO_BENGAL" != ""
 then
-generate_baseband_commands_moto_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
+generate_baseband_commands_moto_bengal_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
 fi
 generate_avb_custom_key_commands_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
 generate_update_image_commands_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
@@ -579,9 +579,9 @@ if test "$FP5" != ""
 then
 generate_baseband_commands_FP5_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 fi
-if test "$MOTO" != ""
+if test "$MOTO_BENGAL" != ""
 then
-generate_baseband_commands_moto_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
+generate_baseband_commands_moto_bengal_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 fi
 generate_avb_custom_key_commands_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 generate_update_image_commands_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
@@ -603,9 +603,9 @@ if test "$FP5" != ""
 then
 generate_baseband_commands_FP5_linux >> tmp/$PRODUCT-$VERSION/flash-base.sh
 fi
-if test "$MOTO" != ""
+if test "$MOTO_BENGAL" != ""
 then
-generate_baseband_commands_moto_linux >> tmp/$PRODUCT-$VERSION/flash-base.sh
+generate_baseband_commands_moto_bengal_linux >> tmp/$PRODUCT-$VERSION/flash-base.sh
 fi
 generate_avb_custom_key_commands_linux >> tmp/$PRODUCT-$VERSION/flash-base.sh
 chmod a+x tmp/$PRODUCT-$VERSION/flash-base.sh
