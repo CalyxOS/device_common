@@ -346,6 +346,57 @@ fastboot --set-active=a reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 }
+generate_baseband_commands_moto_blair_linux() {
+cat << EOF
+fastboot oem fb_mode_set
+
+fastboot flash partition partition.img
+
+fastboot flash tz_a tz.img
+fastboot flash tz_b tz.img
+fastboot flash hyp_a hyp.img
+fastboot flash hyp_b hyp.img
+fastboot flash devcfg_a devcfg.img
+fastboot flash devcfg_b devcfg.img
+fastboot flash keymaster_a keymaster.img
+fastboot flash keymaster_b keymaster.img
+fastboot flash storsec_a storsec.img
+fastboot flash storsec_b storsec.img
+fastboot flash uefisecapp_a uefisecapp.img
+fastboot flash uefisecapp_b uefisecapp.img
+fastboot flash prov_a prov.img
+fastboot flash prov_b prov.img
+fastboot flash abl_a abl.img
+fastboot flash abl_b abl.img
+fastboot flash rpm_a rpm.img
+fastboot flash rpm_b rpm.img
+fastboot flash qupfw_a qupfw.img
+fastboot flash qupfw_b qupfw.img
+fastboot flash xbl_config_a xbl_config.img
+fastboot flash xbl_config_b xbl_config.img
+fastboot flash xbl_a xbl.img
+fastboot flash xbl_b xbl.img
+
+fastboot flash modem_a modem.img
+fastboot flash modem_b modem.img
+fastboot flash fsg_a fsg.img
+fastboot flash fsg_b fsg.img
+
+fastboot flash bluetooth_a bluetooth.img
+fastboot flash bluetooth_b bluetooth.img
+fastboot flash dsp_a dsp.img
+fastboot flash dsp_b dsp.img
+fastboot flash logo_a logo.img
+fastboot flash logo_b logo.img
+
+fastboot erase ddr
+
+fastboot oem fb_mode_clear
+
+fastboot --set-active=a reboot-bootloader
+sleep $SLEEPDURATION
+EOF
+}
 generate_avb_custom_key_commands_linux() {
 cat << EOF
 fastboot erase avb_custom_key
@@ -398,6 +449,9 @@ generate_baseband_commands_FP5_linux | do_windows_replacements
 generate_baseband_commands_moto_bengal_windows() {
 generate_baseband_commands_moto_bengal_linux | do_windows_replacements
 }
+generate_baseband_commands_moto_blair_windows() {
+generate_baseband_commands_moto_blair_linux | do_windows_replacements
+}
 generate_avb_custom_key_commands_windows() {
 generate_avb_custom_key_commands_linux | do_windows_replacements
 }
@@ -421,6 +475,10 @@ if test "${MOTO_BENGAL:-}" != ""
 then
 generate_baseband_commands_moto_bengal_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
 fi
+if test "${MOTO_BLAIR:-}" != ""
+then
+generate_baseband_commands_moto_blair_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
+fi
 generate_avb_custom_key_commands_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
 generate_update_image_commands_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
 chmod a+x tmp/$PRODUCT-$VERSION/flash-all.sh
@@ -440,6 +498,10 @@ fi
 if test "${MOTO_BENGAL:-}" != ""
 then
 generate_baseband_commands_moto_bengal_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
+fi
+if test "${MOTO_BLAIR:-}" != ""
+then
+generate_baseband_commands_moto_blair_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 fi
 generate_avb_custom_key_commands_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 generate_update_image_commands_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
@@ -464,6 +526,10 @@ fi
 if test "${MOTO_BENGAL:-}" != ""
 then
 generate_baseband_commands_moto_bengal_linux >> tmp/$PRODUCT-$VERSION/flash-base.sh
+fi
+if test "${MOTO_BLAIR:-}" != ""
+then
+generate_baseband_commands_moto_blair_linux >> tmp/$PRODUCT-$VERSION/flash-base.sh
 fi
 generate_avb_custom_key_commands_linux >> tmp/$PRODUCT-$VERSION/flash-base.sh
 chmod a+x tmp/$PRODUCT-$VERSION/flash-base.sh
