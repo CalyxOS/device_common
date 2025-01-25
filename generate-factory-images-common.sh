@@ -58,6 +58,11 @@ fi
 # Extract the GSC firmware
 unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip VENDOR/firmware/$GSCFIRMWARESRC/*
 
+if test "${QCOM_FIRMWARE:-}" != ""
+then
+  unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/*
+fi
+
 # Copy the various images in their staging location
 cp ${SRCPREFIX}$PRODUCT-img-$BUILD.zip tmp/$PRODUCT-$VERSION/image-$PRODUCT-$VERSION.zip
 if test "${BOOTLOADER:-}" != ""
@@ -79,6 +84,11 @@ then
   fi
 fi
 cp -r tmp/VENDOR/firmware/$GSCFIRMWARESRC/* tmp/$PRODUCT-$VERSION
+
+if test "${QCOM_FIRMWARE:-}" != ""
+then
+  cp tmp/RADIO/* tmp/$PRODUCT-$VERSION
+fi
 
 if test "${AVB_CUSTOM_KEY:-}" != ""
 then
