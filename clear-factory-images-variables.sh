@@ -23,6 +23,7 @@ unset DEVICE
 unset ERASE
 unset FP4
 unset FP5
+unset FP6
 unset MOTO_BENGAL
 unset MOTO_BLAIR
 unset OTTER
