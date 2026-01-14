@@ -287,6 +287,71 @@ fastboot --set-active=a reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 }
+generate_baseband_commands_FP6_linux() {
+cat << EOF
+fastboot flash abl_a abl.img
+fastboot flash abl_b abl.img
+fastboot flash aop_a aop.img
+fastboot flash aop_b aop.img
+fastboot flash aop_config_a aop_config.img
+fastboot flash aop_config_b aop_config.img
+fastboot flash bluetooth_a bluetooth.img
+fastboot flash bluetooth_b bluetooth.img
+fastboot flash cpucp_a cpucp.img
+fastboot flash cpucp_b cpucp.img
+fastboot flash cpucp_dtb_a cpucp_dtb.img
+fastboot flash cpucp_dtb_b cpucp_dtb.img
+fastboot flash devcfg_a devcfg.img
+fastboot flash devcfg_b devcfg.img
+fastboot flash dsp_a dsp.img
+fastboot flash dsp_b dsp.img
+fastboot flash featenabler_a featenabler.img
+fastboot flash featenabler_b featenabler.img
+fastboot flash hyp_a hyp.img
+fastboot flash hyp_b hyp.img
+fastboot flash imagefv_a imagefv.img
+fastboot flash imagefv_b imagefv.img
+fastboot flash keymaster_a keymaster.img
+fastboot flash keymaster_b keymaster.img
+fastboot flash modem_a modem.img
+fastboot flash modem_b modem.img
+fastboot flash multiimgoem_a multiimgoem.img
+fastboot flash multiimgoem_b multiimgoem.img
+fastboot flash qupfw_a qupfw.img
+fastboot flash qupfw_b qupfw.img
+fastboot flash shrm_a shrm.img
+fastboot flash shrm_b shrm.img
+fastboot flash studybk_a studybk.img
+fastboot flash studybk_b studybk.img
+fastboot flash tz_a tz.img
+fastboot flash tz_b tz.img
+fastboot flash uefi_a uefi.img
+fastboot flash uefi_b uefi.img
+fastboot flash uefisecapp_a uefisecapp.img
+fastboot flash uefisecapp_b uefisecapp.img
+fastboot flash vm-bootsys_a vm-bootsys.img
+fastboot flash vm-bootsys_b vm-bootsys.img
+fastboot flash xbl_a xbl.img
+fastboot flash xbl_b xbl.img
+fastboot flash xbl_config_a xbl_config.img
+fastboot flash xbl_config_b xbl_config.img
+fastboot flash xbl_ramdump_a xbl_ramdump.img
+fastboot flash xbl_ramdump_b xbl_ramdump.img
+
+fastboot flash logfs logfs.img
+fastboot flash storsec storsec.img
+fastboot flash study study.img
+fastboot flash toolsfv toolsfv.img
+fastboot flash vm-persist vm-persist.img
+
+fastboot flash frp frp.img
+
+fastboot erase misc
+
+fastboot --set-active=a reboot-bootloader
+sleep $SLEEPDURATION
+EOF
+}
 generate_baseband_commands_moto_bengal_linux() {
 cat << EOF
 fastboot oem fb_mode_set
@@ -485,6 +550,9 @@ generate_baseband_commands_FP4_linux | do_windows_replacements
 generate_baseband_commands_FP5_windows() {
 generate_baseband_commands_FP5_linux | do_windows_replacements
 }
+generate_baseband_commands_FP6_windows() {
+generate_baseband_commands_FP6_linux | do_windows_replacements
+}
 generate_baseband_commands_moto_bengal_windows() {
 generate_baseband_commands_moto_bengal_linux | do_windows_replacements
 }
@@ -513,6 +581,10 @@ if test "$FP5" != ""
 then
 generate_baseband_commands_FP5_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
 fi
+if test "$FP6" != ""
+then
+generate_baseband_commands_FP6_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
+fi
 if test "$MOTO_BENGAL" != ""
 then
 generate_baseband_commands_moto_bengal_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
@@ -540,6 +612,10 @@ fi
 if test "$FP5" != ""
 then
 generate_baseband_commands_FP5_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
+fi
+if test "$FP6" != ""
+then
+generate_baseband_commands_FP6_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 fi
 if test "$MOTO_BENGAL" != ""
 then
@@ -572,6 +648,10 @@ fi
 if test "$FP5" != ""
 then
 generate_baseband_commands_FP5_linux >> tmp/$PRODUCT-$VERSION/flash-base.sh
+fi
+if test "$FP6" != ""
+then
+generate_baseband_commands_FP6_linux >> tmp/$PRODUCT-$VERSION/flash-base.sh
 fi
 if test "$MOTO_BENGAL" != ""
 then
