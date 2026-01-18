@@ -12,20 +12,29 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Critical variables
+: "${PRODUCT:?Error: PRODUCT variable must be set}"
+: "${VERSION:?Error: VERSION variable must be set}"
+: "${BUILD:?Error: BUILD variable must be set}"
+: "${DEVICE:?Error: DEVICE variable must be set}"
+
+# Optional path prefix
+: "${SRCPREFIX:=}"
+
 # Use the default values if they weren't explicitly set
-if test "$BOOTLOADERSRC" = ""
+if test "${BOOTLOADERSRC:-}" = ""
 then
   BOOTLOADERSRC=bootloader.img
 fi
-if test "$RADIOSRC" = ""
+if test "${RADIOSRC:-}" = ""
 then
   RADIOSRC=radio.img
 fi
-if test "$GSCFIRMWARESRC" = ""
+if test "${GSCFIRMWARESRC:-}" = ""
 then
   GSCFIRMWARESRC=dauntless
 fi
-if test "$SLEEPDURATION" = ""
+if test "${SLEEPDURATION:-}" = ""
 then
   SLEEPDURATION=5
 fi
@@ -35,11 +44,11 @@ rm -rf tmp
 mkdir -p tmp/$PRODUCT-$VERSION
 
 # Extract the bootloader(s) and radio(s) as necessary
-if test "$BOOTLOADER" != "" -a "$BOOTLOADERFILE" = ""
+if test "${BOOTLOADER:-}" != "" -a "${BOOTLOADERFILE:-}" = ""
 then
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/$BOOTLOADERSRC
 fi
-if test "$RADIO" != "" -a "$RADIOFILE" = ""
+if test "${RADIO:-}" != "" -a "${RADIOFILE:-}" = ""
 then
   unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip RADIO/$RADIOSRC
 fi
@@ -49,22 +58,22 @@ unzip -d tmp ${SRCPREFIX}$PRODUCT-target_files-$BUILD.zip VENDOR/firmware/$GSCFI
 
 # Copy the various images in their staging location
 cp ${SRCPREFIX}$PRODUCT-img-$BUILD.zip tmp/$PRODUCT-$VERSION/image-$PRODUCT-$VERSION.zip
-if test "$BOOTLOADER" != ""
+if test "${BOOTLOADER:-}" != ""
 then
-  if test "$BOOTLOADERFILE" = ""
+  if test "${BOOTLOADERFILE:-}" = ""
   then
     cp tmp/RADIO/$BOOTLOADERSRC tmp/$PRODUCT-$VERSION/bootloader-$DEVICE-$BOOTLOADER.img
   else
-    cp $BOOTLOADERFILE tmp/$PRODUCT-$VERSION/bootloader-$DEVICE-$BOOTLOADER.img
+    cp "$BOOTLOADERFILE" tmp/$PRODUCT-$VERSION/bootloader-$DEVICE-$BOOTLOADER.img
   fi
 fi
-if test "$RADIO" != ""
+if test "${RADIO:-}" != ""
 then
-  if test "$RADIOFILE" = ""
+  if test "${RADIOFILE:-}" = ""
   then
     cp tmp/RADIO/$RADIOSRC tmp/$PRODUCT-$VERSION/radio-$DEVICE-$RADIO.img
   else
-    cp $RADIOFILE tmp/$PRODUCT-$VERSION/radio-$DEVICE-$RADIO.img
+    cp "$RADIOFILE" tmp/$PRODUCT-$VERSION/radio-$DEVICE-$RADIO.img
   fi
 fi
 cp -r tmp/VENDOR/firmware/$GSCFIRMWARESRC/* tmp/$PRODUCT-$VERSION
@@ -104,13 +113,13 @@ fi
 EOF
 }
 generate_unlock_and_erase_commands() {
-if test "$UNLOCKBOOTLOADER" = "true"
+if test "${UNLOCKBOOTLOADER:-}" = "true"
 then
 cat << EOF
 fastboot oem unlock
 EOF
 fi
-if test "$ERASEALL" = "true"
+if test "${ERASEALL:-}" = "true"
 then
 cat << EOF
 fastboot erase boot
@@ -122,7 +131,7 @@ EOF
 fi
 }
 generate_baseband_commands_generic_linux() {
-if test "$BOOTLOADER" != ""
+if test "${BOOTLOADER:-}" != ""
 then
 cat << EOF
 fastboot flash bootloader bootloader-$DEVICE-$BOOTLOADER.img
@@ -130,7 +139,7 @@ fastboot reboot-bootloader
 sleep $SLEEPDURATION
 EOF
 fi
-if test "$RADIO" != ""
+if test "${RADIO:-}" != ""
 then
 cat << EOF
 fastboot flash radio radio-$DEVICE-$RADIO.img
