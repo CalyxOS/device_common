@@ -1,0 +1,16 @@
+//
+// SPDX-FileCopyrightText: The Calyx Institute
+// SPDX-License-Identifier: Apache-2.0
+//
+
+genrule {
+    name: "otatools_package_factory_scripts",
+    tools: ["soong_zip"],
+    srcs: [
+        "clear-factory-images-variables.sh",
+        "generate-factory-images-common.sh",
+    ],
+    cmd: "find device/common -type f | sort > $(genDir)/files.txt && " +
+        "$(location soong_zip) -o $(out) -l $(genDir)/files.txt",
+    out: ["otatools_package_factory_scripts.zip"],
+}
