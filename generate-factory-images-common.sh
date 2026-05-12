@@ -90,7 +90,7 @@ then
   cp tmp/RADIO/* tmp/$PRODUCT-$VERSION
 fi
 
-if test "${AVB_CUSTOM_KEY:-}" != ""
+if test "${AVB_CUSTOM_KEY:-}" != "" -a "${SKIP_AVB_CUSTOM_KEY:-}" = ""
 then
   cp "$AVB_CUSTOM_KEY" tmp/$PRODUCT-$VERSION/avb_custom_key.img
 fi
@@ -452,7 +452,7 @@ generate_avb_custom_key_commands_linux() {
 cat << EOF
 fastboot erase avb_custom_key
 EOF
-if test "${AVB_CUSTOM_KEY:-}" != ""
+if test "${AVB_CUSTOM_KEY:-}" != "" -a "${SKIP_AVB_CUSTOM_KEY:-}" = ""
 then
 cat << EOF
 fastboot flash avb_custom_key avb_custom_key.img
