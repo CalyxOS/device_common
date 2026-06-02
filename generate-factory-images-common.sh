@@ -295,6 +295,8 @@ fastboot erase misc
 
 fastboot --set-active=a reboot-bootloader
 sleep $SLEEPDURATION
+
+fastboot oem reset-rollback
 EOF
 }
 generate_baseband_commands_FP6_linux() {
