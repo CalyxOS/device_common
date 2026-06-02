@@ -237,6 +237,8 @@ fastboot erase modemst2
 
 fastboot --set-active=a reboot-bootloader
 sleep $SLEEPDURATION
+
+fastboot oem reset-rollback
 EOF
 }
 generate_baseband_commands_FP5_linux() {
