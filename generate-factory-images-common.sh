@@ -442,6 +442,8 @@ fastboot erase misc
 
 fastboot --set-active=a reboot-bootloader
 sleep $SLEEPDURATION
+
+fastboot oem reset-spl
 EOF
 }
 generate_avb_custom_key_commands_linux() {
