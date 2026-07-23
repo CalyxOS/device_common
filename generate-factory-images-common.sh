@@ -229,8 +229,6 @@ fastboot flash storsec storsec.img
 fastboot flash toolsfv toolsfv.img
 fastboot flash tunning tunning.img
 
-fastboot flash frp frp.img
-
 fastboot erase misc
 fastboot erase modemst1
 fastboot erase modemst2
@@ -289,8 +287,6 @@ fastboot flash rtice rtice.img
 fastboot flash storsec storsec.img
 fastboot flash study study.img
 
-fastboot flash frp frp.img
-
 fastboot erase misc
 
 fastboot --set-active=a reboot-bootloader
@@ -348,8 +344,6 @@ fastboot flash logfs logfs.img
 fastboot flash storsec storsec.img
 fastboot flash study study.img
 fastboot flash toolsfv toolsfv.img
-
-fastboot flash frp frp.img
 
 fastboot erase misc
 
@@ -524,9 +518,32 @@ fi
 generate_update_image_commands_linux() {
 cat << EOF
 fastboot --skip-reboot -w update image-$PRODUCT-$VERSION.zip
+EOF
+if test "${WIPE_FRP_IN_FASTBOOTD:-}" = ""
+then
+cat << EOF
 fastboot reboot-bootloader
 sleep $SLEEPDURATION
 EOF
+fi
+}
+generate_frp_commands_linux() {
+if test "${WIPE_FRP_IN_FASTBOOTD:-}" = "true"
+then
+cat << EOF
+fastboot reboot fastboot
+EOF
+fi
+cat << EOF
+fastboot flash frp frp.img
+EOF
+if test "${WIPE_FRP_IN_FASTBOOTD:-}" = "true"
+then
+cat << EOF
+fastboot reboot-bootloader
+sleep $SLEEPDURATION
+EOF
+fi
 }
 generate_header_windows() {
 cat << EOF
@@ -574,6 +591,9 @@ generate_baseband_commands_otter_linux | do_windows_replacements
 generate_avb_custom_key_commands_windows() {
 generate_avb_custom_key_commands_linux | do_windows_replacements
 }
+generate_frp_commands_windows() {
+generate_frp_commands_linux | do_windows_replacements
+}
 generate_update_image_commands_windows() {
 generate_update_image_commands_linux | do_windows_replacements
 }
@@ -608,6 +628,7 @@ generate_baseband_commands_otter_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
 fi
 generate_avb_custom_key_commands_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
 generate_update_image_commands_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
+generate_frp_commands_linux >> tmp/$PRODUCT-$VERSION/flash-all.sh
 chmod a+x tmp/$PRODUCT-$VERSION/flash-all.sh
 
 # Write flash-all.bat
@@ -640,6 +661,7 @@ generate_baseband_commands_otter_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 fi
 generate_avb_custom_key_commands_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 generate_update_image_commands_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
+generate_frp_commands_windows >> tmp/$PRODUCT-$VERSION/flash-all.bat
 cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
 
 echo Press any key to exit...
