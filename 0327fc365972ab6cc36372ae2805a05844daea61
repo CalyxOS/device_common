@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2aa5949_2ee47945",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2026-07-23T18:12:28Z",
+      "side": 1,
+      "message": "Won\u0027t work on motorola, they block frp flashing in bootloader.",
+      "revId": "0327fc365972ab6cc36372ae2805a05844daea61",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
