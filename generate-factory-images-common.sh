@@ -522,8 +522,17 @@ EOF
 fi
 }
 generate_update_image_commands_linux() {
+if test "${MOTO_BENGAL:-}" != "" -o "${MOTO_BLAIR:-}" != ""
+then
+cat << EOF
+fastboot --skip-reboot --disable-super-optimization -w update image-$PRODUCT-$VERSION.zip
+EOF
+else
 cat << EOF
 fastboot --skip-reboot -w update image-$PRODUCT-$VERSION.zip
+EOF
+fi
+cat << EOF
 fastboot reboot-bootloader
 sleep $SLEEPDURATION
 EOF
