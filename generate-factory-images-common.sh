@@ -522,8 +522,21 @@ EOF
 fi
 }
 generate_update_image_commands_linux() {
+if test "${MOTO_BENGAL:-}" != "" -o "${MOTO_BLAIR:-}" != ""
+then
+cat << EOF
+if [ "\${fastboot_version:-0}" -ge 3400 ]; then
+fastboot --skip-reboot --disable-super-optimization -w update image-$PRODUCT-$VERSION.zip
+else
+fastboot --skip-reboot -w update image-$PRODUCT-$VERSION.zip
+fi
+EOF
+else
 cat << EOF
 fastboot --skip-reboot -w update image-$PRODUCT-$VERSION.zip
+EOF
+fi
+cat << EOF
 fastboot reboot-bootloader
 sleep $SLEEPDURATION
 EOF
@@ -539,6 +552,9 @@ cat << EOF
 if "%DEVICE_FLASHER_VERSION%"=="" choice /M "$NOT_DEVICE_FLASHER_MESSAGE"
 if not %ERRORLEVEL%==1 if "%DEVICE_FLASHER_VERSION%"=="" exit /B 1
 PATH=%PATH%;"%SYSTEMROOT%\System32"
+for /f "tokens=3" %%v in ('fastboot --version') do set fastboot_version=%%v
+if not defined fastboot_version set fastboot_version=0
+set fastboot_version=%fastboot_version:.=%
 fastboot getvar product 2>&1 | findstr /r /c:"^product: $PRODUCT" || echo "Factory image and device do not match. Please double check"
 fastboot getvar product 2>&1 | findstr /r /c:"^product: $PRODUCT" || exit /B 1
 EOF
@@ -575,7 +591,20 @@ generate_avb_custom_key_commands_windows() {
 generate_avb_custom_key_commands_linux | do_windows_replacements
 }
 generate_update_image_commands_windows() {
+if test "${MOTO_BENGAL:-}" != "" -o "${MOTO_BLAIR:-}" != ""
+then
+cat << EOF
+if %fastboot_version% GEQ 3400 (
+fastboot --skip-reboot --disable-super-optimization -w update image-$PRODUCT-$VERSION.zip || exit /B 1
+) else (
+fastboot --skip-reboot -w update image-$PRODUCT-$VERSION.zip || exit /B 1
+)
+fastboot reboot-bootloader || exit /B 1
+ping -n $SLEEPDURATION 127.0.0.1 >nul
+EOF
+else
 generate_update_image_commands_linux | do_windows_replacements
+fi
 }
 
 # Write flash-all.sh
