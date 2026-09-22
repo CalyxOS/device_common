@@ -41,6 +41,13 @@ then
   SLEEPDURATION=5
 fi
 
+if test "${FP6:-}" != ""
+then
+  PRODUCT_SUFFIX="(_US)?"
+else
+  PRODUCT_SUFFIX=""
+fi
+
 # Prepare the staging directory
 rm -rf tmp
 mkdir -p tmp/$PRODUCT-$VERSION
@@ -137,7 +144,7 @@ if ! [ "\${fastboot_version:-0}" -ge 3301 ]; then
   echo "fastboot too old; please download the latest version at https://developer.android.com/studio/releases/platform-tools.html"
   exit 1
 fi
-if ! fastboot getvar product 2>&1 | grep "^product: $PRODUCT$"; then
+if ! fastboot getvar product 2>&1 | grep -E "^product: $PRODUCT$PRODUCT_SUFFIX$"; then
   echo "Factory image and device do not match. Please double check"
   exit 1
 fi
